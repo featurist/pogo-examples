@@ -1,0 +1,45 @@
+
+<html>
+  <head>
+    <title>Pogo Examples</title>
+    <style>
+      pre { width: 24em; border: 1px solid #ccc; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="highlight.css" />
+  </head>
+  <body>
+    <ul>
+      
+      <li>
+Pogo:
+<pre><code class="pogo"><span class="keyword">array</span> = [
+  <span class="number">1</span>
+  <span class="string">"two"</span>
+  :three
+]</code></pre>
+JavaScript:
+<pre><code class="javascript"><span class="keyword">var</span> <span class="keyword">self</span>, <span class="keyword">array</span>;
+<span class="keyword">self</span> = <span class="keyword">this</span>;
+<span class="keyword">array</span> = [ <span class="number">1</span>, <span class="string">"two"</span>, <span class="keyword">self</span>.three ];</code></pre>
+      </li>
+      
+      <li>
+Pogo:
+<pre><code class="pogo">actor = {
+  first name = "Bob"
+  surname = "Hoskins"
+}</code></pre>
+JavaScript:
+<pre><code class="javascript"><span class="keyword">var</span> <span class="keyword">self</span>, actor;
+<span class="keyword">self</span> = <span class="keyword">this</span>;
+actor = {
+    firstName: <span class="string">"Bob"</span>,
+    surname: <span class="string">"Hoskins"</span>
+};</code></pre>
+      </li>
+      
+    </ul>
+    
+  </body>
+</html>
+
