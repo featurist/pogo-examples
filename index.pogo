@@ -55,8 +55,8 @@ simplify @js =
 read compiled js at @path @pogo @callback =
   fs : read file @path "utf-8" #jserr #js
     js = simplify @js
-    name = @path : replace "./examples/" (new (String))
-    name = @name : replace ".js" (new (String))
+    name = path : replace "./examples/" (new (String))
+    name = name : replace ".js" (new (String))
     @callback @null {
       js = @highlight @js
       pogo = @highlight @pogo
@@ -64,7 +64,7 @@ read compiled js at @path @pogo @callback =
     }  
 
 compile pogo @path @pogo @callback =
-  js path = @path: replace ".pogo" ".js"
+  js path = path: replace ".pogo" ".js"
   exec "pogo -c @path" #error #stdout #stderr
     read compiled js at (js path) @pogo @callback
 
