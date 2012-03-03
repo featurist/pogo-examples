@@ -19,10 +19,10 @@ html = "
       <li>
         <h2>{{this.name}}</h2>
         <div class=\"pogo\">
-          <pre class=\"pogo\"><code>{{{pogo this}}}</code></pre>
+          <pre>{{{this.pogo}}}</pre>
         </div>
         <div class=\"javascript\">
-          <pre class=\"javascript\"><code>{{{js this}}}</code></pre>
+          <pre>{{{this.js}}}</code></pre>
         </div>
         <hr />
       </li>

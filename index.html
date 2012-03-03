@@ -13,14 +13,14 @@
       <li>
 <h2>Arrays</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">array</span> = [
+  <pre><span class="keyword">array</span> = [
   <span class="number">1</span>
   <span class="string">"two"</span>
   :three
-]</code></pre>
+]</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, <span class="keyword">array</span>;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, <span class="keyword">array</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 <span class="keyword">array</span> = [ <span class="number">1</span>, <span class="string">"two"</span>, <span class="keyword">self</span>.three ];</code></pre>
 </div>
@@ -30,16 +30,16 @@
       <li>
 <h2>Blocks Preserve Self</h2>
 <div class="pogo">
-  <pre class="pogo"><code>person = {
+  <pre>person = {
   name = 'Man Ray'
   say hi later =
     set timeout
       console: log "my name is @(:name)"
     123
-}</code></pre>
+}</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, person;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, person;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 person = {
     name: <span class="string">"Man Ray"</span>,
@@ -56,13 +56,13 @@ person = {
       <li>
 <h2>Closures</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">for</span> each <span class="comment">#item in @list @{ print @item }</span>
+  <pre><span class="keyword">for</span> each <span class="comment">#item in @list @{ print @item }</span>
 
 <span class="keyword">for</span> each <span class="comment">#item in @list</span>
-    <span class="keyword">print</span> @item</code></pre>
+    <span class="keyword">print</span> @item</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, gen1_items, gen2_i, item, gen3_items, gen4_i;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, gen1_items, gen2_i, item, gen3_items, gen4_i;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 gen1_items = <span class="keyword">list</span>;
 <span class="keyword">for</span> (gen2_i = <span class="number">0</span>; gen2_i &lt; gen1_items.length; gen2_i++) {
@@ -81,16 +81,16 @@ gen3_items = <span class="keyword">list</span>;
       <li>
 <h2>Declaring Functions</h2>
 <div class="pogo">
-  <pre class="pogo"><code>one lower than @n = n - <span class="number">1</span>
+  <pre>one lower than @n = n - <span class="number">1</span>
 
 one higher than @n =
   n + <span class="number">1</span>
 
 either @thing <span class="keyword">or</span> @other =
-  other</code></pre>
+  other</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, oneLowerThan, oneHigherThan, eitherOr;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, oneLowerThan, oneHigherThan, eitherOr;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 oneLowerThan = <span class="keyword">function</span>(n) {
     <span class="keyword">return</span> n - <span class="number">1</span>;
@@ -108,11 +108,11 @@ eitherOr = <span class="keyword">function</span>(thing, other) {
       <li>
 <h2>For</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">for</span> (n = <span class="number">0</span>. n &lt; <span class="number">10</span>. n = n + <span class="number">1</span>)
-  console: log @n</code></pre>
+  <pre><span class="keyword">for</span> (n = <span class="number">0</span>. n &lt; <span class="number">10</span>. n = n + <span class="number">1</span>)
+  console: log @n</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, n;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, n;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 <span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n = n + <span class="number">1</span>) {
     console.log(n);
@@ -124,12 +124,12 @@ eitherOr = <span class="keyword">function</span>(thing, other) {
       <li>
 <h2>Function Calls</h2>
 <div class="pogo">
-  <pre class="pogo"><code>y = compute some value from @z <span class="keyword">and</span> <span class="keyword">return</span> it
+  <pre>y = compute some value from @z <span class="keyword">and</span> <span class="keyword">return</span> it
 
-md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
+md5 hash (read all text from file <span class="string">"sample.txt"</span>)</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, y;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, y;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 y = computeSomeValueFromAndReturnIt(z);
 md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></pre>
@@ -140,11 +140,11 @@ md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></
       <li>
 <h2>Functions Without Arguments</h2>
 <div class="pogo">
-  <pre class="pogo"><code>update page!
-hungry = is lunch time?</code></pre>
+  <pre>update page!
+hungry = is lunch time?</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, hungry;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, hungry;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 updatePage();
 hungry = isLunchTime();</code></pre>
@@ -155,13 +155,13 @@ hungry = isLunchTime();</code></pre>
       <li>
 <h2>If</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
+  <pre><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
     console: log <span class="string">"gone kitesurfing!"</span>
 <span class="keyword">else</span>
-    console: log <span class="string">"no wind, programming"</span></code></pre>
+    console: log <span class="string">"no wind, programming"</span></pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 <span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
     console.log(<span class="string">"gone kitesurfing!"</span>);
@@ -175,11 +175,11 @@ hungry = isLunchTime();</code></pre>
       <li>
 <h2>Interpolation</h2>
 <div class="pogo">
-  <pre class="pogo"><code>mood = "happy"
-announce "Feeling @mood today"</code></pre>
+  <pre>mood = "happy"
+announce "Feeling @mood today"</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, mood;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, mood;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 mood = <span class="string">"happy"</span>;
 announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
@@ -190,13 +190,13 @@ announce(<span class="string">"Feeling "</span> + mood + <span class="string">" 
       <li>
 <h2>Method Calls</h2>
 <div class="pogo">
-  <pre class="pogo"><code>file = open file "README.md"
+  <pre>file = open file "README.md"
 file: read line!
 
-open file "README.md": read line!</code></pre>
+open file "README.md": read line!</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, file;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, file;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 file = openFile(<span class="string">"README.md"</span>);
 file.readLine();
@@ -208,16 +208,16 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       <li>
 <h2>Method Chains</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">list</span>: map <span class="comment">#i into @{</span>
+  <pre><span class="keyword">list</span>: map <span class="comment">#i into @{</span>
     i + <span class="number">1</span>
 }: <span class="keyword">include</span> <span class="comment">#i where @{</span>
     i &lt; <span class="number">5</span>
 }: each <span class="comment">#i do @{</span>
     console: log @i
-}</code></pre>
+}</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 <span class="keyword">list</span>.mapInto(<span class="keyword">function</span>(i) {
     <span class="keyword">return</span> i + <span class="number">1</span>;
@@ -233,15 +233,15 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       <li>
 <h2>Multiline Functions</h2>
 <div class="pogo">
-  <pre class="pogo"><code>item = <span class="number">0</span>
+  <pre>item = <span class="number">0</span>
 
 <span class="keyword">do</span>
     <span class="keyword">print</span> @item
     item = item + <span class="number">1</span>
-<span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</code></pre>
+<span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, item;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, item;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 item = <span class="number">0</span>;
 doWhile(<span class="keyword">function</span>() {
@@ -257,13 +257,13 @@ doWhile(<span class="keyword">function</span>() {
       <li>
 <h2>Objects</h2>
 <div class="pogo">
-  <pre class="pogo"><code>address = {
+  <pre>address = {
   street = "Fake Street"
   post code = "123 ABC"
-}</code></pre>
+}</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, address;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, address;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 address = {
     street: <span class="string">"Fake Street"</span>,
@@ -276,10 +276,10 @@ address = {
       <li>
 <h2>Operators</h2>
 <div class="pogo">
-  <pre class="pogo"><code>total height = (header + (item * count)) + footer</code></pre>
+  <pre>total height = (header + (item * count)) + footer</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, totalHeight;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, totalHeight;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 totalHeight = header + item * count + footer;</code></pre>
 </div>
@@ -289,14 +289,14 @@ totalHeight = header + item * count + footer;</code></pre>
       <li>
 <h2>Optional Arguments</h2>
 <div class="pogo">
-  <pre class="pogo"><code>connect to mysql database, address "1.2.3.4", port 3307
+  <pre>connect to mysql database, address "1.2.3.4", port 3307
 
 connect to mysql database, readonly
 
-connect to mysql database, not readonly</code></pre>
+connect to mysql database, not readonly</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 connectToMysqlDatabase({
     address: <span class="string">"1.2.3.4"</span>,
@@ -315,11 +315,11 @@ connectToMysqlDatabase({
       <li>
 <h2>Options</h2>
 <div class="pogo">
-  <pre class="pogo"><code>connect to, port 3306, host "127.0.0.1" =
-  console: log "connecting to @host:@part"</code></pre>
+  <pre>connect to, port 3306, host "127.0.0.1" =
+  console: log "connecting to @host:@part"</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, connectTo;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, connectTo;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 connectTo = <span class="keyword">function</span>(gen1_options) {
     <span class="keyword">var</span> port, host;
@@ -334,11 +334,11 @@ connectTo = <span class="keyword">function</span>(gen1_options) {
       <li>
 <h2>Self Blocks</h2>
 <div class="pogo">
-  <pre class="pogo"><code>person, name = object =>
-  :name = name</code></pre>
+  <pre>person, name = object =>
+  :name = name</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, person;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, person;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 person = <span class="keyword">function</span>(gen1_options) {
     <span class="keyword">var</span> name;
@@ -356,11 +356,11 @@ person = <span class="keyword">function</span>(gen1_options) {
       <li>
 <h2>Splat Arguments</h2>
 <div class="pogo">
-  <pre class="pogo"><code>args = <span class="keyword">list</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>
-console: log @args ...</code></pre>
+  <pre>args = <span class="keyword">list</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>
+console: log @args ...</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, args, gen1_o;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, args, gen1_o;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 args = <span class="keyword">list</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);
 gen1_o = console;
@@ -372,15 +372,15 @@ gen1_o.log.apply(gen1_o, args);</code></pre>
       <li>
 <h2>Variables</h2>
 <div class="pogo">
-  <pre class="pogo"><code><span class="keyword">this</span> is a variable = <span class="string">"variable"</span>
+  <pre><span class="keyword">this</span> is a variable = <span class="string">"variable"</span>
 
 <span class="keyword">this</span> is a <span class="keyword">function</span>! =
   <span class="string">"function"</span>
 
-<span class="keyword">this</span> is also a <span class="keyword">function</span>! = @{<span class="string">"function"</span>}</code></pre>
+<span class="keyword">this</span> is also a <span class="keyword">function</span>! = @{<span class="string">"function"</span>}</pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, thisIsAVariable, thisIsAFunction, thisIsAlsoAFunction;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, thisIsAVariable, thisIsAFunction, thisIsAlsoAFunction;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 thisIsAVariable = <span class="string">"variable"</span>;
 thisIsAFunction = <span class="keyword">function</span>() {
@@ -396,13 +396,13 @@ thisIsAlsoAFunction = <span class="keyword">function</span>() {
       <li>
 <h2>Web Server</h2>
 <div class="pogo">
-  <pre class="pogo"><code>http = <span class="keyword">require</span> <span class="string">'http'</span>
+  <pre>http = <span class="keyword">require</span> <span class="string">'http'</span>
 server = http: create server <span class="comment">#request #response</span>
     response: write head <span class="number">200</span>, <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
-    response: end <span class="string">"Hello World\n"</span></code></pre>
+    response: end <span class="string">"Hello World\n"</span></pre>
 </div>
 <div class="javascript">
-  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, http, server;
+  <pre><span class="keyword">var</span> <span class="keyword">self</span>, http, server;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 http = <span class="keyword">require</span>(<span class="string">"http"</span>);
 server = http.createServer(<span class="keyword">function</span>(request, response) {
