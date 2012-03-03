@@ -32,14 +32,14 @@ html = "
   </body>
 </html>
 "
-template = @handlebars: compile @html
+template = handlebars: compile @html
 
 title case @string =
   reg = new (RegExp "_" "g")
-  string = @string : replace @reg " "
+  string = string : replace @reg " "
   reg = new (RegExp "\w\S*" "g")
-  @string: replace @reg #text
-    (@text : char at 0 : to upper case!) + (@text : substr 1 : to lower case!)
+  string: replace @reg #text
+    (text : char at 0 : to upper case!) + (text : substr 1 : to lower case!)
 
 remove closure from @js =
   reg = new (RegExp "(^[^\n]+\n\s*)|(\n[^\n]+$)" "g")
@@ -74,14 +74,14 @@ render @file @callback =
     compile pogo @path @pogo @callback
 
 print @err @results =
-  rendered = @template { examples = @results }
+  rendered = template { examples = @results }
   console: log @rendered
 
 is @path pogo =
-  @path : index of ".pogo" > -1
+  path : index of ".pogo" > -1
   
 dir @err @files =
-  pogos = @files : filter (is pogo)
+  pogos = files : filter (is pogo)
   async: map @pogos @render @print
   
 fs: readdir "./examples/" @dir
