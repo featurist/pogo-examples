@@ -8,19 +8,22 @@ html = "
 <html>
   <head>
     <title>Pogo Examples</title>
-    <style>
-      pre { width: 24em; border: 1px solid #ccc; }
-    </style>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"samples.css\" />
     <link rel=\"stylesheet\" type=\"text/css\" href=\"highlight.css\" />
   </head>
   <body>
+    <h1>PogoScript to JavaScript Examples</h1>
     <ul>
       {{#each examples}}
       <li>
-        Pogo:
-        <pre><code class=\"pogo\">{{{pogo this}}}</code></pre>
-        JavaScript:
-        <pre><code class=\"javascript\">{{{js this}}}</code></pre>
+        <h2>{{this.name}}</h2>
+        <div class=\"pogo\">
+          <pre class=\"pogo\"><code>{{{pogo this}}}</code></pre>
+        </div>
+        <div class=\"javascript\">
+          <pre class=\"javascript\"><code>{{{js this}}}</code></pre>
+        </div>
+        <hr />
       </li>
       {{/each}}
     </ul>
@@ -29,6 +32,12 @@ html = "
 </html>
 "
 template = @handlebars: compile @html
+
+title case @string =
+  string = @string : replace "_" " "
+  reg = new (RegExp "\w\S*" "g")
+  @string: replace @reg #text
+    (@text : char at 0 : to upper case!) + (@text : substr 1 : to lower case!)
 
 remove closure from @js =
   reg = new (RegExp "(^[^\n]+\n\s*)|(\n[^\n]+$)" "g")
@@ -44,9 +53,12 @@ simplify @js =
 read compiled js at @path @pogo @callback =
   fs : read file @path "utf-8" #jserr #js
     js = simplify @js
+    name = @path : replace "./examples/" (new (String))
+    name = @name : replace ".js" (new (String))
     @callback @null {
       js = @highlight @js
       pogo = @highlight @pogo
+      name = (title case) @name
     }  
 
 compile pogo @path @pogo @callback =

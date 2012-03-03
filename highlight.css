@@ -1,103 +1,70 @@
-/*
-
-Dark style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
-
-*/
-
 pre code {
-  display: block; padding: 0.5em;
-  background: #444;
+    background: none repeat scroll 0 0 #F8F8FF;
+    color: #000000;
+    display: block;
+    padding: 0.5em;
 }
-
-pre .keyword,
-pre .literal,
-pre .change,
-pre .winutils,
-pre .flow,
-pre .lisp .title,
-pre .tex .special {
-  color: white;
+pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
+    color: #999988;
+    font-style: italic;
 }
-
-pre code,
-pre .ruby .subst {
-  color: #DDD;
+pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .lisp .title, pre .subst {
+    color: #000000;
+    font-weight: bold;
 }
-
-pre .string,
-pre .function .title,
-pre .class .title,
-pre .haskell .label,
-pre .ini .title,
-pre .tag .value,
-pre .css .rules .value,
-pre .preprocessor,
-pre .ruby .symbol,
-pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
-pre .ruby .instancevar,
-pre .ruby .class .parent,
-pre .built_in,
-pre .sql .aggregate,
-pre .django .template_tag,
-pre .django .variable,
-pre .smalltalk .class,
-pre .javadoc,
-pre .ruby .string,
-pre .django .filter .argument,
-pre .smalltalk .localvars,
-pre .smalltalk .array,
-pre .attr_selector,
-pre .pseudo,
-pre .addition,
-pre .stream,
-pre .envvar,
-pre .apache .tag,
-pre .apache .cbracket,
-pre .tex .command,
-pre .input_number {
-  color: #D88;
+pre .number, pre .hexcolor {
+    color: #40A070;
 }
-
-pre .comment,
-pre .java .annotation,
-pre .python .decorator,
-pre .template_comment,
-pre .pi,
-pre .doctype,
-pre .deletion,
-pre .shebang,
-pre .apache .sqbracket,
+pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula {
+    color: #DD1144;
+}
+pre .title, pre .id {
+    color: #990000;
+    font-weight: bold;
+}
+pre .javascript .title, pre .lisp .title, pre .subst {
+    font-weight: normal;
+}
+pre .class .title, pre .haskell .label, pre .tex .command {
+    color: #445588;
+    font-weight: bold;
+}
+pre .tag, pre .tag .title, pre .rules .property, pre .django .tag .keyword {
+    color: #000080;
+    font-weight: normal;
+}
+pre .attribute, pre .variable, pre .instancevar, pre .lisp .body {
+    color: #008080;
+}
+pre .regexp {
+    color: #009926;
+}
+pre .class {
+    color: #445588;
+    font-weight: bold;
+}
+pre .symbol, pre .ruby .symbol .string, pre .ruby .symbol .keyword, pre .ruby .symbol .keymethods, pre .lisp .keyword, pre .tex .special, pre .input_number {
+    color: #990073;
+}
+pre .builtin, pre .built_in, pre .lisp .title {
+    color: #0086B3;
+}
+pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
+    color: #999999;
+    font-weight: bold;
+}
+pre .deletion {
+    background: none repeat scroll 0 0 #FFDDDD;
+}
+pre .addition {
+    background: none repeat scroll 0 0 #DDFFDD;
+}
+pre .diff .change {
+    background: none repeat scroll 0 0 #0086B3;
+}
+pre .chunk {
+    color: #AAAAAA;
+}
 pre .tex .formula {
-  color: #777;
-}
-
-pre .keyword,
-pre .literal,
-pre .css .id,
-pre .phpdoc,
-pre .function .title,
-pre .class .title,
-pre .haskell .label,
-pre .vbscript .built_in,
-pre .sql .aggregate,
-pre .rsl .built_in,
-pre .smalltalk .class,
-pre .xml .tag .title,
-pre .diff .header,
-pre .chunk,
-pre .winutils,
-pre .bash .variable,
-pre .lisp .title,
-pre .apache .tag,
-pre .tex .special {
-  font-weight: bold;
-}
-
-pre .xml .css,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .tex .formula {
-  opacity: 0.5;
+    opacity: 0.5;
 }

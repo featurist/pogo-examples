@@ -1,0 +1,1 @@
+md5 hash (read all text from file "sample.txt")

@@ -1,8 +1,8 @@
 (function() {
-    var self, actor;
+    var self, address;
     self = this;
-    actor = {
-        firstName: "Bob",
-        surname: "Hoskins"
+    address = {
+        street: "Fake Street",
+        postCode: "123 ABC"
     };
 }).call(this);

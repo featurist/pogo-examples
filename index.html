@@ -2,40 +2,75 @@
 <html>
   <head>
     <title>Pogo Examples</title>
-    <style>
-      pre { width: 24em; border: 1px solid #ccc; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="samples.css" />
     <link rel="stylesheet" type="text/css" href="highlight.css" />
   </head>
   <body>
+    <h1>PogoScript to JavaScript Examples</h1>
     <ul>
       
       <li>
-Pogo:
-<pre><code class="pogo"><span class="keyword">array</span> = [
+<h2>Arrays</h2>
+<div class="pogo">
+  <pre class="pogo"><code><span class="keyword">array</span> = [
   <span class="number">1</span>
   <span class="string">"two"</span>
   :three
 ]</code></pre>
-JavaScript:
-<pre><code class="javascript"><span class="keyword">var</span> <span class="keyword">self</span>, <span class="keyword">array</span>;
+</div>
+<div class="javascript">
+  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, <span class="keyword">array</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
 <span class="keyword">array</span> = [ <span class="number">1</span>, <span class="string">"two"</span>, <span class="keyword">self</span>.three ];</code></pre>
+</div>
+<hr />
       </li>
       
       <li>
-Pogo:
-<pre><code class="pogo">actor = {
-  first name = "Bob"
-  surname = "Hoskins"
-}</code></pre>
-JavaScript:
-<pre><code class="javascript"><span class="keyword">var</span> <span class="keyword">self</span>, actor;
+<h2>Function Calls</h2>
+<div class="pogo">
+  <pre class="pogo"><code>md5 hash (read all text from file "sample.txt")</code></pre>
+</div>
+<div class="javascript">
+  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>;
 <span class="keyword">self</span> = <span class="keyword">this</span>;
-actor = {
-    firstName: <span class="string">"Bob"</span>,
-    surname: <span class="string">"Hoskins"</span>
+md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></pre>
+</div>
+<hr />
+      </li>
+      
+      <li>
+<h2>Interpolation</h2>
+<div class="pogo">
+  <pre class="pogo"><code>mood = "happy"
+announce "Feeling @mood today"</code></pre>
+</div>
+<div class="javascript">
+  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, mood;
+<span class="keyword">self</span> = <span class="keyword">this</span>;
+mood = <span class="string">"happy"</span>;
+announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
+</div>
+<hr />
+      </li>
+      
+      <li>
+<h2>Objects</h2>
+<div class="pogo">
+  <pre class="pogo"><code>address = {
+  street = "Fake Street"
+  post code = "123 ABC"
+}</code></pre>
+</div>
+<div class="javascript">
+  <pre class="javascript"><code><span class="keyword">var</span> <span class="keyword">self</span>, address;
+<span class="keyword">self</span> = <span class="keyword">this</span>;
+address = {
+    street: <span class="string">"Fake Street"</span>,
+    postCode: <span class="string">"123 ABC"</span>
 };</code></pre>
+</div>
+<hr />
       </li>
       
     </ul>

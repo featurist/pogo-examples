@@ -1,4 +1,4 @@
-actor = {
-  first name = "Bob"
-  surname = "Hoskins"
+address = {
+  street = "Fake Street"
+  post code = "123 ABC"
 }
