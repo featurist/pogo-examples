@@ -34,7 +34,8 @@ html = "
 template = @handlebars: compile @html
 
 title case @string =
-  string = @string : replace "_" " "
+  reg = new (RegExp "_" "g")
+  string = @string : replace @reg " "
   reg = new (RegExp "\w\S*" "g")
   @string: replace @reg #text
     (@text : char at 0 : to upper case!) + (@text : substr 1 : to lower case!)

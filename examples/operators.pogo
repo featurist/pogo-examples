@@ -1,0 +1,1 @@
+total height = (header + (item * count)) + footer
