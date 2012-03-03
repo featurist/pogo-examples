@@ -6,7 +6,7 @@
         sayHiLater: function() {
             return setTimeout(function() {
                 return console.log("my name is " + self.name);
-            }, 1e3);
+            }, 123);
         }
     };
 }).call(this);

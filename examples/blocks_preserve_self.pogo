@@ -3,5 +3,5 @@ person = {
   say hi later =
     set timeout
       console: log "my name is @(:name)"
-    1000
+    123
 }
