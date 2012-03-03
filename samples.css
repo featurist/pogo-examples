@@ -1,0 +1,12 @@
+body, div { font-family: sans-serif; }
+h1 { color: #394B55; }
+h2 { margin: 0 3px; font-size: 1.3em; color: #506757; }
+
+ul { list-style-type: none; margin: 0; padding: 0; }
+div { margin-bottom: 1em; padding: 0.3em; }
+
+pre { overflow: auto; border: 1px solid #efefef; margin: 0.2em 0; padding: 0.4em; background-color: #F8F8FF; }
+div.pogo { float: left; clear: left; width: 48%; }
+div.javascript { float: left; width: 48%; }
+
+hr { clear: left; visibility: hidden; }

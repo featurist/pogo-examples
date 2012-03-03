@@ -1,0 +1,70 @@
+pre code {
+    background: none repeat scroll 0 0 #F8F8FF;
+    color: #000000;
+    display: block;
+    padding: 0.5em;
+}
+pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
+    color: #999988;
+    font-style: italic;
+}
+pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .lisp .title, pre .subst {
+    color: #000000;
+    font-weight: bold;
+}
+pre .number, pre .hexcolor {
+    color: #40A070;
+}
+pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula {
+    color: #DD1144;
+}
+pre .title, pre .id {
+    color: #990000;
+    font-weight: bold;
+}
+pre .javascript .title, pre .lisp .title, pre .subst {
+    font-weight: normal;
+}
+pre .class .title, pre .haskell .label, pre .tex .command {
+    color: #445588;
+    font-weight: bold;
+}
+pre .tag, pre .tag .title, pre .rules .property, pre .django .tag .keyword {
+    color: #000080;
+    font-weight: normal;
+}
+pre .attribute, pre .variable, pre .instancevar, pre .lisp .body {
+    color: #008080;
+}
+pre .regexp {
+    color: #009926;
+}
+pre .class {
+    color: #445588;
+    font-weight: bold;
+}
+pre .symbol, pre .ruby .symbol .string, pre .ruby .symbol .keyword, pre .ruby .symbol .keymethods, pre .lisp .keyword, pre .tex .special, pre .input_number {
+    color: #990073;
+}
+pre .builtin, pre .built_in, pre .lisp .title {
+    color: #0086B3;
+}
+pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
+    color: #999999;
+    font-weight: bold;
+}
+pre .deletion {
+    background: none repeat scroll 0 0 #FFDDDD;
+}
+pre .addition {
+    background: none repeat scroll 0 0 #DDFFDD;
+}
+pre .diff .change {
+    background: none repeat scroll 0 0 #0086B3;
+}
+pre .chunk {
+    color: #AAAAAA;
+}
+pre .tex .formula {
+    opacity: 0.5;
+}
