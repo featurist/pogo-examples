@@ -1,7 +1,9 @@
-## Pogo Examples
+# Pogo Examples
 
 http://featurist.github.com/pogo-examples
 
-# Hacking
+### Hacking
 
-  pogo index.pogo > index.html
+1. Install [PogoScript](https://github.com/featurist/pogoscript)
+2. Modify *.pogo files in ./examples
+3. pogo index.pogo > index.html
