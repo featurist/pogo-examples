@@ -1,2 +1,2 @@
 mood = "happy"
-announce "Feeling @mood today"
+announce "Feeling #(mood) today"

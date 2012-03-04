@@ -35,9 +35,10 @@ array = [ <span class="number">1</span>, <span class="string">"two"</span>, self
   name = <span class="string">'Man Ray'</span>
   say hi later =
     set timeout
-      console: log <span class="string">"my name is @(:name)"</span>
+      console: log <span class="string">"my name is #(:name)"</span>
     <span class="number">123</span>
-}</code></pre>
+}
+</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -182,7 +183,8 @@ hungry = isLunchTime();</code></pre>
         <h2>Interpolation</h2>
         <div class="pogo">
           <pre><code>mood = <span class="string">"happy"</span>
-announce <span class="string">"Feeling @mood today"</span></code></pre>
+announce <span class="string">"Feeling #(mood) today"</span>
+</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> mood;
@@ -325,7 +327,8 @@ connectToMysqlDatabase({
         <h2>Options</h2>
         <div class="pogo">
           <pre><code>connect to; port <span class="number">3306</span>; host <span class="string">"127.0.0.1"</span> =
-  console: log <span class="string">"connecting to @host:@part"</span></code></pre>
+  console: log <span class="string">"connecting to #(host):#(part)"</span>
+</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> connectTo;

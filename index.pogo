@@ -15,7 +15,7 @@ title from filename (string) =
     text: char at 0: to upper case! + text: substr 1: to lower case!
 
 render (file, callback) =
-  path = "./examples/@file"
+  path = "./examples/#(file)"
   fs: read file (path) "utf-8" @(error, pogo source)
     if (error)
       callback (error)

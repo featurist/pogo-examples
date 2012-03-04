@@ -2,6 +2,6 @@ person = {
   name = 'Man Ray'
   say hi later =
     set timeout
-      console: log "my name is @(:name)"
+      console: log "my name is #(:name)"
     123
 }
