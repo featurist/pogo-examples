@@ -4,34 +4,7 @@ handlebars = require "handlebars"
 exec = require "child_process" : exec
 highlight = require "./highlight/highlight"
 
-html = "
-<html>
-  <head>
-    <title>Pogo Examples</title>
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"samples.css\" />
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"highlight.css\" />
-  </head>
-  <body>
-    <a href=\"https://github.com/featurist/pogo-examples\"><img style=\"position: absolute; top: 0; right: 0; border: 0;\" src=\"http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png\" alt=\"Fork me on GitHub\" /></a>
-    <h1>PogoScript to JavaScript Examples</h1>
-    <ul>
-      {{#each examples}}
-      <li>
-        <h2>{{this.name}}</h2>
-        <div class=\"pogo\">
-          <pre><code class=\"pogoscript\">{{{this.pogo}}}</code></pre>
-        </div>
-        <div class=\"javascript\">
-          <pre><code class=\"javascript\">{{{this.js}}}</code></pre>
-        </div>
-        <hr />
-      </li>
-      {{/each}}
-    </ul>
-    
-  </body>
-</html>
-"
+html = fs : read file sync "./index.handlebars" : to string !
 template = handlebars: compile @html
 
 title case @string =
