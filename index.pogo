@@ -8,39 +8,11 @@ pogo = require 'pogo'
 html = fs: read file sync "./index.handlebars": to string!
 template = handlebars: compile (html)
 
-title case (string) =
-  reg = `_`g
-  string = string : replace (reg) " "
-  reg = `\w\S*`g
-  string: replace (reg) @(text)
-    text: char at 0 :to upper case! + text: substr 1: to lower case!
-
-remove closure from (js) =
-  reg = `(^[^\n]+\n\s*)|(\n[^\n]+$)`g
-  js: replace (reg, '')
-
-unindent (js) =
-  reg = `\n    `g
-  js: replace (reg) "\n"
-
-simplify (js) =
-  unindent (remove closure from (js))
-
-read compiled js at (path, pogo, callback) =
-  fs: read file (path) "utf-8" @(jserr, js)
-    js = simplify (js)
-    name = path: replace "./examples/" ''
-    name = name: replace ".js" ''
-    callback (null) {
-      js = highlight: javascript (js)
-      pogo = highlight: pogoscript (pogo)
-      name = title case (name)
-    }
-
-compile pogo (path, pogo, callback) =
-  js path = path: replace ".pogo" ".js"
-  exec "pogo -c @path" @(error, stdout, stderr)
-    read compiled js at (js path, pogo, callback)
+title from filename (string) =
+  string = string: replace `\.pogo$` ''
+  string = string: replace `_`g " "
+  string: replace `\w\S*`g @(text)
+    text: char at 0: to upper case! + text: substr 1: to lower case!
 
 render (file, callback) =
   path = "./examples/@file"
@@ -52,7 +24,7 @@ render (file, callback) =
       callback (null) {
         js = highlight: javascript (js)
         pogo = pogo source
-        name = title case (file)
+        name = title from filename (file)
       }
 
 print (err, results) =
