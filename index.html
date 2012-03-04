@@ -212,7 +212,7 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
     i + <span class="number">1</span>
 }: include #i where @{
     i &lt; <span class="number">5</span>
-}: each #i do @{
+}: each #i <span class="keyword">do</span> @{
     console: log @i
 }</code></pre>
 </div>
@@ -235,7 +235,7 @@ list.mapInto(<span class="function"><span class="keyword">function</span><span c
 <div class="pogo">
   <pre><code class="pogoscript">item = <span class="number">0</span>
 
-do
+<span class="keyword">do</span>
     print @item
     item = item + <span class="number">1</span>
 <span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</code></pre>
