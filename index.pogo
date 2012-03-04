@@ -2,7 +2,7 @@ fs = require "fs"
 async = require "async"
 handlebars = require "handlebars"
 exec = require "child_process" : exec
-highlight = require "highlight" : Highlight
+highlight = require "./highlight/highlight"
 
 html = "
 <html>
@@ -19,10 +19,10 @@ html = "
       <li>
         <h2>{{this.name}}</h2>
         <div class=\"pogo\">
-          <pre>{{{this.pogo}}}</pre>
+          <pre><code class=\"pogoscript\">{{{this.pogo}}}</code></pre>
         </div>
         <div class=\"javascript\">
-          <pre>{{{this.js}}}</code></pre>
+          <pre><code class=\"javascript\">{{{this.js}}}</code></pre>
         </div>
         <hr />
       </li>
@@ -58,8 +58,8 @@ read compiled js at @path @pogo @callback =
     name = path : replace "./examples/" (new (String))
     name = name : replace ".js" (new (String))
     @callback @null {
-      js = @highlight @js
-      pogo = @highlight @pogo
+      js =  @highlight : javascript @js
+      pogo = @highlight : pogoscript @pogo
       name = (title case) @name
     }  
 
