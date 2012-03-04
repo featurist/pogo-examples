@@ -23,7 +23,7 @@ render (file, callback) =
       js = pogo: compile (pogo source); in scope (false)
       callback (null) {
         js = highlight: javascript (js)
-        pogo = pogo source
+        pogo = highlight: pogoscript (pogo source)
         name = title from filename (file)
       }
 

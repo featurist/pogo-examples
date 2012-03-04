@@ -15,8 +15,8 @@
         <h2>Arrays</h2>
         <div class="pogo">
           <pre><code>array = [
-  1
-  "two"
+  <span class="number">1</span>
+  <span class="string">"two"</span>
   :three
 ]</code></pre>
         </div>
@@ -32,11 +32,11 @@ array = [ <span class="number">1</span>, <span class="string">"two"</span>, self
         <h2>Blocks Preserve Self</h2>
         <div class="pogo">
           <pre><code>person = {
-  name = 'Man Ray'
+  name = <span class="string">'Man Ray'</span>
   say hi later =
     set timeout
-      console: log "my name is @(:name)"
-    123
+      console: log <span class="string">"my name is @(:name)"</span>
+    <span class="number">123</span>
 }</code></pre>
         </div>
         <div class="javascript">
@@ -57,9 +57,9 @@ person = {
       <li>
         <h2>Closures</h2>
         <div class="pogo">
-          <pre><code>for each @(item) in (list) @{ print (item) }
+          <pre><code><span class="keyword">for</span> each @(item) in (list) @{ print (item) }
 
-for each @(item) in (list)
+<span class="keyword">for</span> each @(item) in (list)
     print (item)</code></pre>
         </div>
         <div class="javascript">
@@ -85,10 +85,10 @@ gen3_items = list;
       <li>
         <h2>Declaring Functions</h2>
         <div class="pogo">
-          <pre><code>one lower than (n) = n - 1
+          <pre><code>one lower than (n) = n - <span class="number">1</span>
 
 one higher than (n) =
-  n + 1
+  n + <span class="number">1</span>
 
 either (thing) or (other) =
   thing || other</code></pre>
@@ -114,7 +114,7 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
       <li>
         <h2>For</h2>
         <div class="pogo">
-          <pre><code>for (n = 0, n < 10, n = n + 1)
+          <pre><code><span class="keyword">for</span> (n = <span class="number">0</span>, n &lt; <span class="number">10</span>, n = n + <span class="number">1</span>)
   console: log (n)</code></pre>
         </div>
         <div class="javascript">
@@ -132,7 +132,7 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
         <div class="pogo">
           <pre><code>y = compute some value from (z) and return it
 
-md5 hash (read all text from file "sample.txt")</code></pre>
+md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> y;
@@ -163,10 +163,10 @@ hungry = isLunchTime();</code></pre>
       <li>
         <h2>If</h2>
         <div class="pogo">
-          <pre><code>if (wind speed > 20)
-    console: log "gone kitesurfing!"
-else
-    console: log "no wind, programming"</code></pre>
+          <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
+    console: log <span class="string">"gone kitesurfing!"</span>
+<span class="keyword">else</span>
+    console: log <span class="string">"no wind, programming"</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
@@ -181,8 +181,8 @@ else
       <li>
         <h2>Interpolation</h2>
         <div class="pogo">
-          <pre><code>mood = "happy"
-announce "Feeling @mood today"</code></pre>
+          <pre><code>mood = <span class="string">"happy"</span>
+announce <span class="string">"Feeling @mood today"</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> mood;
@@ -197,10 +197,10 @@ announce(<span class="string">"Feeling "</span> + mood + <span class="string">" 
       <li>
         <h2>Method Calls</h2>
         <div class="pogo">
-          <pre><code>file = open file "README.md"
+          <pre><code>file = open file <span class="string">"README.md"</span>
 file: read line!
 
-open file "README.md": read line!</code></pre>
+open file <span class="string">"README.md"</span>: read line!</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> file;
@@ -218,10 +218,10 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
         <h2>Method Chains</h2>
         <div class="pogo">
           <pre><code>list: map @(i) into @{
-    i + 1
+    i + <span class="number">1</span>
 }: include @(i) where @{
-    i < 5
-}: each @(i) do @{
+    i &lt; <span class="number">5</span>
+}: each @(i) <span class="keyword">do</span> @{
     console: log (i)
 }</code></pre>
         </div>
@@ -240,12 +240,12 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       <li>
         <h2>Multiline Functions</h2>
         <div class="pogo">
-          <pre><code>item = 0
+          <pre><code>item = <span class="number">0</span>
 
-do
+<span class="keyword">do</span>
     print (item)
-    item = item + 1
-while @{item < 10}</code></pre>
+    item = item + <span class="number">1</span>
+<span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> item;
@@ -266,8 +266,8 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
         <h2>Objects</h2>
         <div class="pogo">
           <pre><code>address = {
-  street = "Fake Street"
-  post code = "123 ABC"
+  street = <span class="string">"Fake Street"</span>
+  post code = <span class="string">"123 ABC"</span>
 }</code></pre>
         </div>
         <div class="javascript">
@@ -297,7 +297,7 @@ totalHeight = header + item * count + footer;</code></pre>
       <li>
         <h2>Optional Arguments</h2>
         <div class="pogo">
-          <pre><code>connect to mysql database; address "1.2.3.4"; port 3307
+          <pre><code>connect to mysql database; address <span class="string">"1.2.3.4"</span>; port <span class="number">3307</span>
 
 connect to mysql database; readonly
 
@@ -324,8 +324,8 @@ connectToMysqlDatabase({
       <li>
         <h2>Options</h2>
         <div class="pogo">
-          <pre><code>connect to; port 3306; host "127.0.0.1" =
-  console: log "connecting to @host:@part"</code></pre>
+          <pre><code>connect to; port <span class="number">3306</span>; host <span class="string">"127.0.0.1"</span> =
+  console: log <span class="string">"connecting to @host:@part"</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> connectTo;
@@ -363,7 +363,7 @@ name = object(<span class="function"><span class="keyword">function</span><span 
       <li>
         <h2>Splat Arguments</h2>
         <div class="pogo">
-          <pre><code>args = [1, 2, 3]
+          <pre><code>args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
 console: log (args) ...</code></pre>
         </div>
         <div class="javascript">
@@ -381,12 +381,12 @@ gen1_o.log.apply(gen1_o, args);</code></pre>
       <li>
         <h2>Variables</h2>
         <div class="pogo">
-          <pre><code>this is a variable = "variable"
+          <pre><code>this is a variable = <span class="string">"variable"</span>
 
 this is a function! =
-  "function"
+  <span class="string">"function"</span>
 
-this is also a function! = @{"function"}</code></pre>
+this is also a function! = @{<span class="string">"function"</span>}</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> thisIsAVariable, thisIsAFunction, thisIsAlsoAFunction;
@@ -407,10 +407,10 @@ thisIsAlsoAFunction = <span class="function"><span class="keyword">function</spa
       <li>
         <h2>Web Server</h2>
         <div class="pogo">
-          <pre><code>http = require 'http'
+          <pre><code>http = require <span class="string">'http'</span>
 server = http: create server @(request, response)
-    response: write head 200; "Content-Type" "text/plain"
-    response: end "Hello World\n"</code></pre>
+    response: write head <span class="number">200</span>; <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
+    response: end <span class="string">"Hello World\n"</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> http, server;
