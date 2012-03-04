@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <title>Pogo Examples</title>
@@ -6,41 +5,43 @@
     <link rel="stylesheet" type="text/css" href="highlight.css" />
   </head>
   <body>
-    <a href="https://github.com/featurist/pogo-examples"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+    <a href="https://github.com/featurist/pogo-examples">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
+    </a>
     <h1>PogoScript to JavaScript Examples</h1>
     <ul>
       
       <li>
-<h2>Arrays</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">array = [
+        <h2>Arrays</h2>
+        <div class="pogo">
+          <pre><code>array = [
   <span class="number">1</span>
   <span class="string">"two"</span>
   :three
 ]</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, array;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> array;
+
 array = [ <span class="number">1</span>, <span class="string">"two"</span>, self.three ];</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Blocks Preserve Self</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">person = {
+        <h2>Blocks Preserve Self</h2>
+        <div class="pogo">
+          <pre><code>person = {
   name = <span class="string">'Man Ray'</span>
   say hi later =
     set timeout
       console: log <span class="string">"my name is @(:name)"</span>
     <span class="number">123</span>
 }</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, person;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> person;
+
 person = {
     name: <span class="string">"Man Ray"</span>,
     sayHiLater: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
@@ -49,374 +50,384 @@ person = {
         }, <span class="number">123</span>);
     }
 };</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Closures</h2>
-<div class="pogo">
-  <pre><code class="pogoscript"><span class="keyword">for</span> each #item in @list @{ print @item }
+        <h2>Closures</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">for</span> each @(item) in (list) @{ print (item) }
 
-<span class="keyword">for</span> each #item in @list
-    print @item</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, gen1_items, gen2_i, item, gen3_items, gen4_i;
-self = <span class="keyword">this</span>;
+<span class="keyword">for</span> each @(item) in (list)
+    print (item)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> gen1_items, gen2_i, item, gen3_items, gen4_i;
+
 gen1_items = list;
+
 <span class="keyword">for</span> (gen2_i = <span class="number">0</span>; gen2_i &lt; gen1_items.length; gen2_i++) {
     item = gen1_items[gen2_i];
     print(item);
 }
+
 gen3_items = list;
+
 <span class="keyword">for</span> (gen4_i = <span class="number">0</span>; gen4_i &lt; gen3_items.length; gen4_i++) {
     item = gen3_items[gen4_i];
     print(item);
 }</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Declaring Functions</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">one lower than @n = n - <span class="number">1</span>
+        <h2>Declaring Functions</h2>
+        <div class="pogo">
+          <pre><code>one lower than (n) = n - <span class="number">1</span>
 
-one higher than @n =
+one higher than (n) =
   n + <span class="number">1</span>
 
-either @thing or @other =
-  other</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, oneLowerThan, oneHigherThan, eitherOr;
-self = <span class="keyword">this</span>;
+either (thing) or (other) =
+  thing || other</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr;
+
 oneLowerThan = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">return</span> n - <span class="number">1</span>;
 };
+
 oneHigherThan = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">return</span> n + <span class="number">1</span>;
 };
+
 eitherOr = <span class="function"><span class="keyword">function</span><span class="params">(thing, other)</span> {</span>
-    <span class="keyword">return</span> other;
+    <span class="keyword">return</span> thing || other;
 };</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>For</h2>
-<div class="pogo">
-  <pre><code class="pogoscript"><span class="keyword">for</span> (n = <span class="number">0</span>. n &lt; <span class="number">10</span>. n = n + <span class="number">1</span>)
-  console: log @n</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, n;
-self = <span class="keyword">this</span>;
+        <h2>For</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">for</span> (n = <span class="number">0</span>, n &lt; <span class="number">10</span>, n = n + <span class="number">1</span>)
+  console: log (n)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> n;
+
 <span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n = n + <span class="number">1</span>) {
     console.log(n);
 }</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Function Calls</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">y = compute some value from @z and return it
+        <h2>Function Calls</h2>
+        <div class="pogo">
+          <pre><code>y = compute some value from (z) and return it
 
 md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, y;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> y;
+
 y = computeSomeValueFromAndReturnIt(z);
+
 md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Functions Without Arguments</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">update page!
+        <h2>Functions Without Arguments</h2>
+        <div class="pogo">
+          <pre><code>update page!
 hungry = is lunch time?</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, hungry;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> hungry;
+
 updatePage();
+
 hungry = isLunchTime();</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>If</h2>
-<div class="pogo">
-  <pre><code class="pogoscript"><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
+        <h2>If</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
     console: log <span class="string">"gone kitesurfing!"</span>
-else
+<span class="keyword">else</span>
     console: log <span class="string">"no wind, programming"</span></code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self;
-self = <span class="keyword">this</span>;
-<span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
     console.log(<span class="string">"gone kitesurfing!"</span>);
 } <span class="keyword">else</span> {
     console.log(<span class="string">"no wind, programming"</span>);
 }</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Interpolation</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">mood = <span class="string">"happy"</span>
+        <h2>Interpolation</h2>
+        <div class="pogo">
+          <pre><code>mood = <span class="string">"happy"</span>
 announce <span class="string">"Feeling @mood today"</span></code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, mood;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> mood;
+
 mood = <span class="string">"happy"</span>;
+
 announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Method Calls</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">file = open file <span class="string">"README.md"</span>
+        <h2>Method Calls</h2>
+        <div class="pogo">
+          <pre><code>file = open file <span class="string">"README.md"</span>
 file: read line!
 
 open file <span class="string">"README.md"</span>: read line!</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, file;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> file;
+
 file = openFile(<span class="string">"README.md"</span>);
+
 file.readLine();
+
 openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Method Chains</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">list: map #i into @{
+        <h2>Method Chains</h2>
+        <div class="pogo">
+          <pre><code>list: map @(i) into @{
     i + <span class="number">1</span>
-}: include #i where @{
+}: include @(i) where @{
     i &lt; <span class="number">5</span>
-}: each #i <span class="keyword">do</span> @{
-    console: log @i
+}: each @(i) <span class="keyword">do</span> @{
+    console: log (i)
 }</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self;
-self = <span class="keyword">this</span>;
-list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
+        </div>
+        <div class="javascript">
+          <pre><code>list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i + <span class="number">1</span>;
 }).includeWhere(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i &lt; <span class="number">5</span>;
 }).eachDo(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> console.log(i);
 });</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Multiline Functions</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">item = <span class="number">0</span>
+        <h2>Multiline Functions</h2>
+        <div class="pogo">
+          <pre><code>item = <span class="number">0</span>
 
 <span class="keyword">do</span>
-    print @item
+    print (item)
     item = item + <span class="number">1</span>
 <span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, item;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> item;
+
 item = <span class="number">0</span>;
+
 doWhile(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     print(item);
     <span class="keyword">return</span> item = item + <span class="number">1</span>;
 }, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> item &lt; <span class="number">10</span>;
 });</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Objects</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">address = {
+        <h2>Objects</h2>
+        <div class="pogo">
+          <pre><code>address = {
   street = <span class="string">"Fake Street"</span>
   post code = <span class="string">"123 ABC"</span>
 }</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, address;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> address;
+
 address = {
     street: <span class="string">"Fake Street"</span>,
     postCode: <span class="string">"123 ABC"</span>
 };</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Operators</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">total height = (header + (item * count)) + footer</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, totalHeight;
-self = <span class="keyword">this</span>;
+        <h2>Operators</h2>
+        <div class="pogo">
+          <pre><code>total height = (header + (item * count)) + footer</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> totalHeight;
+
 totalHeight = header + item * count + footer;</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Optional Arguments</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">connect to mysql database, address <span class="string">"1.2.3.4"</span>, port <span class="number">3307</span>
+        <h2>Optional Arguments</h2>
+        <div class="pogo">
+          <pre><code>connect to mysql database; address <span class="string">"1.2.3.4"</span>; port <span class="number">3307</span>
 
-connect to mysql database, readonly
+connect to mysql database; readonly
 
-connect to mysql database, not readonly</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self;
-self = <span class="keyword">this</span>;
-connectToMysqlDatabase({
+connect to mysql database; not readonly
+</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code>connectToMysqlDatabase({
     address: <span class="string">"1.2.3.4"</span>,
     port: <span class="number">3307</span>
 });
+
 connectToMysqlDatabase({
     readonly: <span class="literal">true</span>
 });
+
 connectToMysqlDatabase({
     notReadonly: <span class="literal">true</span>
 });</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Options</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">connect to, port <span class="number">3306</span>, host <span class="string">"127.0.0.1"</span> =
+        <h2>Options</h2>
+        <div class="pogo">
+          <pre><code>connect to; port <span class="number">3306</span>; host <span class="string">"127.0.0.1"</span> =
   console: log <span class="string">"connecting to @host:@part"</span></code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, connectTo;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> connectTo;
+
 connectTo = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
     <span class="keyword">var</span> port, host;
     port = gen1_options &amp;&amp; gen1_options.port != <span class="literal">null</span> ? gen1_options.port : <span class="number">3306</span>;
     host = gen1_options &amp;&amp; gen1_options.host != <span class="literal">null</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
     <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + part);
 };</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Self Blocks</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">person, name = object =>
+        <h2>Self Blocks</h2>
+        <div class="pogo">
+          <pre><code>person, name = object =>
   :name = name</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, person;
-self = <span class="keyword">this</span>;
-person = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
-    <span class="keyword">var</span> name;
-    name = gen1_options &amp;&amp; gen1_options.name != <span class="literal">null</span> ? gen1_options.name : undefined;
-    <span class="keyword">return</span> object(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> self;
-        self = <span class="keyword">this</span>;
-        <span class="keyword">return</span> self.name = name;
-    });
-};</code></pre>
-</div>
-<hr />
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> name;
+
+person;
+
+name = object(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> self;
+    self = <span class="keyword">this</span>;
+    <span class="keyword">return</span> self.name = name;
+});</code></pre>
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Splat Arguments</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">args = list <span class="number">1</span> <span class="number">2</span> <span class="number">3</span>
-console: log @args ...</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, args, gen1_o;
-self = <span class="keyword">this</span>;
-args = list(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);
+        <h2>Splat Arguments</h2>
+        <div class="pogo">
+          <pre><code>args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
+console: log (args) ...</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> args, gen1_o;
+
+args = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];
+
 gen1_o = console;
+
 gen1_o.log.apply(gen1_o, args);</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Variables</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">this is a variable = <span class="string">"variable"</span>
+        <h2>Variables</h2>
+        <div class="pogo">
+          <pre><code>this is a variable = <span class="string">"variable"</span>
 
 this is a function! =
   <span class="string">"function"</span>
 
 this is also a function! = @{<span class="string">"function"</span>}</code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, thisIsAVariable, thisIsAFunction, thisIsAlsoAFunction;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> thisIsAVariable, thisIsAFunction, thisIsAlsoAFunction;
+
 thisIsAVariable = <span class="string">"variable"</span>;
+
 thisIsAFunction = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="string">"function"</span>;
 };
+
 thisIsAlsoAFunction = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> <span class="string">"function"</span>;
 };</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
       <li>
-<h2>Web Server</h2>
-<div class="pogo">
-  <pre><code class="pogoscript">http = require <span class="string">'http'</span>
-server = http: create server #request #response
-    response: write head <span class="number">200</span>, <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
+        <h2>Web Server</h2>
+        <div class="pogo">
+          <pre><code>http = require <span class="string">'http'</span>
+server = http: create server @(request, response)
+    response: write head <span class="number">200</span>; <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
     response: end <span class="string">"Hello World\n"</span></code></pre>
-</div>
-<div class="javascript">
-  <pre><code class="javascript"><span class="keyword">var</span> self, http, server;
-self = <span class="keyword">this</span>;
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> http, server;
+
 http = require(<span class="string">"http"</span>);
+
 server = http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(request, response)</span> {</span>
     response.writeHead(<span class="number">200</span>, {
         <span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>
     });
     <span class="keyword">return</span> response.end(<span class="string">"Hello World\n"</span>);
 });</code></pre>
-</div>
-<hr />
+        </div>
+        <hr />
       </li>
       
     </ul>
     
   </body>
 </html>
-
