@@ -1,7 +1,7 @@
-one lower than @n = n - 1
+one lower than (n) = n - 1
 
-one higher than @n =
+one higher than (n) =
   n + 1
 
-either @thing or @other =
-  other
+either (thing) or (other) =
+  thing || other

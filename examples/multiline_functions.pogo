@@ -1,6 +1,6 @@
 item = 0
 
 do
-    print @item
+    print (item)
     item = item + 1
 while @{item < 10}
