@@ -1,7 +1,6 @@
-list: map @(i) into @{
+list: map @(i) into
     i + 1
-}: include @(i) where @{
+: select @(i) if
     i < 5
-}: each @(i) do @{
+: each @(i) do
     console: log (i)
-}

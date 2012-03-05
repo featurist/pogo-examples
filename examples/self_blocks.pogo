@@ -1,2 +1,2 @@
-person, name = object =>
+person; name = object =>
   :name = name

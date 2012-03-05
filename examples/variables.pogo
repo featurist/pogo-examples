@@ -1,6 +1,5 @@
-this is a variable = "variable"
+height = 1025
 
-this is a function! =
-  "function"
-
-this is also a function! = @{"function"}
+height =
+  n = 10
+  (n * n * n) + 25
