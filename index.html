@@ -14,10 +14,10 @@
       <li>
         <h2>Arrays</h2>
         <div class="pogo">
-          <pre><code>array = [
+          <pre><code>array <span class="operator">=</span> [
   <span class="number">1</span>
   <span class="string">"two"</span>
-  :three
+  <span class="operator">:</span>three
 ]</code></pre>
         </div>
         <div class="javascript">
@@ -31,11 +31,11 @@ array = [ <span class="number">1</span>, <span class="string">"two"</span>, self
       <li>
         <h2>Blocks Preserve Self</h2>
         <div class="pogo">
-          <pre><code>person = {
-  name = <span class="string">'Man Ray'</span>
-  say hi later! =
+          <pre><code>person <span class="operator">=</span> {
+  name <span class="operator">=</span> <span class="string">'Man Ray'</span>
+  say hi later! <span class="operator">=</span>
     set timeout
-      console: log <span class="string">"my name is #(:name)"</span>
+      console<span class="operator">:</span> log <span class="string">"my name is #(:name)"</span>
     <span class="number">123</span>
 }
 </code></pre>
@@ -60,10 +60,10 @@ person = {
       <li>
         <h2>Closures</h2>
         <div class="pogo">
-          <pre><code>map each @(filename) in (filenames) into @{ path: resolve (filename) }
+          <pre><code>map each @(filename) in (filenames) into @{ path<span class="operator">:</span> resolve (filename) }
     
 map each @(filename) in (filenames) into
-    path: resolve (filename)</code></pre>
+    path<span class="operator">:</span> resolve (filename)</code></pre>
         </div>
         <div class="javascript">
           <pre><code>mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
@@ -80,12 +80,12 @@ mapEachInInto(filenames, <span class="function"><span class="keyword">function</
       <li>
         <h2>Declaring Functions</h2>
         <div class="pogo">
-          <pre><code>one lower than (n) = n - <span class="number">1</span>
+          <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
 
-one higher than (n) =
+one higher than (n) <span class="operator">=</span>
   n + <span class="number">1</span>
 
-either (thing) or (other) =
+either (thing) or (other) <span class="operator">=</span>
   thing || other</code></pre>
         </div>
         <div class="javascript">
@@ -109,8 +109,8 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
       <li>
         <h2>For</h2>
         <div class="pogo">
-          <pre><code><span class="keyword">for</span> (n = <span class="number">0</span>, n &lt; <span class="number">10</span>, n = n + <span class="number">1</span>)
-  console: log (n)</code></pre>
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+  console<span class="operator">:</span> log (n)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> n;
@@ -125,7 +125,7 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
       <li>
         <h2>Function Calls</h2>
         <div class="pogo">
-          <pre><code>y = compute some value from (z) and return it
+          <pre><code>y <span class="operator">=</span> compute some value from (z) and return it
 
 md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
         </div>
@@ -143,7 +143,7 @@ md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></
         <h2>Functions Without Arguments</h2>
         <div class="pogo">
           <pre><code>update page!
-hungry = is lunch time?</code></pre>
+hungry <span class="operator">=</span> is lunch time?</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> hungry;
@@ -159,9 +159,9 @@ hungry = isLunchTime();</code></pre>
         <h2>If</h2>
         <div class="pogo">
           <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
-    console: log <span class="string">"gone kitesurfing!"</span>
+    console<span class="operator">:</span> log <span class="string">"gone kitesurfing!"</span>
 <span class="keyword">else</span>
-    console: log <span class="string">"no wind, programming"</span></code></pre>
+    console<span class="operator">:</span> log <span class="string">"no wind, programming"</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
@@ -174,29 +174,12 @@ hungry = isLunchTime();</code></pre>
       </li>
       
       <li>
-        <h2>Interpolation</h2>
-        <div class="pogo">
-          <pre><code>mood = <span class="string">"happy"</span>
-announce <span class="string">"Feeling #(mood) today"</span>
-</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> mood;
-
-mood = <span class="string">"happy"</span>;
-
-announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
-      
-      <li>
         <h2>Method Calls</h2>
         <div class="pogo">
-          <pre><code>file = open file <span class="string">"README.md"</span>
-file: read line!
+          <pre><code>file <span class="operator">=</span> open file <span class="string">"README.md"</span>
+file<span class="operator">:</span> read line!
 
-open file <span class="string">"README.md"</span>: read line!</code></pre>
+open file <span class="string">"README.md"</span><span class="operator">:</span> read line!</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> file;
@@ -213,12 +196,12 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       <li>
         <h2>Method Chains</h2>
         <div class="pogo">
-          <pre><code>list: map @(i) into
+          <pre><code>list<span class="operator">:</span> map @(i) into
     i + <span class="number">1</span>
-: select @(i) <span class="keyword">if</span>
+<span class="operator">:</span> select @(i) <span class="keyword">if</span>
     i &lt; <span class="number">5</span>
-: each @(i) <span class="keyword">do</span>
-    console: log (i)
+<span class="operator">:</span> each @(i) <span class="keyword">do</span>
+    console<span class="operator">:</span> log (i)
 </code></pre>
         </div>
         <div class="javascript">
@@ -236,11 +219,11 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       <li>
         <h2>Multiline Functions</h2>
         <div class="pogo">
-          <pre><code>item = <span class="number">0</span>
+          <pre><code>item <span class="operator">=</span> <span class="number">0</span>
 
 <span class="keyword">do</span>
     print (item)
-    item = item + <span class="number">1</span>
+    item <span class="operator">=</span> item + <span class="number">1</span>
 <span class="keyword">while</span> @{item &lt; <span class="number">10</span>}</code></pre>
         </div>
         <div class="javascript">
@@ -261,9 +244,9 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
       <li>
         <h2>Objects</h2>
         <div class="pogo">
-          <pre><code>address = {
-  street = <span class="string">"Fake Street"</span>
-  post code = <span class="string">"123 ABC"</span>
+          <pre><code>address <span class="operator">=</span> {
+  street <span class="operator">=</span> <span class="string">"Fake Street"</span>
+  post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
 }</code></pre>
         </div>
         <div class="javascript">
@@ -280,7 +263,7 @@ address = {
       <li>
         <h2>Operators</h2>
         <div class="pogo">
-          <pre><code>total height = header + (item * count) + footer</code></pre>
+          <pre><code>total height <span class="operator">=</span> header + (item * count) + footer</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> totalHeight;
@@ -293,9 +276,9 @@ totalHeight = header + item * count + footer;</code></pre>
       <li>
         <h2>Optional Arguments</h2>
         <div class="pogo">
-          <pre><code>connect to mysql database; address <span class="string">"1.2.3.4"</span>; port <span class="number">3307</span>
+          <pre><code>connect to mysql database<span class="operator">;</span> address <span class="string">"1.2.3.4"</span><span class="operator">;</span> port <span class="number">3307</span>
 
-connect to mysql database; readonly
+connect to mysql database<span class="operator">;</span> readonly
 </code></pre>
         </div>
         <div class="javascript">
@@ -314,8 +297,8 @@ connectToMysqlDatabase({
       <li>
         <h2>Options</h2>
         <div class="pogo">
-          <pre><code>connect to; port <span class="number">3306</span>; host <span class="string">"127.0.0.1"</span> =
-  console: log <span class="string">"connecting to #(host):#(part)"</span>
+          <pre><code>connect to<span class="operator">;</span> port <span class="number">3306</span><span class="operator">;</span> host <span class="string">"127.0.0.1"</span> <span class="operator">=</span>
+  console<span class="operator">:</span> log <span class="string">"connecting to #(host):#(part)"</span>
 </code></pre>
         </div>
         <div class="javascript">
@@ -334,8 +317,8 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
       <li>
         <h2>Self Blocks</h2>
         <div class="pogo">
-          <pre><code>person; name = object =>
-  :name = name</code></pre>
+          <pre><code>person<span class="operator">;</span> name <span class="operator">=</span> object <span class="operator">=></span>
+  <span class="operator">:</span>name <span class="operator">=</span> name</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -356,17 +339,48 @@ person = <span class="function"><span class="keyword">function</span><span class
       <li>
         <h2>Splat Arguments</h2>
         <div class="pogo">
-          <pre><code>args = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
-console: log (args) ...</code></pre>
+          <pre><code>foo (args<span class="operator">,</span> ...) <span class="operator">=</span>
+     print (args)
+
+foo <span class="number">1</span> [<span class="number">2</span><span class="operator">,</span> <span class="number">3</span>] ... [<span class="number">4</span><span class="operator">,</span> <span class="number">5</span>] ... <span class="number">6</span>
+</code></pre>
         </div>
         <div class="javascript">
-          <pre><code><span class="keyword">var</span> args, gen1_o;
+          <pre><code><span class="keyword">var</span> foo;
 
-args = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];
+foo = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> args;
+    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">return</span> print(args);
+};
 
-gen1_o = console;
+foo.apply(<span class="literal">null</span>, [ <span class="number">1</span> ].concat([ <span class="number">2</span>, <span class="number">3</span> ]).concat([ <span class="number">4</span>, <span class="number">5</span> ]).concat([ <span class="number">6</span> ]));</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Strings</h2>
+        <div class="pogo">
+          <pre><code><span class="string">'meet you at Jayne''s place'</span>
 
-gen1_o.log.apply(gen1_o, args);</code></pre>
+alan kay <span class="operator">=</span> <span class="string">"The best way to predict the future
+            is to invent it."</span>
+
+mood <span class="operator">=</span> <span class="string">"happy"</span>
+announce <span class="string">"Feeling #(mood) today"</span>
+</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> alanKay, mood;
+
+<span class="string">"meet you at Jayne's place"</span>;
+
+alanKay = <span class="string">"The best way to predict the future\nis to invent it."</span>;
+
+mood = <span class="string">"happy"</span>;
+
+announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
         </div>
         <hr />
       </li>
@@ -374,10 +388,10 @@ gen1_o.log.apply(gen1_o, args);</code></pre>
       <li>
         <h2>Variables</h2>
         <div class="pogo">
-          <pre><code>height = <span class="number">1025</span>
+          <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
-height =
-  n = <span class="number">10</span>
+height <span class="operator">=</span>
+  n <span class="operator">=</span> <span class="number">10</span>
   (n * n * n) + <span class="number">25</span>
 </code></pre>
         </div>
@@ -398,11 +412,11 @@ height = <span class="function"><span class="keyword">function</span><span class
       <li>
         <h2>Web Server</h2>
         <div class="pogo">
-          <pre><code>http = require <span class="string">'http'</span>
-http: create server @(request, response)
-    response: write head <span class="number">200</span>; <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
-    response: end <span class="string">"Hello World\n"</span>
-: listen <span class="number">1337</span></code></pre>
+          <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
+http<span class="operator">:</span> create server @(request<span class="operator">,</span> response)
+    response<span class="operator">:</span> write head <span class="number">200</span><span class="operator">;</span> <span class="string">"Content-Type"</span> <span class="string">"text/plain"</span>
+    response<span class="operator">:</span> end <span class="string">"Hello World\n"</span>
+<span class="operator">:</span> listen <span class="number">1337</span></code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> http;
