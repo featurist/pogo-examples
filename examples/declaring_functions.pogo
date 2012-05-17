@@ -5,3 +5,6 @@ one higher than (n) =
 
 either (thing) or (other) =
   thing || other
+
+end of the line () =
+  ok then()

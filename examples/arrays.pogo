@@ -1,5 +1,5 @@
 array = [
   1
   "two"
-  :three
+  self.three
 ]

@@ -1,4 +1,4 @@
 file = open file "README.md"
-file: read line!
+file. read line()
 
-open file "README.md": read line!
+open file "README.md". read line()

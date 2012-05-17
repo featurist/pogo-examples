@@ -1,6 +1,6 @@
-list: map @(i) into
+list. map @(i) into
     i + 1
-: select @(i) if
+.select @(i) if
     i < 5
-: each @(i) do
-    console: log (i)
+.each @(i) do
+    console. log (i)

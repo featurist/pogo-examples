@@ -1,2 +1,2 @@
-update page!
-hungry = is lunch time?
+update page()
+hungry = is lunch time()
