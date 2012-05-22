@@ -32,13 +32,18 @@ array = [ <span class="number">1</span>, <span class="string">"two"</span>, self
         <h2>Blocks Preserve Self</h2>
         <div class="pogo">
           <pre><code>person <span class="operator">=</span> {
+
   name <span class="operator">=</span> <span class="string">'Man Ray'</span>
-  say hi later! <span class="operator">=</span>
+
+  say hi later() <span class="operator">=</span>
     set timeout
       console. log <span class="string">"my name is #(self.name)"</span>
     <span class="number">123</span>
+
 }
-</code></pre>
+
+using an arrow <span class="operator">=></span>
+  turns (<span class="keyword">self</span>) into (this)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -52,7 +57,13 @@ person = {
             <span class="keyword">return</span> console.log(<span class="string">"my name is "</span> + self.name);
         }, <span class="number">123</span>);
     }
-};</code></pre>
+};
+
+usingAnArrow(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> self;
+    self = <span class="keyword">this</span>;
+    <span class="keyword">return</span> turnsInto(self, <span class="keyword">this</span>);
+});</code></pre>
         </div>
         <hr />
       </li>
@@ -334,20 +345,6 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
           <pre><code><span class="string">"hot dog"</span>.replace(<span class="regexp">/d.g/</span>, <span class="string">"potato"</span>);
 
 <span class="string">"FOO"</span>.match(<span class="regexp">/foo/gi</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
-      
-      <li>
-        <h2>Self Blocks</h2>
-        <div class="pogo">
-          <pre><code>foo <span class="operator">=</span> <span class="operator">=></span>
-  <span class="keyword">self</span>.whatever()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> foo;
-
-foo = self.whatever();</code></pre>
         </div>
         <hr />
       </li>
