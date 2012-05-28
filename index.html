@@ -326,8 +326,8 @@ connectToMysqlDatabase({
 
 connectTo = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
     <span class="keyword">var</span> port, host;
-    port = gen1_options &amp;&amp; gen1_options.port != <span class="literal">null</span> ? gen1_options.port : <span class="number">3306</span>;
-    host = gen1_options &amp;&amp; gen1_options.host != <span class="literal">null</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
+    port = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
+    host = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
     <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + part);
 };</code></pre>
         </div>
@@ -394,6 +394,28 @@ alanKay = <span class="string">"The best way to predict the future\nis to invent
 mood = <span class="string">"happy"</span>;
 
 announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Try Catch</h2>
+        <div class="pogo">
+          <pre><code>try
+    something complicated()
+catch @(ex)
+    console.log <span class="string">"it went horribly wrong"</span>
+finally
+    always <span class="keyword">do</span> this()</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">try</span> {
+    somethingComplicated();
+} <span class="keyword">catch</span> (ex) {
+    console.log(<span class="string">"it went horribly wrong"</span>);
+} <span class="keyword">finally</span> {
+    alwaysDoThis();
+}</code></pre>
         </div>
         <hr />
       </li>
