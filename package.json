@@ -1,0 +1,9 @@
+{
+  "name": "pogo-examples",
+  "description": "Side-by-side PogoScript and JavaScript examples",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "pogo": "0.0.1"
+  }
+}
