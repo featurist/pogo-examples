@@ -9,5 +9,8 @@ person = {
 
 }
 
+not using an arrow
+  means (self) is not always (this)
+
 using an arrow =>
-  turns (self) into (this)
+  means (self) is always (this)

@@ -1,5 +1,6 @@
-array = [
-  1
-  "two"
-  self.three
+array one = [1, "two"]
+
+array two = [
+  3
+  "four"
 ]
