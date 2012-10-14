@@ -14,16 +14,19 @@
       <li>
         <h2>Arrays</h2>
         <div class="pogo">
-          <pre><code>array <span class="operator">=</span> [
-  <span class="number">1</span>
-  <span class="string">"two"</span>
-  <span class="keyword">self</span>.three
+          <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
+
+array two <span class="operator">=</span> [
+  <span class="number">3</span>
+  <span class="string">"four"</span>
 ]</code></pre>
         </div>
         <div class="javascript">
-          <pre><code><span class="keyword">var</span> array;
+          <pre><code><span class="keyword">var</span> arrayOne, arrayTwo;
 
-array = [ <span class="number">1</span>, <span class="string">"two"</span>, self.three ];</code></pre>
+arrayOne = [ <span class="number">1</span>, <span class="string">"two"</span> ];
+
+arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ];</code></pre>
         </div>
         <hr />
       </li>
@@ -42,8 +45,11 @@ array = [ <span class="number">1</span>, <span class="string">"two"</span>, self
 
 }
 
+not using an arrow
+  means (<span class="keyword">self</span>) is not always (this)
+
 using an arrow <span class="operator">=></span>
-  turns (<span class="keyword">self</span>) into (this)</code></pre>
+  means (<span class="keyword">self</span>) is always (this)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -59,10 +65,14 @@ person = {
     }
 };
 
+notUsingAnArrow(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> meansIsNotAlways(self, <span class="keyword">this</span>);
+});
+
 usingAnArrow(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">var</span> self;
     self = <span class="keyword">this</span>;
-    <span class="keyword">return</span> turnsInto(self, <span class="keyword">this</span>);
+    <span class="keyword">return</span> meansIsAlways(self, <span class="keyword">this</span>);
 });</code></pre>
         </div>
         <hr />
@@ -125,6 +135,29 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </li>
       
       <li>
+        <h2>Factorial</h2>
+        <div class="pogo">
+          <pre><code>factorial (n) <span class="operator">=</span>
+    <span class="keyword">if</span> (n <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+        <span class="number">1</span>
+    <span class="keyword">else</span>
+        n * factorial (n - <span class="number">1</span>)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> factorial;
+
+factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
+    <span class="keyword">if</span> (n === <span class="number">0</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    } <span class="keyword">else</span> {
+        <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);
+    }
+};</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
         <h2>For</h2>
         <div class="pogo">
           <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
@@ -135,6 +168,25 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
 
 <span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n = n + <span class="number">1</span>) {
     console.log(n);
+}</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>For Each</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
+  gobble(fruit)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
+
+gen1_items = basket;
+
+<span class="keyword">for</span> (gen2_i = <span class="number">0</span>; gen2_i &lt; gen1_items.length; ++gen2_i) {
+    fruit = gen1_items[gen2_i];
+    gobble(fruit);
 }</code></pre>
         </div>
         <hr />
@@ -400,19 +452,19 @@ announce(<span class="string">"Feeling "</span> + mood + <span class="string">" 
         <h2>Try Catch</h2>
         <div class="pogo">
           <pre><code>try
-    something complicated()
-catch @(ex)
+    something messy()
+catch (ex)
     console.log <span class="string">"it went horribly wrong"</span>
 finally
-    always <span class="keyword">do</span> this()</code></pre>
+    better clean up()</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">try</span> {
-    somethingComplicated();
+    somethingMessy();
 } <span class="keyword">catch</span> (ex) {
     console.log(<span class="string">"it went horribly wrong"</span>);
 } <span class="keyword">finally</span> {
-    alwaysDoThis();
+    betterCleanUp();
 }</code></pre>
         </div>
         <hr />
@@ -463,6 +515,313 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     });
     <span class="keyword">return</span> response.end(<span class="string">"Hello World\n"</span>);
 }).listen(<span class="number">1337</span>);</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Calls</h2>
+        <div class="pogo">
+          <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
+scrape facts from (web page)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
+    <span class="keyword">var</span> webPage;
+    <span class="keyword">if</span> (gen1_error) {
+        gen3_callback(gen1_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            webPage = gen2_asyncResult;
+            gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
+        } <span class="keyword">catch</span> (gen4_exception) {
+            gen3_callback(gen4_exception);
+        }
+    }
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async For</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+  send letter! (n)
+
+all letters sent()</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> gen1_asyncFor;
+
+gen1_asyncFor = <span class="function"><span class="keyword">function</span><span class="params">(test, incr, loop, cb)</span> {</span>
+    <span class="keyword">try</span> {
+        <span class="keyword">var</span> testAndLoop = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+            test(<span class="function"><span class="keyword">function</span><span class="params">(error, anotherLoop)</span> {</span>
+                <span class="keyword">if</span> (error) {
+                    cb(error);
+                } <span class="keyword">else</span> {
+                    <span class="keyword">if</span> (anotherLoop) {
+                        loop(incrTestAndLoop);
+                    } <span class="keyword">else</span> {
+                        cb();
+                    }
+                }
+            });
+        };
+        <span class="keyword">var</span> incrTestAndLoop = <span class="function"><span class="keyword">function</span><span class="params">(error)</span> {</span>
+            <span class="keyword">if</span> (error) {
+                cb(error);
+            } <span class="keyword">else</span> {
+                incr(<span class="function"><span class="keyword">function</span><span class="params">(error)</span> {</span>
+                    <span class="keyword">if</span> (error) {
+                        cb(error);
+                    } <span class="keyword">else</span> {
+                        testAndLoop();
+                    }
+                });
+            }
+        };
+        testAndLoop();
+    } <span class="keyword">catch</span> (error) {
+        cb(error);
+    }
+};
+
+(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    <span class="keyword">var</span> n;
+    n = <span class="number">0</span>;
+    gen1_asyncFor(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n &lt; <span class="number">3</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n = n + <span class="number">1</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        sendLetter(n, gen2_callback);
+    }, gen2_callback);
+})(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen3_error) {
+        gen2_callback(gen3_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen4_asyncResult;
+            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
+        } <span class="keyword">catch</span> (gen5_exception) {
+            gen2_callback(gen5_exception);
+        }
+    }
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async If</h2>
+        <div class="pogo">
+          <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
+  kill! (intruders)
+<span class="keyword">else</span>
+  call the cops about! (intruders)
+  
+keep watch!</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> gen1_asyncIfElse;
+
+gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><span class="params">(condition, thenBody, elseBody, cb)</span> {</span>
+    <span class="keyword">if</span> (condition) {
+        <span class="keyword">try</span> {
+            thenBody(cb);
+        } <span class="keyword">catch</span> (ex) {
+            cb(ex);
+        }
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            elseBody(cb);
+        } <span class="keyword">catch</span> (ex) {
+            cb(ex);
+        }
+    }
+};
+
+gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    kill(intruders, gen2_callback);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    callTheCopsAbout(intruders, gen2_callback);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen3_error) {
+        gen2_callback(gen3_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen4_asyncResult;
+            keepWatch(gen2_callback);
+        } <span class="keyword">catch</span> (gen5_exception) {
+            gen2_callback(gen5_exception);
+        }
+    }
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Try Catch</h2>
+        <div class="pogo">
+          <pre><code>record <span class="operator">=</span> nil
+
+try
+  database <span class="operator">=</span> connect to the database! 
+  record <span class="operator">=</span> database.query!
+catch (error)
+  exit the program because of (error)!
+finally
+  database.close!
+
+console.log(<span class="string">"RECORD FOUND: #(record)"</span>)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> gen1_asyncTry, record;
+
+gen1_asyncTry = <span class="function"><span class="keyword">function</span><span class="params">(body, catchBody, finallyBody, cb)</span> {</span>
+    <span class="keyword">var</span> callbackCalled = <span class="literal">false</span>;
+    <span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span><span class="params">(error, result)</span> {</span>
+        <span class="keyword">if</span> (!callbackCalled) {
+            callbackCalled = <span class="literal">true</span>;
+            cb(error, result);
+        }
+    };
+    <span class="keyword">try</span> {
+        body(<span class="function"><span class="keyword">function</span><span class="params">(error, result)</span> {</span>
+            <span class="keyword">if</span> (error) {
+                <span class="keyword">if</span> (finallyBody &amp;&amp; catchBody) {
+                    <span class="keyword">try</span> {
+                        catchBody(error, <span class="function"><span class="keyword">function</span><span class="params">(error, result)</span> {</span>
+                            <span class="keyword">try</span> {
+                                finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                                    callback(finallyError || error, finallyError || error ? undefined : result);
+                                });
+                            } <span class="keyword">catch</span> (error) {
+                                callback(error);
+                            }
+                        });
+                    } <span class="keyword">catch</span> (error) {
+                        <span class="keyword">try</span> {
+                            finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                                callback(finallyError || error);
+                            });
+                        } <span class="keyword">catch</span> (error) {
+                            callback(error);
+                        }
+                    }
+                } <span class="keyword">else</span> <span class="keyword">if</span> (catchBody) {
+                    <span class="keyword">try</span> {
+                        catchBody(error, callback);
+                    } <span class="keyword">catch</span> (error) {
+                        callback(error);
+                    }
+                } <span class="keyword">else</span> {
+                    <span class="keyword">try</span> {
+                        finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                            callback(finallyError || error, finallyError ? undefined : result);
+                        });
+                    } <span class="keyword">catch</span> (error) {
+                        callback(error);
+                    }
+                }
+            } <span class="keyword">else</span> {
+                <span class="keyword">if</span> (finallyBody) {
+                    <span class="keyword">try</span> {
+                        finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                            callback(finallyError, finallyError ? undefined : result);
+                        });
+                    } <span class="keyword">catch</span> (error) {
+                        callback(error);
+                    }
+                } <span class="keyword">else</span> {
+                    callback(undefined, result);
+                }
+            }
+        });
+    } <span class="keyword">catch</span> (error) {
+        <span class="keyword">if</span> (finallyBody &amp;&amp; catchBody) {
+            <span class="keyword">try</span> {
+                catchBody(error, <span class="function"><span class="keyword">function</span><span class="params">(error, result)</span> {</span>
+                    <span class="keyword">try</span> {
+                        finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                            callback(finallyError || error, finallyError ? undefined : result);
+                        });
+                    } <span class="keyword">catch</span> (error) {
+                        callback(error);
+                    }
+                });
+            } <span class="keyword">catch</span> (error) {
+                <span class="keyword">try</span> {
+                    finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                        callback(finallyError || error);
+                    });
+                } <span class="keyword">catch</span> (error) {
+                    callback(error);
+                }
+            }
+        } <span class="keyword">else</span> <span class="keyword">if</span> (catchBody) {
+            <span class="keyword">try</span> {
+                catchBody(error, callback);
+            } <span class="keyword">catch</span> (error) {
+                callback(error);
+            }
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                finallyBody(<span class="function"><span class="keyword">function</span><span class="params">(finallyError)</span> {</span>
+                    callback(finallyError || error);
+                });
+            } <span class="keyword">catch</span> (error) {
+                callback(error);
+            }
+        }
+    }
+};
+
+record = <span class="keyword">void</span> <span class="number">0</span>;
+
+gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    connectToTheDatabase(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+        <span class="keyword">var</span> database;
+        <span class="keyword">if</span> (gen3_error) {
+            gen2_callback(gen3_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                database = gen4_asyncResult;
+                database.query(<span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen5_error) {
+                        gen2_callback(gen5_error);
+                    } <span class="keyword">else</span> {
+                        <span class="keyword">try</span> {
+                            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, record = gen6_asyncResult);
+                        } <span class="keyword">catch</span> (gen7_exception) {
+                            gen2_callback(gen7_exception);
+                        }
+                    }
+                });
+            } <span class="keyword">catch</span> (gen8_exception) {
+                gen2_callback(gen8_exception);
+            }
+        }
+    });
+}, <span class="function"><span class="keyword">function</span><span class="params">(error, gen2_callback)</span> {</span>
+    exitTheProgramBecauseOf(error, gen2_callback);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    database.close(gen2_callback);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen9_error, gen10_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen9_error) {
+        gen2_callback(gen9_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen10_asyncResult;
+            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
+        } <span class="keyword">catch</span> (gen11_exception) {
+            gen2_callback(gen11_exception);
+        }
+    }
+});</code></pre>
         </div>
         <hr />
       </li>
