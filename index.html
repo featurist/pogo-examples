@@ -17,8 +17,8 @@
           <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
 
 array two <span class="operator">=</span> [
-  <span class="number">3</span>
-  <span class="string">"four"</span>
+    <span class="number">3</span>
+    <span class="string">"four"</span>
 ]</code></pre>
         </div>
         <div class="javascript">
@@ -36,20 +36,20 @@ arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ]
         <div class="pogo">
           <pre><code>person <span class="operator">=</span> {
 
-  name <span class="operator">=</span> <span class="string">'Man Ray'</span>
+    name <span class="operator">=</span> <span class="string">'Man Ray'</span>
 
-  say hi later() <span class="operator">=</span>
-    set timeout
-      console. log <span class="string">"my name is #(self.name)"</span>
-    <span class="number">123</span>
+    say hi later() <span class="operator">=</span>
+        set
+            console. log <span class="string">"my name is #(self.name)"</span>
+        timeout <span class="number">123</span>
 
 }
 
 not using an arrow
-  means (<span class="keyword">self</span>) is not always (this)
+    means (<span class="keyword">self</span>) is not always (this)
 
 using an arrow <span class="operator">=></span>
-  means (<span class="keyword">self</span>) is always (this)</code></pre>
+    means (<span class="keyword">self</span>) is always (this)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -104,13 +104,13 @@ mapEachInInto(filenames, <span class="function"><span class="keyword">function</
           <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
 
 one higher than (n) <span class="operator">=</span>
-  n + <span class="number">1</span>
+    n + <span class="number">1</span>
 
 either (thing) or (other) <span class="operator">=</span>
-  thing || other
+    thing || other
 
 end of the line () <span class="operator">=</span>
-  ok then()</code></pre>
+    ok then()</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
@@ -138,15 +138,15 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
         <h2>Dsl</h2>
         <div class="pogo">
           <pre><code>describe <span class="string">'a horse'</span>
-  before
-    <span class="keyword">self</span>.horse <span class="operator">=</span> new (Horse)
-
-  context <span class="string">'that is dead'</span>
     before
-      <span class="keyword">self</span>.horse.kill()
+      <span class="keyword">self</span>.horse <span class="operator">=</span> new (Horse)
+
+    context <span class="string">'that is dead'</span>
+        before
+            <span class="keyword">self</span>.horse.kill()
   
-    it <span class="string">'should not move'</span>
-      <span class="keyword">self</span>.horse.should not move()</code></pre>
+        it <span class="string">'should not move'</span>
+            <span class="keyword">self</span>.horse.should not move()</code></pre>
         </div>
         <div class="javascript">
           <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
@@ -241,7 +241,7 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
         <h2>For</h2>
         <div class="pogo">
           <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
-  console. log (n)</code></pre>
+    console. log (n)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> n;
@@ -257,7 +257,7 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
         <h2>For Each</h2>
         <div class="pogo">
           <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
-  gobble(fruit)</code></pre>
+    gobble(fruit)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
@@ -395,8 +395,8 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
         <h2>Objects</h2>
         <div class="pogo">
           <pre><code>address <span class="operator">=</span> {
-  street <span class="operator">=</span> <span class="string">"Fake Street"</span>
-  post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
+    street <span class="operator">=</span> <span class="string">"Fake Street"</span>
+    post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
 }</code></pre>
         </div>
         <div class="javascript">
@@ -448,7 +448,7 @@ connectToMysqlDatabase({
         <h2>Options</h2>
         <div class="pogo">
           <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
-  console.log <span class="string">"connecting to #(host):#(port)"</span>
+    console.log <span class="string">"connecting to #(host):#(port)"</span>
 </code></pre>
         </div>
         <div class="javascript">
@@ -556,8 +556,8 @@ finally
           <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
 height <span class="operator">=</span>
-  n <span class="operator">=</span> <span class="number">10</span>
-  (n * n * n) + <span class="number">25</span>
+    n <span class="operator">=</span> <span class="number">10</span>
+    (n * n * n) + <span class="number">25</span>
 </code></pre>
         </div>
         <div class="javascript">

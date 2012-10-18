@@ -1,2 +1,2 @@
 for each @(fruit) in (basket)
-  gobble(fruit)
+    gobble(fruit)
