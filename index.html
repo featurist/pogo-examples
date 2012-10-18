@@ -17,8 +17,8 @@
           <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
 
 array two <span class="operator">=</span> [
-  <span class="number">3</span>
-  <span class="string">"four"</span>
+    <span class="number">3</span>
+    <span class="string">"four"</span>
 ]</code></pre>
         </div>
         <div class="javascript">
@@ -36,20 +36,20 @@ arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ]
         <div class="pogo">
           <pre><code>person <span class="operator">=</span> {
 
-  name <span class="operator">=</span> <span class="string">'Man Ray'</span>
+    name <span class="operator">=</span> <span class="string">'Man Ray'</span>
 
-  say hi later() <span class="operator">=</span>
-    set timeout
-      console. log <span class="string">"my name is #(self.name)"</span>
-    <span class="number">123</span>
+    say hi later() <span class="operator">=</span>
+        set
+            console. log <span class="string">"my name is #(self.name)"</span>
+        timeout <span class="number">123</span>
 
 }
 
 not using an arrow
-  means (<span class="keyword">self</span>) is not always (this)
+    means (<span class="keyword">self</span>) is not always (this)
 
 using an arrow <span class="operator">=></span>
-  means (<span class="keyword">self</span>) is always (this)</code></pre>
+    means (<span class="keyword">self</span>) is always (this)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> person;
@@ -104,13 +104,13 @@ mapEachInInto(filenames, <span class="function"><span class="keyword">function</
           <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
 
 one higher than (n) <span class="operator">=</span>
-  n + <span class="number">1</span>
+    n + <span class="number">1</span>
 
 either (thing) or (other) <span class="operator">=</span>
-  thing || other
+    thing || other
 
 end of the line () <span class="operator">=</span>
-  ok then()</code></pre>
+    ok then()</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
@@ -135,7 +135,64 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </li>
       
       <li>
-        <h2>Factorial</h2>
+        <h2>Dsl</h2>
+        <div class="pogo">
+          <pre><code>describe <span class="string">'a horse'</span>
+    before
+      <span class="keyword">self</span>.horse <span class="operator">=</span> new (Horse)
+
+    context <span class="string">'that is dead'</span>
+        before
+            <span class="keyword">self</span>.horse.kill()
+  
+        it <span class="string">'should not move'</span>
+            <span class="keyword">self</span>.horse.should not move()</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse;
+    });
+    <span class="keyword">return</span> context(<span class="string">"that is dead"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+            <span class="keyword">return</span> self.horse.kill();
+        });
+        <span class="keyword">return</span> it(<span class="string">"should not move"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+            <span class="keyword">return</span> self.horse.shouldNotMove();
+        });
+    });
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Factorial (Iterative)</h2>
+        <div class="pogo">
+          <pre><code>factorial (n) <span class="operator">=</span>
+    x <span class="operator">=</span> <span class="number">1</span>
+    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">=</span> i + <span class="number">1</span>)
+        x <span class="operator">=</span> x * i
+  
+    x</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> factorial;
+
+factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
+    <span class="keyword">var</span> x, i;
+    x = <span class="number">1</span>;
+    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i = i + <span class="number">1</span>) {
+        x = x * i;
+    }
+    <span class="keyword">return</span> x;
+};</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Factorial (Recursive)</h2>
         <div class="pogo">
           <pre><code>factorial (n) <span class="operator">=</span>
     <span class="keyword">if</span> (n <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
@@ -158,10 +215,33 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
       </li>
       
       <li>
+        <h2>Fibonacci</h2>
+        <div class="pogo">
+          <pre><code>fib (i) <span class="operator">=</span>
+    <span class="keyword">if</span> ((i <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) || (i <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>))
+        <span class="number">1</span>
+    <span class="keyword">else</span>
+        fib (i - <span class="number">1</span>) + fib (i - <span class="number">2</span>)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> fib;
+
+fib = <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
+    <span class="keyword">if</span> (i === <span class="number">0</span> || i === <span class="number">1</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    } <span class="keyword">else</span> {
+        <span class="keyword">return</span> fib(i - <span class="number">1</span>) + fib(i - <span class="number">2</span>);
+    }
+};</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
         <h2>For</h2>
         <div class="pogo">
           <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
-  console. log (n)</code></pre>
+    console. log (n)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> n;
@@ -177,7 +257,7 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
         <h2>For Each</h2>
         <div class="pogo">
           <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
-  gobble(fruit)</code></pre>
+    gobble(fruit)</code></pre>
         </div>
         <div class="javascript">
           <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
@@ -315,8 +395,8 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
         <h2>Objects</h2>
         <div class="pogo">
           <pre><code>address <span class="operator">=</span> {
-  street <span class="operator">=</span> <span class="string">"Fake Street"</span>
-  post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
+    street <span class="operator">=</span> <span class="string">"Fake Street"</span>
+    post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
 }</code></pre>
         </div>
         <div class="javascript">
@@ -368,7 +448,7 @@ connectToMysqlDatabase({
         <h2>Options</h2>
         <div class="pogo">
           <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
-  console.log <span class="string">"connecting to #(host):#(part)"</span>
+    console.log <span class="string">"connecting to #(host):#(port)"</span>
 </code></pre>
         </div>
         <div class="javascript">
@@ -378,7 +458,7 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
     <span class="keyword">var</span> port, host;
     port = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
     host = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
-    <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + part);
+    <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + port);
 };</code></pre>
         </div>
         <hr />
@@ -476,8 +556,8 @@ finally
           <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
 height <span class="operator">=</span>
-  n <span class="operator">=</span> <span class="number">10</span>
-  (n * n * n) + <span class="number">25</span>
+    n <span class="operator">=</span> <span class="number">10</span>
+    (n * n * n) + <span class="number">25</span>
 </code></pre>
         </div>
         <div class="javascript">
@@ -520,6 +600,97 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
       </li>
       
       <li>
+        <h2>When</h2>
+        <div class="pogo">
+          <pre><code>is (expected) (action) <span class="operator">=</span>
+    action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
+        <span class="keyword">if</span> (expected <span class="operator">=</span><span class="operator">=</span> actual)
+            action
+
+otherwise (action) <span class="operator">=</span>
+    action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
+        action
+
+when (actual<span class="operator">,</span> cases) <span class="operator">=</span>
+    <span class="keyword">for</span> each @(action <span class="keyword">if</span> matched) in (cases)
+        action <span class="operator">=</span> action <span class="keyword">if</span> (actual) matched
+        <span class="keyword">if</span> (action)
+            return (action ())
+
+print (args<span class="operator">,</span> ...) <span class="operator">=</span> console.log (args<span class="operator">,</span> ...)
+
+x <span class="operator">=</span> <span class="number">2</span>
+
+when (x) [
+    is <span class="number">0</span>
+        print <span class="string">"x is zero"</span>
+
+    is <span class="number">1</span>
+        print <span class="string">"x is one"</span>
+
+    otherwise
+        print <span class="string">"x is not zero or one"</span>
+]</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
+
+is = <span class="function"><span class="keyword">function</span><span class="params">(expected, action)</span> {</span>
+    <span class="keyword">var</span> actionIfMatched;
+    <span class="keyword">return</span> actionIfMatched = <span class="function"><span class="keyword">function</span><span class="params">(actual)</span> {</span>
+        <span class="keyword">if</span> (expected === actual) {
+            <span class="keyword">return</span> action;
+        }
+    };
+};
+
+otherwise = <span class="function"><span class="keyword">function</span><span class="params">(action)</span> {</span>
+    <span class="keyword">var</span> actionIfMatched;
+    <span class="keyword">return</span> actionIfMatched = <span class="function"><span class="keyword">function</span><span class="params">(actual)</span> {</span>
+        <span class="keyword">return</span> action;
+    };
+};
+
+when = <span class="function"><span class="keyword">function</span><span class="params">(actual, cases)</span> {</span>
+    <span class="keyword">var</span> gen1_items, gen2_i, gen3_forResult;
+    gen1_items = <span class="keyword">case</span>s;
+    <span class="keyword">for</span> (gen2_i = <span class="number">0</span>; gen2_i &lt; gen1_items.length; ++gen2_i) {
+        gen3_forResult = <span class="keyword">void</span> <span class="number">0</span>;
+        <span class="keyword">if</span> (<span class="function"><span class="keyword">function</span><span class="params">(gen2_i)</span> {</span>
+            <span class="keyword">var</span> actionIfMatched, action;
+            actionIfMatched = gen1_items[gen2_i];
+            action = actionIfMatched(actual);
+            <span class="keyword">if</span> (action) {
+                gen3_forResult = action();
+                <span class="keyword">return</span> <span class="literal">true</span>;
+            }
+        }(gen2_i)) {
+            <span class="keyword">return</span> gen3_forResult;
+        }
+    }
+};
+
+print = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> args, gen4_o;
+    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    gen4_o = console;
+    <span class="keyword">return</span> gen4_o.log.apply(gen4_o, args);
+};
+
+x = <span class="number">2</span>;
+
+when(x, [ is(<span class="number">0</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is zero"</span>);
+}), is(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is one"</span>);
+}), otherwise(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is not zero or one"</span>);
+}) ]);</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
         <h2>Async Calls</h2>
         <div class="pogo">
           <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
@@ -536,6 +707,181 @@ scrape facts from (web page)</code></pre>
             gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
         } <span class="keyword">catch</span> (gen4_exception) {
             gen3_callback(gen4_exception);
+        }
+    }
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Continuations</h2>
+        <div class="pogo">
+          <pre><code>current continuation (callback) <span class="operator">=</span>
+    continuation () <span class="operator">=</span>
+        callback (nil<span class="operator">,</span> continuation)
+
+    callback (nil<span class="operator">,</span> continuation)
+
+n <span class="operator">=</span> <span class="number">0</span>
+
+cont <span class="operator">=</span> current continuation!
+
+console.log (n)
+n <span class="operator">=</span> n + <span class="number">1</span>
+
+<span class="keyword">if</span> (n &lt; <span class="number">10</span>)
+    cont ()</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> currentContinuation, n;
+
+currentContinuation = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
+    <span class="keyword">var</span> continuation;
+    continuation = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+    };
+    <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+};
+
+n = <span class="number">0</span>;
+
+currentContinuation(<span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
+    <span class="keyword">var</span> cont;
+    <span class="keyword">if</span> (gen1_error) {
+        gen3_callback(gen1_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            cont = gen2_asyncResult;
+            console.log(n);
+            n = n + <span class="number">1</span>;
+            <span class="keyword">if</span> (n &lt; <span class="number">10</span>) {
+                gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, cont());
+            }
+        } <span class="keyword">catch</span> (gen4_exception) {
+            gen3_callback(gen4_exception);
+        }
+    }
+});</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Coroutines</h2>
+        <div class="pogo">
+          <pre><code>last yield continuation <span class="operator">=</span> nil
+last result continuation <span class="operator">=</span> nil
+
+yield (n<span class="operator">,</span> yield continuation) <span class="operator">=</span>
+    last yield continuation <span class="operator">=</span> yield continuation
+    last result continuation (nil<span class="operator">,</span> n)
+
+coroutine (block) <span class="operator">=</span>
+    run (result continuation) <span class="operator">=</span>
+        last result continuation <span class="operator">=</span> result continuation
+
+        <span class="keyword">if</span> (last yield continuation)
+            last yield continuation ()
+        <span class="keyword">else</span>
+            block
+                last yield continuation <span class="operator">=</span> nil
+                last result continuation <span class="operator">=</span> nil
+
+strings <span class="operator">=</span> coroutine
+    yield! <span class="number">1</span>
+    yield! <span class="number">2</span>
+    yield! <span class="number">3</span>
+
+console.log (strings!)
+console.log (strings!)
+console.log (strings!)
+console.log <span class="string">'finished'</span></code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> lastYieldContinuation, lastResultContinuation, yield, coroutine, strings;
+
+lastYieldContinuation = <span class="keyword">void</span> <span class="number">0</span>;
+
+lastResultContinuation = <span class="keyword">void</span> <span class="number">0</span>;
+
+yield = <span class="function"><span class="keyword">function</span><span class="params">(n, yieldContinuation)</span> {</span>
+    lastYieldContinuation = yieldContinuation;
+    <span class="keyword">return</span> lastResultContinuation(<span class="keyword">void</span> <span class="number">0</span>, n);
+};
+
+coroutine = <span class="function"><span class="keyword">function</span><span class="params">(block)</span> {</span>
+    <span class="keyword">var</span> run;
+    <span class="keyword">return</span> run = <span class="function"><span class="keyword">function</span><span class="params">(resultContinuation)</span> {</span>
+        lastResultContinuation = resultContinuation;
+        <span class="keyword">if</span> (lastYieldContinuation) {
+            <span class="keyword">return</span> lastYieldContinuation();
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> block(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                lastYieldContinuation = <span class="keyword">void</span> <span class="number">0</span>;
+                <span class="keyword">return</span> lastResultContinuation = <span class="keyword">void</span> <span class="number">0</span>;
+            });
+        }
+    };
+};
+
+strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+    yield(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+        <span class="keyword">if</span> (gen2_error) {
+            gen1_callback(gen2_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                gen3_asyncResult;
+                yield(<span class="number">2</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen4_error) {
+                        gen1_callback(gen4_error);
+                    } <span class="keyword">else</span> {
+                        <span class="keyword">try</span> {
+                            gen5_asyncResult;
+                            yield(<span class="number">3</span>, gen1_callback);
+                        } <span class="keyword">catch</span> (gen6_exception) {
+                            gen1_callback(gen6_exception);
+                        }
+                    }
+                });
+            } <span class="keyword">catch</span> (gen7_exception) {
+                gen1_callback(gen7_exception);
+            }
+        }
+    });
+});
+
+strings(<span class="function"><span class="keyword">function</span><span class="params">(gen8_error, gen9_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen8_error) {
+        gen1_callback(gen8_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            console.log(gen9_asyncResult);
+            strings(<span class="function"><span class="keyword">function</span><span class="params">(gen10_error, gen11_asyncResult)</span> {</span>
+                <span class="keyword">if</span> (gen10_error) {
+                    gen1_callback(gen10_error);
+                } <span class="keyword">else</span> {
+                    <span class="keyword">try</span> {
+                        console.log(gen11_asyncResult);
+                        strings(<span class="function"><span class="keyword">function</span><span class="params">(gen12_error, gen13_asyncResult)</span> {</span>
+                            <span class="keyword">if</span> (gen12_error) {
+                                gen1_callback(gen12_error);
+                            } <span class="keyword">else</span> {
+                                <span class="keyword">try</span> {
+                                    console.log(gen13_asyncResult);
+                                    gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"finished"</span>));
+                                } <span class="keyword">catch</span> (gen14_exception) {
+                                    gen1_callback(gen14_exception);
+                                }
+                            }
+                        });
+                    } <span class="keyword">catch</span> (gen15_exception) {
+                        gen1_callback(gen15_exception);
+                    }
+                }
+            });
+        } <span class="keyword">catch</span> (gen16_exception) {
+            gen1_callback(gen16_exception);
         }
     }
 });</code></pre>
@@ -610,6 +956,53 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
         }
     }
 });</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Fork</h2>
+        <div class="pogo">
+          <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
+
+fork (block) <span class="operator">=</span> block @{}
+
+fork
+    console.log <span class="string">"reading contents of file #(__filename)"</span>
+    contents <span class="operator">=</span> fs.read file (__filename<span class="operator">,</span>  <span class="string">'utf-8'</span>)!
+    console.log (<span class="string">"contents of #(__filename):"</span>)
+    process.stdout.write (contents)
+
+console.log <span class="string">'processing other stuff'</span></code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> fs, fork;
+
+fs = require(<span class="string">"fs"</span>);
+
+fork = <span class="function"><span class="keyword">function</span><span class="params">(block)</span> {</span>
+    <span class="keyword">return</span> block(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>});
+};
+
+fork(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+    console.log(<span class="string">"reading contents of file "</span> + __filename);
+    fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+        <span class="keyword">var</span> contents;
+        <span class="keyword">if</span> (gen2_error) {
+            gen1_callback(gen2_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                contents = gen3_asyncResult;
+                console.log(<span class="string">"contents of "</span> + __filename + <span class="string">":"</span>);
+                gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
+            } <span class="keyword">catch</span> (gen4_exception) {
+                gen1_callback(gen4_exception);
+            }
+        }
+    });
+});
+
+console.log(<span class="string">"processing other stuff"</span>);</code></pre>
         </div>
         <hr />
       </li>
