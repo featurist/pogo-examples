@@ -21,8 +21,6 @@ render (file, callback) =
     else
       js = pogo.compile (pogo source, in scope: false).javascript
       callback (null) {
-        js = js
-        pogo = pogo source
         js = highlight.javascript (js)
         pogo = highlight.pogoscript (pogo source)
         name = title from filename (file)

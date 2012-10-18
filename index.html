@@ -135,7 +135,32 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </li>
       
       <li>
-        <h2>Factorial</h2>
+        <h2>Factorial (Iterative)</h2>
+        <div class="pogo">
+          <pre><code>factorial (n) <span class="operator">=</span>
+    x <span class="operator">=</span> <span class="number">1</span>
+    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">=</span> i + <span class="number">1</span>)
+        x <span class="operator">=</span> x * i
+  
+    x</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> factorial;
+
+factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
+    <span class="keyword">var</span> x, i;
+    x = <span class="number">1</span>;
+    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i = i + <span class="number">1</span>) {
+        x = x * i;
+    }
+    <span class="keyword">return</span> x;
+};</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Factorial (Recursive)</h2>
         <div class="pogo">
           <pre><code>factorial (n) <span class="operator">=</span>
     <span class="keyword">if</span> (n <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
@@ -151,6 +176,29 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
         <span class="keyword">return</span> <span class="number">1</span>;
     } <span class="keyword">else</span> {
         <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);
+    }
+};</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Fibonacci</h2>
+        <div class="pogo">
+          <pre><code>fib (i) <span class="operator">=</span>
+    <span class="keyword">if</span> ((i <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) || (i <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>))
+        <span class="number">1</span>
+    <span class="keyword">else</span>
+        fib (i - <span class="number">1</span>) + fib (i - <span class="number">2</span>)</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> fib;
+
+fib = <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
+    <span class="keyword">if</span> (i === <span class="number">0</span> || i === <span class="number">1</span>) {
+        <span class="keyword">return</span> <span class="number">1</span>;
+    } <span class="keyword">else</span> {
+        <span class="keyword">return</span> fib(i - <span class="number">1</span>) + fib(i - <span class="number">2</span>);
     }
 };</code></pre>
         </div>
@@ -368,7 +416,7 @@ connectToMysqlDatabase({
         <h2>Options</h2>
         <div class="pogo">
           <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
-  console.log <span class="string">"connecting to #(host):#(part)"</span>
+  console.log <span class="string">"connecting to #(host):#(port)"</span>
 </code></pre>
         </div>
         <div class="javascript">
@@ -378,7 +426,7 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
     <span class="keyword">var</span> port, host;
     port = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
     host = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
-    <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + part);
+    <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + port);
 };</code></pre>
         </div>
         <hr />
@@ -520,6 +568,97 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
       </li>
       
       <li>
+        <h2>When</h2>
+        <div class="pogo">
+          <pre><code>is (expected) (action) <span class="operator">=</span>
+    action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
+        <span class="keyword">if</span> (expected <span class="operator">=</span><span class="operator">=</span> actual)
+            action
+
+otherwise (action) <span class="operator">=</span>
+    action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
+        action
+
+when (actual<span class="operator">,</span> cases) <span class="operator">=</span>
+    <span class="keyword">for</span> each @(action <span class="keyword">if</span> matched) in (cases)
+        action <span class="operator">=</span> action <span class="keyword">if</span> (actual) matched
+        <span class="keyword">if</span> (action)
+            return (action ())
+
+print (args<span class="operator">,</span> ...) <span class="operator">=</span> console.log (args<span class="operator">,</span> ...)
+
+x <span class="operator">=</span> <span class="number">2</span>
+
+when (x) [
+    is <span class="number">0</span>
+        print <span class="string">"x is zero"</span>
+
+    is <span class="number">1</span>
+        print <span class="string">"x is one"</span>
+
+    otherwise
+        print <span class="string">"x is not zero or one"</span>
+]</code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
+
+is = <span class="function"><span class="keyword">function</span><span class="params">(expected, action)</span> {</span>
+    <span class="keyword">var</span> actionIfMatched;
+    <span class="keyword">return</span> actionIfMatched = <span class="function"><span class="keyword">function</span><span class="params">(actual)</span> {</span>
+        <span class="keyword">if</span> (expected === actual) {
+            <span class="keyword">return</span> action;
+        }
+    };
+};
+
+otherwise = <span class="function"><span class="keyword">function</span><span class="params">(action)</span> {</span>
+    <span class="keyword">var</span> actionIfMatched;
+    <span class="keyword">return</span> actionIfMatched = <span class="function"><span class="keyword">function</span><span class="params">(actual)</span> {</span>
+        <span class="keyword">return</span> action;
+    };
+};
+
+when = <span class="function"><span class="keyword">function</span><span class="params">(actual, cases)</span> {</span>
+    <span class="keyword">var</span> gen1_items, gen2_i, gen3_forResult;
+    gen1_items = <span class="keyword">case</span>s;
+    <span class="keyword">for</span> (gen2_i = <span class="number">0</span>; gen2_i &lt; gen1_items.length; ++gen2_i) {
+        gen3_forResult = <span class="keyword">void</span> <span class="number">0</span>;
+        <span class="keyword">if</span> (<span class="function"><span class="keyword">function</span><span class="params">(gen2_i)</span> {</span>
+            <span class="keyword">var</span> actionIfMatched, action;
+            actionIfMatched = gen1_items[gen2_i];
+            action = actionIfMatched(actual);
+            <span class="keyword">if</span> (action) {
+                gen3_forResult = action();
+                <span class="keyword">return</span> <span class="literal">true</span>;
+            }
+        }(gen2_i)) {
+            <span class="keyword">return</span> gen3_forResult;
+        }
+    }
+};
+
+print = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> args, gen4_o;
+    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    gen4_o = console;
+    <span class="keyword">return</span> gen4_o.log.apply(gen4_o, args);
+};
+
+x = <span class="number">2</span>;
+
+when(x, [ is(<span class="number">0</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is zero"</span>);
+}), is(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is one"</span>);
+}), otherwise(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> print(<span class="string">"x is not zero or one"</span>);
+}) ]);</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
         <h2>Async Calls</h2>
         <div class="pogo">
           <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
@@ -610,6 +749,53 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
         }
     }
 });</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
+        <h2>Async Fork</h2>
+        <div class="pogo">
+          <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
+
+fork (block) <span class="operator">=</span> block @{}
+
+fork
+    console.log <span class="string">"reading contents of file #(__filename)"</span>
+    contents <span class="operator">=</span> fs.read file (__filename<span class="operator">,</span>  <span class="string">'utf-8'</span>)!
+    console.log (<span class="string">"contents of #(__filename):"</span>)
+    process.stdout.write (contents)
+
+console.log <span class="string">'processing other stuff'</span></code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> fs, fork;
+
+fs = require(<span class="string">"fs"</span>);
+
+fork = <span class="function"><span class="keyword">function</span><span class="params">(block)</span> {</span>
+    <span class="keyword">return</span> block(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>});
+};
+
+fork(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+    console.log(<span class="string">"reading contents of file "</span> + __filename);
+    fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+        <span class="keyword">var</span> contents;
+        <span class="keyword">if</span> (gen2_error) {
+            gen1_callback(gen2_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                contents = gen3_asyncResult;
+                console.log(<span class="string">"contents of "</span> + __filename + <span class="string">":"</span>);
+                gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
+            } <span class="keyword">catch</span> (gen4_exception) {
+                gen1_callback(gen4_exception);
+            }
+        }
+    });
+});
+
+console.log(<span class="string">"processing other stuff"</span>);</code></pre>
         </div>
         <hr />
       </li>
