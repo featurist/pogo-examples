@@ -1,13 +1,12 @@
 # Pogo Examples
 
-Small examples of [PogoScript](https://github.com/featurist/pogoscript) features. Includes a script to compile an HTML page
-of all examples with their compiled JavaScript side-by-side:
+Small examples of [PogoScript](https://github.com/featurist/pogoscript) features.
 
 http://featurist.github.com/pogo-examples
 
 ### Compiling the examples as a web page
 
 1. Install [PogoScript](https://github.com/featurist/pogoscript)
-2. npm install async, handlebars
-2. Modify *.pogo files in ./examples
+2. npm install
+2. Add or edit *.pogo files in ./examples
 3. pogo index.pogo > index.html
