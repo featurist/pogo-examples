@@ -57,8 +57,7 @@ using an arrow <span class="operator">=></span>
 person = {
     name: <span class="string">"Man Ray"</span>,
     sayHiLater: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> self;
-        self = <span class="keyword">this</span>;
+        <span class="keyword">var</span> self = <span class="keyword">this</span>;
         <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
             <span class="keyword">return</span> console.log(<span class="string">"my name is "</span> + self.name);
         }, <span class="number">123</span>);
@@ -70,8 +69,7 @@ notUsingAnArrow(<span class="function"><span class="keyword">function</span><spa
 });
 
 usingAnArrow(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> self;
-    self = <span class="keyword">this</span>;
+    <span class="keyword">var</span> self = <span class="keyword">this</span>;
     <span class="keyword">return</span> meansIsAlways(self, <span class="keyword">this</span>);
 });</code></pre>
         </div>
@@ -456,8 +454,8 @@ connectToMysqlDatabase({
 
 connectTo = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
     <span class="keyword">var</span> port, host;
-    port = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
-    host = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
+    port = gen1_options !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; Object.prototype.hasOwnProperty.call(gen1_options, <span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
+    host = gen1_options !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; Object.prototype.hasOwnProperty.call(gen1_options, <span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
     <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + port);
 };</code></pre>
         </div>
@@ -492,8 +490,7 @@ foo <span class="number">1</span> [<span class="number">2</span><span class="ope
           <pre><code><span class="keyword">var</span> foo;
 
 foo = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> args;
-    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
     <span class="keyword">return</span> print(args);
 };
 
@@ -671,8 +668,8 @@ when = <span class="function"><span class="keyword">function</span><span class="
 };
 
 print = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> args, gen4_o;
-    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> gen4_o;
     gen4_o = console;
     <span class="keyword">return</span> gen4_o.log.apply(gen4_o, args);
 };
@@ -826,62 +823,64 @@ coroutine = <span class="function"><span class="keyword">function</span><span cl
 };
 
 strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
-    yield(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
-        <span class="keyword">if</span> (gen2_error) {
-            gen1_callback(gen2_error);
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen1_callback = arguments[arguments.length - <span class="number">1</span>];
+    yield(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+        <span class="keyword">if</span> (gen3_error) {
+            gen1_callback(gen3_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
-                gen3_asyncResult;
-                yield(<span class="number">2</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
-                    <span class="keyword">if</span> (gen4_error) {
-                        gen1_callback(gen4_error);
+                gen4_asyncResult;
+                yield(<span class="number">2</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen5_error) {
+                        gen1_callback(gen5_error);
                     } <span class="keyword">else</span> {
                         <span class="keyword">try</span> {
-                            gen5_asyncResult;
+                            gen6_asyncResult;
                             yield(<span class="number">3</span>, gen1_callback);
-                        } <span class="keyword">catch</span> (gen6_exception) {
-                            gen1_callback(gen6_exception);
+                        } <span class="keyword">catch</span> (gen7_exception) {
+                            gen1_callback(gen7_exception);
                         }
                     }
                 });
-            } <span class="keyword">catch</span> (gen7_exception) {
-                gen1_callback(gen7_exception);
+            } <span class="keyword">catch</span> (gen8_exception) {
+                gen1_callback(gen8_exception);
             }
         }
     });
 });
 
-strings(<span class="function"><span class="keyword">function</span><span class="params">(gen8_error, gen9_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen8_error) {
-        gen1_callback(gen8_error);
+strings(<span class="function"><span class="keyword">function</span><span class="params">(gen9_error, gen10_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen9_error) {
+        gen1_callback(gen9_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            console.log(gen9_asyncResult);
-            strings(<span class="function"><span class="keyword">function</span><span class="params">(gen10_error, gen11_asyncResult)</span> {</span>
-                <span class="keyword">if</span> (gen10_error) {
-                    gen1_callback(gen10_error);
+            console.log(gen10_asyncResult);
+            strings(<span class="function"><span class="keyword">function</span><span class="params">(gen11_error, gen12_asyncResult)</span> {</span>
+                <span class="keyword">if</span> (gen11_error) {
+                    gen1_callback(gen11_error);
                 } <span class="keyword">else</span> {
                     <span class="keyword">try</span> {
-                        console.log(gen11_asyncResult);
-                        strings(<span class="function"><span class="keyword">function</span><span class="params">(gen12_error, gen13_asyncResult)</span> {</span>
-                            <span class="keyword">if</span> (gen12_error) {
-                                gen1_callback(gen12_error);
+                        console.log(gen12_asyncResult);
+                        strings(<span class="function"><span class="keyword">function</span><span class="params">(gen13_error, gen14_asyncResult)</span> {</span>
+                            <span class="keyword">if</span> (gen13_error) {
+                                gen1_callback(gen13_error);
                             } <span class="keyword">else</span> {
                                 <span class="keyword">try</span> {
-                                    console.log(gen13_asyncResult);
+                                    console.log(gen14_asyncResult);
                                     gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"finished"</span>));
-                                } <span class="keyword">catch</span> (gen14_exception) {
-                                    gen1_callback(gen14_exception);
+                                } <span class="keyword">catch</span> (gen15_exception) {
+                                    gen1_callback(gen15_exception);
                                 }
                             }
                         });
-                    } <span class="keyword">catch</span> (gen15_exception) {
-                        gen1_callback(gen15_exception);
+                    } <span class="keyword">catch</span> (gen16_exception) {
+                        gen1_callback(gen16_exception);
                     }
                 }
             });
-        } <span class="keyword">catch</span> (gen16_exception) {
-            gen1_callback(gen16_exception);
+        } <span class="keyword">catch</span> (gen17_exception) {
+            gen1_callback(gen17_exception);
         }
     }
 });</code></pre>
@@ -935,24 +934,32 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
 };
 
 (<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
     <span class="keyword">var</span> n;
     n = <span class="number">0</span>;
     gen1_asyncFor(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        <span class="keyword">var</span> gen4_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        gen2_callback = arguments[arguments.length - <span class="number">1</span>];
         gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n &lt; <span class="number">3</span>);
     }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        <span class="keyword">var</span> gen5_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        gen2_callback = arguments[arguments.length - <span class="number">1</span>];
         gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n = n + <span class="number">1</span>);
     }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+        <span class="keyword">var</span> gen6_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        gen2_callback = arguments[arguments.length - <span class="number">1</span>];
         sendLetter(n, gen2_callback);
     }, gen2_callback);
-})(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen3_error) {
-        gen2_callback(gen3_error);
+})(<span class="function"><span class="keyword">function</span><span class="params">(gen7_error, gen8_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen7_error) {
+        gen2_callback(gen7_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen4_asyncResult;
+            gen8_asyncResult;
             gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
-        } <span class="keyword">catch</span> (gen5_exception) {
-            gen2_callback(gen5_exception);
+        } <span class="keyword">catch</span> (gen9_exception) {
+            gen2_callback(gen9_exception);
         }
     }
 });</code></pre>
@@ -985,18 +992,20 @@ fork = <span class="function"><span class="keyword">function</span><span class="
 };
 
 fork(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen1_callback = arguments[arguments.length - <span class="number">1</span>];
     console.log(<span class="string">"reading contents of file "</span> + __filename);
-    fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+    fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
         <span class="keyword">var</span> contents;
-        <span class="keyword">if</span> (gen2_error) {
-            gen1_callback(gen2_error);
+        <span class="keyword">if</span> (gen3_error) {
+            gen1_callback(gen3_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
-                contents = gen3_asyncResult;
+                contents = gen4_asyncResult;
                 console.log(<span class="string">"contents of "</span> + __filename + <span class="string">":"</span>);
                 gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
-            } <span class="keyword">catch</span> (gen4_exception) {
-                gen1_callback(gen4_exception);
+            } <span class="keyword">catch</span> (gen5_exception) {
+                gen1_callback(gen5_exception);
             }
         }
     });
@@ -1037,18 +1046,22 @@ gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><
 };
 
 gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
     kill(intruders, gen2_callback);
 }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    <span class="keyword">var</span> gen4_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
     callTheCopsAbout(intruders, gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen3_error) {
-        gen2_callback(gen3_error);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen5_error) {
+        gen2_callback(gen5_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen4_asyncResult;
+            gen6_asyncResult;
             keepWatch(gen2_callback);
-        } <span class="keyword">catch</span> (gen5_exception) {
-            gen2_callback(gen5_exception);
+        } <span class="keyword">catch</span> (gen7_exception) {
+            gen2_callback(gen7_exception);
         }
     }
 });</code></pre>
@@ -1176,42 +1189,49 @@ gen1_asyncTry = <span class="function"><span class="keyword">function</span><spa
 record = <span class="keyword">void</span> <span class="number">0</span>;
 
 gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-    connectToTheDatabase(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+    <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
+    connectToTheDatabase(<span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
         <span class="keyword">var</span> database;
-        <span class="keyword">if</span> (gen3_error) {
-            gen2_callback(gen3_error);
+        <span class="keyword">if</span> (gen4_error) {
+            gen2_callback(gen4_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
-                database = gen4_asyncResult;
-                database.query(<span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
-                    <span class="keyword">if</span> (gen5_error) {
-                        gen2_callback(gen5_error);
+                database = gen5_asyncResult;
+                database.query(<span class="function"><span class="keyword">function</span><span class="params">(gen6_error, gen7_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen6_error) {
+                        gen2_callback(gen6_error);
                     } <span class="keyword">else</span> {
                         <span class="keyword">try</span> {
-                            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, record = gen6_asyncResult);
-                        } <span class="keyword">catch</span> (gen7_exception) {
-                            gen2_callback(gen7_exception);
+                            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, record = gen7_asyncResult);
+                        } <span class="keyword">catch</span> (gen8_exception) {
+                            gen2_callback(gen8_exception);
                         }
                     }
                 });
-            } <span class="keyword">catch</span> (gen8_exception) {
-                gen2_callback(gen8_exception);
+            } <span class="keyword">catch</span> (gen9_exception) {
+                gen2_callback(gen9_exception);
             }
         }
     });
 }, <span class="function"><span class="keyword">function</span><span class="params">(error, gen2_callback)</span> {</span>
+    <span class="keyword">var</span> gen10_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
+    error = gen10_arguments[<span class="number">0</span>];
     exitTheProgramBecauseOf(error, gen2_callback);
 }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+    <span class="keyword">var</span> gen11_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    gen2_callback = arguments[arguments.length - <span class="number">1</span>];
     database.close(gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen9_error, gen10_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen9_error) {
-        gen2_callback(gen9_error);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen12_error, gen13_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen12_error) {
+        gen2_callback(gen12_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen10_asyncResult;
+            gen13_asyncResult;
             gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
-        } <span class="keyword">catch</span> (gen11_exception) {
-            gen2_callback(gen11_exception);
+        } <span class="keyword">catch</span> (gen14_exception) {
+            gen2_callback(gen14_exception);
         }
     }
 });</code></pre>

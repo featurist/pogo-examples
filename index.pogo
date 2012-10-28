@@ -19,7 +19,7 @@ render (file, callback) =
     if (error)
       callback (error)
     else
-      js = pogo.compile (pogo source, in scope: false).javascript
+      js = pogo.compile (pogo source, in scope: false)
       callback (null) {
         js = highlight.javascript (js)
         pogo = highlight.pogoscript (pogo source)
