@@ -9,20 +9,28 @@
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
     </a>
     <h1>PogoScript to JavaScript Examples</h1>
-    <ul>
+    <p>
+      Side-by-side examples of <a href="http://pogoscript.org">PogoScript</a> compiling to JavaScript.
+    </p>
+    <table>
       {{#each examples}}
-      <li>
-        <h2>{{this.name}}</h2>
-        <div class="pogo">
-          <pre><code>{{{this.pogo}}}</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>{{{this.js}}}</code></pre>
-        </div>
-        <hr />
-      </li>
+      <tr>
+        <th colspan="2"><h2>{{this.name}}</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>{{{this.pogo}}}</code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>{{{this.js}}}</code></pre>
+          </div>
+        </td>
+      </tr>
       {{/each}}
-    </ul>
-    
+    </table>
+
   </body>
 </html>

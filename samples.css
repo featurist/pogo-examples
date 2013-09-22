@@ -1,12 +1,14 @@
-body, div { font-family: sans-serif; }
-h1 { color: #394B55; }
-h2 { margin: 0 3px; font-size: 1.3em; color: #506757; }
+body { font-family: 'Helvetica Neue', Helvetica, Verdana, sans-serif; background-color: #efefef; }
+h1 { color: #394B55; margin: 0; }
+h2 { margin: 0; font-size: 1.3em; color: #506757; margin-top: 40px; margin-bottom: 4px; }
+th { text-align: left; }
 
-ul { list-style-type: none; margin: 0; padding: 0; }
-div { margin-bottom: 1em; padding: 0.3em; }
+table { border-top: 1px solid #cccccc; }
+td { border: 1px solid #efefef; border-bottom: 1px solid #ccc; border-top: 1px solid #fff; vertical-align: top; }
+pre { margin: 0.2em 0; padding: 0.2em; height: 100%; }
 
-pre { overflow: auto; border: 1px solid #efefef; margin: 0.2em 0; padding: 0.4em; background-color: #F8F8FF; }
-div.pogo { float: left; clear: left; width: 48%; }
-div.javascript { float: left; width: 48%; }
+.scrollable { overflow: auto; width: 500px; }
+.pogo { background-color: #fffeff; }
+.javascript { background-color: #fffeff; }
 
-hr { clear: left; visibility: hidden; }
+td pre code { background-color: transparent; }
