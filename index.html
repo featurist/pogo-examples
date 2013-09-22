@@ -9,32 +9,43 @@
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" />
     </a>
     <h1>PogoScript to JavaScript Examples</h1>
-    <ul>
+    <p>
+      Side-by-side examples of <a href="http://pogoscript.org">PogoScript</a> compiling to JavaScript.
+    </p>
+    <table>
       
-      <li>
-        <h2>Arrays</h2>
-        <div class="pogo">
-          <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
+      <tr>
+        <th colspan="2"><h2>Arrays</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
 
 array two <span class="operator">=</span> [
     <span class="number">3</span>
     <span class="string">"four"</span>
 ]</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> arrayOne, arrayTwo;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> arrayOne, arrayTwo;
 
 arrayOne = [ <span class="number">1</span>, <span class="string">"two"</span> ];
 
 arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ];</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Blocks Preserve Self</h2>
-        <div class="pogo">
-          <pre><code>person <span class="operator">=</span> {
+      <tr>
+        <th colspan="2"><h2>Blocks Preserve Self</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>person <span class="operator">=</span> {
 
     name <span class="operator">=</span> <span class="string">'Man Ray'</span>
 
@@ -50,15 +61,16 @@ not using an arrow
 
 using an arrow <span class="operator">=></span>
     means (<span class="keyword">self</span>) is always (this)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> person;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> person;
 
 person = {
     name: <span class="string">"Man Ray"</span>,
     sayHiLater: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">var</span> self;
-        self = <span class="keyword">this</span>;
+        <span class="keyword">var</span> self = <span class="keyword">this</span>;
         <span class="keyword">return</span> setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
             <span class="keyword">return</span> console.log(<span class="string">"my name is "</span> + self.name);
         }, <span class="number">123</span>);
@@ -70,38 +82,45 @@ notUsingAnArrow(<span class="function"><span class="keyword">function</span><spa
 });
 
 usingAnArrow(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> self;
-    self = <span class="keyword">this</span>;
+    <span class="keyword">var</span> self = <span class="keyword">this</span>;
     <span class="keyword">return</span> meansIsAlways(self, <span class="keyword">this</span>);
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Closures</h2>
-        <div class="pogo">
-          <pre><code>map each @(filename) in (filenames) into @{ path. resolve (filename) }
+      <tr>
+        <th colspan="2"><h2>Closures</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>map each @(filename) in (filenames) into @{ path. resolve (filename) }
     
 map each @(filename) in (filenames) into
     path. resolve (filename)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
     <span class="keyword">return</span> path.resolve(filename);
 });
 
 mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
     <span class="keyword">return</span> path.resolve(filename);
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Declaring Functions</h2>
-        <div class="pogo">
-          <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
+      <tr>
+        <th colspan="2"><h2>Declaring Functions</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
 
 one higher than (n) <span class="operator">=</span>
     n + <span class="number">1</span>
@@ -111,9 +130,11 @@ either (thing) or (other) <span class="operator">=</span>
 
 end of the line () <span class="operator">=</span>
     ok then()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
 
 oneLowerThan = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">return</span> n - <span class="number">1</span>;
@@ -130,14 +151,17 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
 endOfTheLine = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> okThen();
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Dsl</h2>
-        <div class="pogo">
-          <pre><code>describe <span class="string">'a horse'</span>
+      <tr>
+        <th colspan="2"><h2>Dsl</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>describe <span class="string">'a horse'</span>
     before
       <span class="keyword">self</span>.horse <span class="operator">=</span> new (Horse)
 
@@ -147,11 +171,13 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
   
         it <span class="string">'should not move'</span>
             <span class="keyword">self</span>.horse.should not move()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse;
+        <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse();
     });
     <span class="keyword">return</span> context(<span class="string">"that is dead"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
@@ -162,22 +188,60 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
         });
     });
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Factorial (Iterative)</h2>
-        <div class="pogo">
-          <pre><code>factorial (n) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Event Emitter</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>EventEmitter <span class="operator">=</span> require(<span class="string">'events'</span>).EventEmitter
+
+shouter <span class="operator">=</span> new (EventEmitter)
+
+shouter.on <span class="string">'shout'</span>
+    console.log <span class="string">"calm down"</span>
+
+shouter.emit <span class="string">'shout'</span></code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> EventEmitter, shouter;
+
+EventEmitter = require(<span class="string">"events"</span>).EventEmitter;
+
+shouter = <span class="keyword">new</span> EventEmitter();
+
+shouter.on(<span class="string">"shout"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> console.log(<span class="string">"calm down"</span>);
+});
+
+shouter.emit(<span class="string">"shout"</span>);</code></pre>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+        <th colspan="2"><h2>Factorial (Iterative)</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>factorial (n) <span class="operator">=</span>
     x <span class="operator">=</span> <span class="number">1</span>
-    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">=</span> i + <span class="number">1</span>)
-        x <span class="operator">=</span> x * i
-  
+    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">:</span><span class="operator">=</span> i + <span class="number">1</span>)
+        x <span class="operator">:</span><span class="operator">=</span> x * i
+
     x</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> factorial;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> factorial;
 
 factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">var</span> x, i;
@@ -187,21 +251,26 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
     }
     <span class="keyword">return</span> x;
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Factorial (Recursive)</h2>
-        <div class="pogo">
-          <pre><code>factorial (n) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Factorial (Recursive)</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>factorial (n) <span class="operator">=</span>
     <span class="keyword">if</span> (n <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
         <span class="number">1</span>
     <span class="keyword">else</span>
         n * factorial (n - <span class="number">1</span>)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> factorial;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> factorial;
 
 factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">if</span> (n === <span class="number">0</span>) {
@@ -210,21 +279,26 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
         <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);
     }
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Fibonacci</h2>
-        <div class="pogo">
-          <pre><code>fib (i) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Fibonacci</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>fib (i) <span class="operator">=</span>
     <span class="keyword">if</span> ((i <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) || (i <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>))
         <span class="number">1</span>
     <span class="keyword">else</span>
         fib (i - <span class="number">1</span>) + fib (i - <span class="number">2</span>)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> fib;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> fib;
 
 fib = <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">if</span> (i === <span class="number">0</span> || i === <span class="number">1</span>) {
@@ -233,34 +307,44 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
         <span class="keyword">return</span> fib(i - <span class="number">1</span>) + fib(i - <span class="number">2</span>);
     }
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>For</h2>
-        <div class="pogo">
-          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+      <tr>
+        <th colspan="2"><h2>For</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
     console. log (n)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> n;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> n;
 
 <span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n = n + <span class="number">1</span>) {
     console.log(n);
 }</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>For Each</h2>
-        <div class="pogo">
-          <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
+      <tr>
+        <th colspan="2"><h2>For Each</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
     gobble(fruit)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
 
 gen1_items = basket;
 
@@ -268,116 +352,146 @@ gen1_items = basket;
     fruit = gen1_items[gen2_i];
     gobble(fruit);
 }</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Function Calls</h2>
-        <div class="pogo">
-          <pre><code>y <span class="operator">=</span> compute some value from (z) and return it
+      <tr>
+        <th colspan="2"><h2>Function Calls</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>y <span class="operator">=</span> compute some value from (z) and return it
 
 md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> y;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> y;
 
 y = computeSomeValueFromAndReturnIt(z);
 
 md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Functions Without Arguments</h2>
-        <div class="pogo">
-          <pre><code>update page()
+      <tr>
+        <th colspan="2"><h2>Functions Without Arguments</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>update page()
 hungry <span class="operator">=</span> is lunch time()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> hungry;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> hungry;
 
 updatePage();
 
 hungry = isLunchTime();</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>If</h2>
-        <div class="pogo">
-          <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
+      <tr>
+        <th colspan="2"><h2>If</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
     console. log <span class="string">"gone kitesurfing!"</span>
 <span class="keyword">else</span>
     console. log <span class="string">"no wind, programming"</span></code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
     console.log(<span class="string">"gone kitesurfing!"</span>);
 } <span class="keyword">else</span> {
     console.log(<span class="string">"no wind, programming"</span>);
 }</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Method Calls</h2>
-        <div class="pogo">
-          <pre><code>file <span class="operator">=</span> open file <span class="string">"README.md"</span>
+      <tr>
+        <th colspan="2"><h2>Method Calls</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>file <span class="operator">=</span> open file <span class="string">"README.md"</span>
 file. read line()
 
 open file <span class="string">"README.md"</span>. read line()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> file;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> file;
 
 file = openFile(<span class="string">"README.md"</span>);
 
 file.readLine();
 
 openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Method Chains</h2>
-        <div class="pogo">
-          <pre><code>list. map @(i) into
+      <tr>
+        <th colspan="2"><h2>Method Chains</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>list. map @(i) into
     i + <span class="number">1</span>
 .select @(i) <span class="keyword">if</span>
     i &lt; <span class="number">5</span>
 .each @(i) <span class="keyword">do</span>
     console. log (i)
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i + <span class="number">1</span>;
 }).selectIf(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i &lt; <span class="number">5</span>;
 }).eachDo(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> console.log(i);
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Multiline Functions</h2>
-        <div class="pogo">
-          <pre><code>item <span class="operator">=</span> <span class="number">0</span>
+      <tr>
+        <th colspan="2"><h2>Multiline Functions</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>item <span class="operator">=</span> <span class="number">0</span>
 
 <span class="keyword">do</span>
     print (item)
-    item <span class="operator">=</span> item + <span class="number">1</span>
+    item <span class="operator">:</span><span class="operator">=</span> item + <span class="number">1</span>
 <span class="keyword">while</span> @{ item &lt; <span class="number">10</span> }</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> item;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> item;
 
 item = <span class="number">0</span>;
 
@@ -387,52 +501,104 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
 }, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> item &lt; <span class="number">10</span>;
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Objects</h2>
-        <div class="pogo">
-          <pre><code>address <span class="operator">=</span> {
+      <tr>
+        <th colspan="2"><h2>Objects</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>address <span class="operator">=</span> {
     street <span class="operator">=</span> <span class="string">"Fake Street"</span>
     post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
 }</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> address;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> address;
 
 address = {
     street: <span class="string">"Fake Street"</span>,
     postCode: <span class="string">"123 ABC"</span>
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Operators</h2>
-        <div class="pogo">
-          <pre><code>total height <span class="operator">=</span> header + (item * count) + footer</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> totalHeight;
+      <tr>
+        <th colspan="2"><h2>Operators</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>total height <span class="operator">=</span> header + (item * count) + footer
 
-totalHeight = header + item * count + footer;</code></pre>
-        </div>
-        <hr />
-      </li>
+definitely <span class="operator">=</span> <span class="literal">true</span> @and <span class="literal">true</span>
+
+maybe <span class="operator">=</span> <span class="literal">false</span> @or <span class="literal">true</span>
+
+no way <span class="operator">=</span> (definitely) not
+
+(p1) plus (p2) <span class="operator">=</span> { x <span class="operator">=</span> p1.x + p2.x<span class="operator">,</span> y <span class="operator">=</span> p1.y + p2.y }
+
+a <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">2</span> }
+b <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">3</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">4</span> }
+a @plus b</code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> totalHeight, definitely, maybe, noWay, plus, a, b;
+
+totalHeight = header + item * count + footer;
+
+definitely = <span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;
+
+maybe = <span class="literal">false</span> || <span class="literal">true</span>;
+
+noWay = !definitely;
+
+plus = <span class="function"><span class="keyword">function</span><span class="params">(p1, p2)</span> {</span>
+    <span class="keyword">return</span> {
+        x: p1.x + p2.x,
+        y: p1.y + p2.y
+    };
+};
+
+a = {
+    x: <span class="number">1</span>,
+    y: <span class="number">2</span>
+};
+
+b = {
+    x: <span class="number">3</span>,
+    y: <span class="number">4</span>
+};
+
+plus(a, b);</code></pre>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Optional Arguments</h2>
-        <div class="pogo">
-          <pre><code>connect to mysql database (address<span class="operator">:</span> <span class="string">"1.2.3.4"</span><span class="operator">,</span> port<span class="operator">:</span> <span class="number">3307</span>)
+      <tr>
+        <th colspan="2"><h2>Optional Arguments</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>connect to mysql database (address<span class="operator">:</span> <span class="string">"1.2.3.4"</span><span class="operator">,</span> port<span class="operator">:</span> <span class="number">3307</span>)
 
 connect to mysql database (readonly<span class="operator">:</span> <span class="literal">true</span>)
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>connectToMysqlDatabase({
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>connectToMysqlDatabase({
     address: <span class="string">"1.2.3.4"</span>,
     port: <span class="number">3307</span>
 });
@@ -440,72 +606,89 @@ connect to mysql database (readonly<span class="operator">:</span> <span class="
 connectToMysqlDatabase({
     readonly: <span class="literal">true</span>
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Options</h2>
-        <div class="pogo">
-          <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Options</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
     console.log <span class="string">"connecting to #(host):#(port)"</span>
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> connectTo;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> connectTo;
 
 connectTo = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
     <span class="keyword">var</span> port, host;
-    port = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
-    host = gen1_options &amp;&amp; gen1_options.hasOwnProperty(<span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
+    port = gen1_options !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; Object.prototype.hasOwnProperty.call(gen1_options, <span class="string">"port"</span>) &amp;&amp; gen1_options.port !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.port : <span class="number">3306</span>;
+    host = gen1_options !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; Object.prototype.hasOwnProperty.call(gen1_options, <span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
     <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + port);
 };</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Regular Expressions</h2>
-        <div class="pogo">
-          <pre><code><span class="string">"hot dog"</span>. replace r/d.g/ <span class="string">"potato"</span>
+      <tr>
+        <th colspan="2"><h2>Regular Expressions</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="string">"hot dog"</span>. replace r/d.g/ <span class="string">"potato"</span>
 
 <span class="string">"FOO"</span>.match r/foo/gi</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="string">"hot dog"</span>.replace(<span class="regexp">/d.g/</span>, <span class="string">"potato"</span>);
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="string">"hot dog"</span>.replace(<span class="regexp">/d.g/</span>, <span class="string">"potato"</span>);
 
 <span class="string">"FOO"</span>.match(<span class="regexp">/foo/gi</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Splat Arguments</h2>
-        <div class="pogo">
-          <pre><code>foo (args<span class="operator">,</span> ...) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Splat Arguments</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>foo (args<span class="operator">,</span> ...) <span class="operator">=</span>
      print (args)
 
 foo <span class="number">1</span> [<span class="number">2</span><span class="operator">,</span> <span class="number">3</span>] ... [<span class="number">4</span><span class="operator">,</span> <span class="number">5</span>] ... <span class="number">6</span>
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> foo;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> foo;
 
 foo = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> args;
-    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
     <span class="keyword">return</span> print(args);
 };
 
 foo.apply(<span class="literal">null</span>, [ <span class="number">1</span> ].concat([ <span class="number">2</span>, <span class="number">3</span> ]).concat([ <span class="number">4</span>, <span class="number">5</span> ]).concat([ <span class="number">6</span> ]));</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Strings</h2>
-        <div class="pogo">
-          <pre><code><span class="string">'meet you at Jayne''s place'</span>
+      <tr>
+        <th colspan="2"><h2>Strings</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="string">'meet you at Jayne''s place'</span>
 
 alan kay <span class="operator">=</span> <span class="string">"The best way to predict the future
             is to invent it."</span>
@@ -513,9 +696,11 @@ alan kay <span class="operator">=</span> <span class="string">"The best way to p
 mood <span class="operator">=</span> <span class="string">"happy"</span>
 announce <span class="string">"Feeling #(mood) today"</span>
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> alanKay, mood;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> alanKay, mood;
 
 <span class="string">"meet you at Jayne's place"</span>;
 
@@ -524,44 +709,54 @@ alanKay = <span class="string">"The best way to predict the future\nis to invent
 mood = <span class="string">"happy"</span>;
 
 announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Try Catch</h2>
-        <div class="pogo">
-          <pre><code>try
+      <tr>
+        <th colspan="2"><h2>Try Catch</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>try
     something messy()
 catch (ex)
     console.log <span class="string">"it went horribly wrong"</span>
 finally
     better clean up()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">try</span> {
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">try</span> {
     somethingMessy();
 } <span class="keyword">catch</span> (ex) {
     console.log(<span class="string">"it went horribly wrong"</span>);
 } <span class="keyword">finally</span> {
     betterCleanUp();
 }</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Variables</h2>
-        <div class="pogo">
-          <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
+      <tr>
+        <th colspan="2"><h2>Variables</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
-height <span class="operator">=</span>
+height <span class="operator">:</span><span class="operator">=</span>
     n <span class="operator">=</span> <span class="number">10</span>
     (n * n * n) + <span class="number">25</span>
 </code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> height;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> height;
 
 height = <span class="number">1025</span>;
 
@@ -570,21 +765,26 @@ height = <span class="function"><span class="keyword">function</span><span class
     n = <span class="number">10</span>;
     <span class="keyword">return</span> n * n * n + <span class="number">25</span>;
 }();</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Web Server</h2>
-        <div class="pogo">
-          <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
+      <tr>
+        <th colspan="2"><h2>Web Server</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
 http. create server @(request<span class="operator">,</span> response)
     response. write (head<span class="operator">:</span> <span class="number">200</span><span class="operator">,</span> <span class="string">"Content-Type"</span><span class="operator">:</span> <span class="string">"text/plain"</span>)
     response. end <span class="string">"Hello World\n"</span>
 . listen <span class="number">1337</span></code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> http;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> http;
 
 http = require(<span class="string">"http"</span>);
 
@@ -595,14 +795,17 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
     });
     <span class="keyword">return</span> response.end(<span class="string">"Hello World\n"</span>);
 }).listen(<span class="number">1337</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>When</h2>
-        <div class="pogo">
-          <pre><code>is (expected) (action) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>When</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>is (expected) (action) <span class="operator">=</span>
     action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
         <span class="keyword">if</span> (expected <span class="operator">=</span><span class="operator">=</span> actual)
             action
@@ -631,9 +834,11 @@ when (x) [
     otherwise
         print <span class="string">"x is not zero or one"</span>
 ]</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
 
 is = <span class="function"><span class="keyword">function</span><span class="params">(expected, action)</span> {</span>
     <span class="keyword">var</span> actionIfMatched;
@@ -668,11 +873,12 @@ when = <span class="function"><span class="keyword">function</span><span class="
             <span class="keyword">return</span> gen3_forResult;
         }
     }
+    <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
 };
 
 print = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> args, gen4_o;
-    args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
+    <span class="keyword">var</span> gen4_o;
     gen4_o = console;
     <span class="keyword">return</span> gen4_o.log.apply(gen4_o, args);
 };
@@ -686,38 +892,46 @@ when(x, [ is(<span class="number">0</span>, <span class="function"><span class="
 }), otherwise(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> print(<span class="string">"x is not zero or one"</span>);
 }) ]);</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async Calls</h2>
-        <div class="pogo">
-          <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
+      <tr>
+        <th colspan="2"><h2>Async Calls</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
 scrape facts from (web page)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
     <span class="keyword">var</span> webPage;
     <span class="keyword">if</span> (gen1_error) {
-        gen3_callback(gen1_error);
+        continuation(gen1_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
             webPage = gen2_asyncResult;
-            gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
-        } <span class="keyword">catch</span> (gen4_exception) {
-            gen3_callback(gen4_exception);
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
+        } <span class="keyword">catch</span> (gen3_exception) {
+            continuation(gen3_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async Continuations</h2>
-        <div class="pogo">
-          <pre><code>current continuation (callback) <span class="operator">=</span>
+      <tr>
+        <th colspan="2"><h2>Async Continuations</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>current continuation (callback) <span class="operator">=</span>
     continuation () <span class="operator">=</span>
         callback (nil<span class="operator">,</span> continuation)
 
@@ -728,20 +942,22 @@ n <span class="operator">=</span> <span class="number">0</span>
 cont <span class="operator">=</span> current continuation!
 
 console.log (n)
-n <span class="operator">=</span> n + <span class="number">1</span>
+n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>
 
 <span class="keyword">if</span> (n &lt; <span class="number">10</span>)
     cont ()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> currentContinuation, n;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> currentContinuation, n;
 
 currentContinuation = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
     <span class="keyword">var</span> continuation;
     continuation = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+        callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
     };
-    <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+    callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
 };
 
 n = <span class="number">0</span>;
@@ -749,44 +965,49 @@ n = <span class="number">0</span>;
 currentContinuation(<span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
     <span class="keyword">var</span> cont;
     <span class="keyword">if</span> (gen1_error) {
-        gen3_callback(gen1_error);
+        continuation(gen1_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
             cont = gen2_asyncResult;
             console.log(n);
             n = n + <span class="number">1</span>;
             <span class="keyword">if</span> (n &lt; <span class="number">10</span>) {
-                gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, cont());
+                continuation(<span class="keyword">void</span> <span class="number">0</span>, cont());
+            } <span class="keyword">else</span> {
+                continuation();
             }
-        } <span class="keyword">catch</span> (gen4_exception) {
-            gen3_callback(gen4_exception);
+        } <span class="keyword">catch</span> (gen3_exception) {
+            continuation(gen3_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async Coroutines</h2>
-        <div class="pogo">
-          <pre><code>last yield continuation <span class="operator">=</span> nil
+      <tr>
+        <th colspan="2"><h2>Async Coroutines</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>last yield continuation <span class="operator">=</span> nil
 last result continuation <span class="operator">=</span> nil
 
 yield (n<span class="operator">,</span> yield continuation) <span class="operator">=</span>
-    last yield continuation <span class="operator">=</span> yield continuation
+    last yield continuation <span class="operator">:</span><span class="operator">=</span> yield continuation
     last result continuation (nil<span class="operator">,</span> n)
 
 coroutine (block) <span class="operator">=</span>
     run (result continuation) <span class="operator">=</span>
-        last result continuation <span class="operator">=</span> result continuation
+        last result continuation <span class="operator">:</span><span class="operator">=</span> result continuation
 
         <span class="keyword">if</span> (last yield continuation)
             last yield continuation ()
         <span class="keyword">else</span>
             block
-                last yield continuation <span class="operator">=</span> nil
-                last result continuation <span class="operator">=</span> nil
+                last yield continuation <span class="operator">:</span><span class="operator">=</span> nil
+                last result continuation <span class="operator">:</span><span class="operator">=</span> nil
 
 strings <span class="operator">=</span> coroutine
     yield! <span class="number">1</span>
@@ -797,9 +1018,11 @@ console.log (strings!)
 console.log (strings!)
 console.log (strings!)
 console.log <span class="string">'finished'</span></code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> lastYieldContinuation, lastResultContinuation, yield, coroutine, strings;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> lastYieldContinuation, lastResultContinuation, yield, coroutine, strings;
 
 lastYieldContinuation = <span class="keyword">void</span> <span class="number">0</span>;
 
@@ -825,27 +1048,32 @@ coroutine = <span class="function"><span class="keyword">function</span><span cl
     };
 };
 
-strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen1_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
     yield(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
         <span class="keyword">if</span> (gen2_error) {
-            gen1_callback(gen2_error);
+            continuation(gen2_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
                 gen3_asyncResult;
                 yield(<span class="number">2</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
                     <span class="keyword">if</span> (gen4_error) {
-                        gen1_callback(gen4_error);
+                        continuation(gen4_error);
                     } <span class="keyword">else</span> {
                         <span class="keyword">try</span> {
                             gen5_asyncResult;
-                            yield(<span class="number">3</span>, gen1_callback);
+                            yield(<span class="number">3</span>, continuation);
                         } <span class="keyword">catch</span> (gen6_exception) {
-                            gen1_callback(gen6_exception);
+                            continuation(gen6_exception);
                         }
                     }
                 });
             } <span class="keyword">catch</span> (gen7_exception) {
-                gen1_callback(gen7_exception);
+                continuation(gen7_exception);
             }
         }
     });
@@ -853,52 +1081,57 @@ strings = coroutine(<span class="function"><span class="keyword">function</span>
 
 strings(<span class="function"><span class="keyword">function</span><span class="params">(gen8_error, gen9_asyncResult)</span> {</span>
     <span class="keyword">if</span> (gen8_error) {
-        gen1_callback(gen8_error);
+        continuation(gen8_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
             console.log(gen9_asyncResult);
             strings(<span class="function"><span class="keyword">function</span><span class="params">(gen10_error, gen11_asyncResult)</span> {</span>
                 <span class="keyword">if</span> (gen10_error) {
-                    gen1_callback(gen10_error);
+                    continuation(gen10_error);
                 } <span class="keyword">else</span> {
                     <span class="keyword">try</span> {
                         console.log(gen11_asyncResult);
                         strings(<span class="function"><span class="keyword">function</span><span class="params">(gen12_error, gen13_asyncResult)</span> {</span>
                             <span class="keyword">if</span> (gen12_error) {
-                                gen1_callback(gen12_error);
+                                continuation(gen12_error);
                             } <span class="keyword">else</span> {
                                 <span class="keyword">try</span> {
                                     console.log(gen13_asyncResult);
-                                    gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"finished"</span>));
+                                    continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"finished"</span>));
                                 } <span class="keyword">catch</span> (gen14_exception) {
-                                    gen1_callback(gen14_exception);
+                                    continuation(gen14_exception);
                                 }
                             }
                         });
                     } <span class="keyword">catch</span> (gen15_exception) {
-                        gen1_callback(gen15_exception);
+                        continuation(gen15_exception);
                     }
                 }
             });
         } <span class="keyword">catch</span> (gen16_exception) {
-            gen1_callback(gen16_exception);
+            continuation(gen16_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async For</h2>
-        <div class="pogo">
-          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+      <tr>
+        <th colspan="2"><h2>Async For</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
   send letter! (n)
 
 all letters sent()</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> gen1_asyncFor;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> gen1_asyncFor;
 
 gen1_asyncFor = <span class="function"><span class="keyword">function</span><span class="params">(test, incr, loop, cb)</span> {</span>
     <span class="keyword">try</span> {
@@ -934,36 +1167,59 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
     }
 };
 
-(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
     <span class="keyword">var</span> n;
     n = <span class="number">0</span>;
-    gen1_asyncFor(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-        gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n &lt; <span class="number">3</span>);
-    }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-        gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, n = n + <span class="number">1</span>);
-    }, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-        sendLetter(n, gen2_callback);
-    }, gen2_callback);
-})(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen3_error) {
-        gen2_callback(gen3_error);
+    gen1_asyncFor(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        continuation(<span class="keyword">void</span> <span class="number">0</span>, n &lt; <span class="number">3</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen4_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        continuation(<span class="keyword">void</span> <span class="number">0</span>, n = n + <span class="number">1</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen5_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        sendLetter(n, continuation);
+    }, continuation);
+})(<span class="function"><span class="keyword">function</span><span class="params">(gen6_error, gen7_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen6_error) {
+        continuation(gen6_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen4_asyncResult;
-            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
-        } <span class="keyword">catch</span> (gen5_exception) {
-            gen2_callback(gen5_exception);
+            gen7_asyncResult;
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
+        } <span class="keyword">catch</span> (gen8_exception) {
+            continuation(gen8_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async Fork</h2>
-        <div class="pogo">
-          <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
+      <tr>
+        <th colspan="2"><h2>Async Fork</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
 
 fork (block) <span class="operator">=</span> block @{}
 
@@ -974,9 +1230,11 @@ fork
     process.stdout.write (contents)
 
 console.log <span class="string">'processing other stuff'</span></code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> fs, fork;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> fs, fork;
 
 fs = require(<span class="string">"fs"</span>);
 
@@ -984,41 +1242,51 @@ fork = <span class="function"><span class="keyword">function</span><span class="
     <span class="keyword">return</span> block(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>});
 };
 
-fork(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
+fork(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen1_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
     console.log(<span class="string">"reading contents of file "</span> + __filename);
     fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
         <span class="keyword">var</span> contents;
         <span class="keyword">if</span> (gen2_error) {
-            gen1_callback(gen2_error);
+            continuation(gen2_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
                 contents = gen3_asyncResult;
                 console.log(<span class="string">"contents of "</span> + __filename + <span class="string">":"</span>);
-                gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
+                continuation(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
             } <span class="keyword">catch</span> (gen4_exception) {
-                gen1_callback(gen4_exception);
+                continuation(gen4_exception);
             }
         }
     });
 });
 
 console.log(<span class="string">"processing other stuff"</span>);</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async If</h2>
-        <div class="pogo">
-          <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
+      <tr>
+        <th colspan="2"><h2>Async If</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
   kill! (intruders)
 <span class="keyword">else</span>
   call the cops about! (intruders)
   
 keep watch!</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> gen1_asyncIfElse;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> gen1_asyncIfElse;
 
 gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><span class="params">(condition, thenBody, elseBody, cb)</span> {</span>
     <span class="keyword">if</span> (condition) {
@@ -1036,43 +1304,58 @@ gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><
     }
 };
 
-gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-    kill(intruders, gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-    callTheCopsAbout(intruders, gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen3_error) {
-        gen2_callback(gen3_error);
+gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    kill(intruders, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    callTheCopsAbout(intruders, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen4_error) {
+        continuation(gen4_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen4_asyncResult;
-            keepWatch(gen2_callback);
-        } <span class="keyword">catch</span> (gen5_exception) {
-            gen2_callback(gen5_exception);
+            gen5_asyncResult;
+            keepWatch(continuation);
+        } <span class="keyword">catch</span> (gen6_exception) {
+            continuation(gen6_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-      <li>
-        <h2>Async Try Catch</h2>
-        <div class="pogo">
-          <pre><code>record <span class="operator">=</span> nil
+      <tr>
+        <th colspan="2"><h2>Async Try Catch</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>record <span class="operator">=</span> nil
 
 try
-  database <span class="operator">=</span> connect to the database! 
-  record <span class="operator">=</span> database.query!
+  database <span class="operator">=</span> connect to the database!
+  record <span class="operator">:</span><span class="operator">=</span> database.query!
 catch (error)
   exit the program because of (error)!
 finally
   database.close!
 
 console.log(<span class="string">"RECORD FOUND: #(record)"</span>)</code></pre>
-        </div>
-        <div class="javascript">
-          <pre><code><span class="keyword">var</span> gen1_asyncTry, record;
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> gen1_asyncTry, record;
 
 gen1_asyncTry = <span class="function"><span class="keyword">function</span><span class="params">(body, catchBody, finallyBody, cb)</span> {</span>
     <span class="keyword">var</span> callbackCalled = <span class="literal">false</span>;
@@ -1175,51 +1458,67 @@ gen1_asyncTry = <span class="function"><span class="keyword">function</span><spa
 
 record = <span class="keyword">void</span> <span class="number">0</span>;
 
-gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
+gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
     connectToTheDatabase(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
         <span class="keyword">var</span> database;
         <span class="keyword">if</span> (gen3_error) {
-            gen2_callback(gen3_error);
+            continuation(gen3_error);
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
                 database = gen4_asyncResult;
                 database.query(<span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
                     <span class="keyword">if</span> (gen5_error) {
-                        gen2_callback(gen5_error);
+                        continuation(gen5_error);
                     } <span class="keyword">else</span> {
                         <span class="keyword">try</span> {
-                            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, record = gen6_asyncResult);
+                            continuation(<span class="keyword">void</span> <span class="number">0</span>, record = gen6_asyncResult);
                         } <span class="keyword">catch</span> (gen7_exception) {
-                            gen2_callback(gen7_exception);
+                            continuation(gen7_exception);
                         }
                     }
                 });
             } <span class="keyword">catch</span> (gen8_exception) {
-                gen2_callback(gen8_exception);
+                continuation(gen8_exception);
             }
         }
     });
-}, <span class="function"><span class="keyword">function</span><span class="params">(error, gen2_callback)</span> {</span>
-    exitTheProgramBecauseOf(error, gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
-    database.close(gen2_callback);
-}, <span class="function"><span class="keyword">function</span><span class="params">(gen9_error, gen10_asyncResult)</span> {</span>
-    <span class="keyword">if</span> (gen9_error) {
-        gen2_callback(gen9_error);
+}, <span class="function"><span class="keyword">function</span><span class="params">(error, continuation)</span> {</span>
+    <span class="keyword">var</span> gen9_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    error = gen9_arguments[<span class="number">0</span>];
+    exitTheProgramBecauseOf(error, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen10_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    database.close(continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen11_error, gen12_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen11_error) {
+        continuation(gen11_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
-            gen10_asyncResult;
-            gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
-        } <span class="keyword">catch</span> (gen11_exception) {
-            gen2_callback(gen11_exception);
+            gen12_asyncResult;
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
+        } <span class="keyword">catch</span> (gen13_exception) {
+            continuation(gen13_exception);
         }
     }
 });</code></pre>
-        </div>
-        <hr />
-      </li>
+          </div>
+        </td>
+      </tr>
       
-    </ul>
-    
+    </table>
+
   </body>
 </html>
