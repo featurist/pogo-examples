@@ -8,8 +8,8 @@ html = fs.read file sync("./index.handlebars").to string()
 template = handlebars.compile (html)
 
 title from filename (string) =
-  string = string.replace r/\.pogo$/ ''
-  string = string.replace r/_/g " "
+  string := string.replace r/\.pogo$/ ''
+  string := string.replace r/_/g " "
   string.replace r/\w\S*/g @(text)
     text.char at 0.to upper case() + text.substr 1.to lower case()
 
@@ -41,5 +41,5 @@ async examples last (x, y) =
 dir (err, files) =
   pogos = files.filter (is pogo).sort (async examples last)
   async.map (pogos, render, print)
-  
+
 fs.readdir "./examples/" (dir)

@@ -149,7 +149,7 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
         <div class="javascript">
           <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse;
+        <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse();
     });
     <span class="keyword">return</span> context(<span class="string">"that is dead"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
@@ -165,13 +165,41 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </li>
       
       <li>
+        <h2>Event Emitter</h2>
+        <div class="pogo">
+          <pre><code>EventEmitter <span class="operator">=</span> require(<span class="string">'events'</span>).EventEmitter
+
+shouter <span class="operator">=</span> new (EventEmitter)
+
+shouter.on <span class="string">'shout'</span>
+    console.log <span class="string">"calm down"</span>
+
+shouter.emit <span class="string">'shout'</span></code></pre>
+        </div>
+        <div class="javascript">
+          <pre><code><span class="keyword">var</span> EventEmitter, shouter;
+
+EventEmitter = require(<span class="string">"events"</span>).EventEmitter;
+
+shouter = <span class="keyword">new</span> EventEmitter();
+
+shouter.on(<span class="string">"shout"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">return</span> console.log(<span class="string">"calm down"</span>);
+});
+
+shouter.emit(<span class="string">"shout"</span>);</code></pre>
+        </div>
+        <hr />
+      </li>
+      
+      <li>
         <h2>Factorial (Iterative)</h2>
         <div class="pogo">
           <pre><code>factorial (n) <span class="operator">=</span>
     x <span class="operator">=</span> <span class="number">1</span>
-    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">=</span> i + <span class="number">1</span>)
-        x <span class="operator">=</span> x * i
-  
+    <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">:</span><span class="operator">=</span> i + <span class="number">1</span>)
+        x <span class="operator">:</span><span class="operator">=</span> x * i
+
     x</code></pre>
         </div>
         <div class="javascript">
@@ -238,7 +266,7 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
       <li>
         <h2>For</h2>
         <div class="pogo">
-          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
     console. log (n)</code></pre>
         </div>
         <div class="javascript">
@@ -371,7 +399,7 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
 
 <span class="keyword">do</span>
     print (item)
-    item <span class="operator">=</span> item + <span class="number">1</span>
+    item <span class="operator">:</span><span class="operator">=</span> item + <span class="number">1</span>
 <span class="keyword">while</span> @{ item &lt; <span class="number">10</span> }</code></pre>
         </div>
         <div class="javascript">
@@ -552,7 +580,7 @@ finally
         <div class="pogo">
           <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
-height <span class="operator">=</span>
+height <span class="operator">:</span><span class="operator">=</span>
     n <span class="operator">=</span> <span class="number">10</span>
     (n * n * n) + <span class="number">25</span>
 </code></pre>
@@ -665,6 +693,7 @@ when = <span class="function"><span class="keyword">function</span><span class="
             <span class="keyword">return</span> gen3_forResult;
         }
     }
+    <span class="keyword">return</span> <span class="keyword">void</span> <span class="number">0</span>;
 };
 
 print = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
@@ -697,13 +726,13 @@ scrape facts from (web page)</code></pre>
           <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
     <span class="keyword">var</span> webPage;
     <span class="keyword">if</span> (gen1_error) {
-        gen3_callback(gen1_error);
+        continuation(gen1_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
             webPage = gen2_asyncResult;
-            gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
-        } <span class="keyword">catch</span> (gen4_exception) {
-            gen3_callback(gen4_exception);
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, scrapeFactsFrom(webPage));
+        } <span class="keyword">catch</span> (gen3_exception) {
+            continuation(gen3_exception);
         }
     }
 });</code></pre>
@@ -725,7 +754,7 @@ n <span class="operator">=</span> <span class="number">0</span>
 cont <span class="operator">=</span> current continuation!
 
 console.log (n)
-n <span class="operator">=</span> n + <span class="number">1</span>
+n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>
 
 <span class="keyword">if</span> (n &lt; <span class="number">10</span>)
     cont ()</code></pre>
@@ -736,9 +765,9 @@ n <span class="operator">=</span> n + <span class="number">1</span>
 currentContinuation = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
     <span class="keyword">var</span> continuation;
     continuation = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+        callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
     };
-    <span class="keyword">return</span> callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
+    callback(<span class="keyword">void</span> <span class="number">0</span>, continuation);
 };
 
 n = <span class="number">0</span>;
@@ -746,17 +775,19 @@ n = <span class="number">0</span>;
 currentContinuation(<span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
     <span class="keyword">var</span> cont;
     <span class="keyword">if</span> (gen1_error) {
-        gen3_callback(gen1_error);
+        continuation(gen1_error);
     } <span class="keyword">else</span> {
         <span class="keyword">try</span> {
             cont = gen2_asyncResult;
             console.log(n);
             n = n + <span class="number">1</span>;
             <span class="keyword">if</span> (n &lt; <span class="number">10</span>) {
-                gen3_callback(<span class="keyword">void</span> <span class="number">0</span>, cont());
+                continuation(<span class="keyword">void</span> <span class="number">0</span>, cont());
+            } <span class="keyword">else</span> {
+                continuation();
             }
-        } <span class="keyword">catch</span> (gen4_exception) {
-            gen3_callback(gen4_exception);
+        } <span class="keyword">catch</span> (gen3_exception) {
+            continuation(gen3_exception);
         }
     }
 });</code></pre>
@@ -771,19 +802,19 @@ currentContinuation(<span class="function"><span class="keyword">function</span>
 last result continuation <span class="operator">=</span> nil
 
 yield (n<span class="operator">,</span> yield continuation) <span class="operator">=</span>
-    last yield continuation <span class="operator">=</span> yield continuation
+    last yield continuation <span class="operator">:</span><span class="operator">=</span> yield continuation
     last result continuation (nil<span class="operator">,</span> n)
 
 coroutine (block) <span class="operator">=</span>
     run (result continuation) <span class="operator">=</span>
-        last result continuation <span class="operator">=</span> result continuation
+        last result continuation <span class="operator">:</span><span class="operator">=</span> result continuation
 
         <span class="keyword">if</span> (last yield continuation)
             last yield continuation ()
         <span class="keyword">else</span>
             block
-                last yield continuation <span class="operator">=</span> nil
-                last result continuation <span class="operator">=</span> nil
+                last yield continuation <span class="operator">:</span><span class="operator">=</span> nil
+                last result continuation <span class="operator">:</span><span class="operator">=</span> nil
 
 strings <span class="operator">=</span> coroutine
     yield! <span class="number">1</span>
@@ -822,6 +853,7 @@ coroutine = <span class="function"><span class="keyword">function</span><span cl
     };
 };
 
+<<<<<<< HEAD
 strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
     <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
     gen1_callback = arguments[arguments.length - <span class="number">1</span>];
@@ -845,11 +877,40 @@ strings = coroutine(<span class="function"><span class="keyword">function</span>
                 });
             } <span class="keyword">catch</span> (gen8_exception) {
                 gen1_callback(gen8_exception);
+=======
+strings = coroutine(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen1_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    yield(<span class="number">1</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+        <span class="keyword">if</span> (gen2_error) {
+            continuation(gen2_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                gen3_asyncResult;
+                yield(<span class="number">2</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen4_error) {
+                        continuation(gen4_error);
+                    } <span class="keyword">else</span> {
+                        <span class="keyword">try</span> {
+                            gen5_asyncResult;
+                            yield(<span class="number">3</span>, continuation);
+                        } <span class="keyword">catch</span> (gen6_exception) {
+                            continuation(gen6_exception);
+                        }
+                    }
+                });
+            } <span class="keyword">catch</span> (gen7_exception) {
+                continuation(gen7_exception);
+>>>>>>> update to latest pogo
             }
         }
     });
 });
 
+<<<<<<< HEAD
 strings(<span class="function"><span class="keyword">function</span><span class="params">(gen9_error, gen10_asyncResult)</span> {</span>
     <span class="keyword">if</span> (gen9_error) {
         gen1_callback(gen9_error);
@@ -881,6 +942,39 @@ strings(<span class="function"><span class="keyword">function</span><span class=
             });
         } <span class="keyword">catch</span> (gen17_exception) {
             gen1_callback(gen17_exception);
+=======
+strings(<span class="function"><span class="keyword">function</span><span class="params">(gen8_error, gen9_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen8_error) {
+        continuation(gen8_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            console.log(gen9_asyncResult);
+            strings(<span class="function"><span class="keyword">function</span><span class="params">(gen10_error, gen11_asyncResult)</span> {</span>
+                <span class="keyword">if</span> (gen10_error) {
+                    continuation(gen10_error);
+                } <span class="keyword">else</span> {
+                    <span class="keyword">try</span> {
+                        console.log(gen11_asyncResult);
+                        strings(<span class="function"><span class="keyword">function</span><span class="params">(gen12_error, gen13_asyncResult)</span> {</span>
+                            <span class="keyword">if</span> (gen12_error) {
+                                continuation(gen12_error);
+                            } <span class="keyword">else</span> {
+                                <span class="keyword">try</span> {
+                                    console.log(gen13_asyncResult);
+                                    continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"finished"</span>));
+                                } <span class="keyword">catch</span> (gen14_exception) {
+                                    continuation(gen14_exception);
+                                }
+                            }
+                        });
+                    } <span class="keyword">catch</span> (gen15_exception) {
+                        continuation(gen15_exception);
+                    }
+                }
+            });
+        } <span class="keyword">catch</span> (gen16_exception) {
+            continuation(gen16_exception);
+>>>>>>> update to latest pogo
         }
     }
 });</code></pre>
@@ -891,7 +985,7 @@ strings(<span class="function"><span class="keyword">function</span><span class=
       <li>
         <h2>Async For</h2>
         <div class="pogo">
-          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">=</span> n + <span class="number">1</span>)
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
   send letter! (n)
 
 all letters sent()</code></pre>
@@ -933,6 +1027,7 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
     }
 };
 
+<<<<<<< HEAD
 (<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
     <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
     gen2_callback = arguments[arguments.length - <span class="number">1</span>];
@@ -960,6 +1055,47 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
             gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
         } <span class="keyword">catch</span> (gen9_exception) {
             gen2_callback(gen9_exception);
+=======
+(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    <span class="keyword">var</span> n;
+    n = <span class="number">0</span>;
+    gen1_asyncFor(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        continuation(<span class="keyword">void</span> <span class="number">0</span>, n &lt; <span class="number">3</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen4_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        continuation(<span class="keyword">void</span> <span class="number">0</span>, n = n + <span class="number">1</span>);
+    }, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+        <span class="keyword">var</span> gen5_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+        continuation = arguments[arguments.length - <span class="number">1</span>];
+        <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+        }
+        sendLetter(n, continuation);
+    }, continuation);
+})(<span class="function"><span class="keyword">function</span><span class="params">(gen6_error, gen7_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen6_error) {
+        continuation(gen6_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen7_asyncResult;
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, allLettersSent());
+        } <span class="keyword">catch</span> (gen8_exception) {
+            continuation(gen8_exception);
+>>>>>>> update to latest pogo
         }
     }
 });</code></pre>
@@ -991,21 +1127,41 @@ fork = <span class="function"><span class="keyword">function</span><span class="
     <span class="keyword">return</span> block(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>});
 };
 
+<<<<<<< HEAD
 fork(<span class="function"><span class="keyword">function</span><span class="params">(gen1_callback)</span> {</span>
     <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
     gen1_callback = arguments[arguments.length - <span class="number">1</span>];
+=======
+fork(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen1_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+>>>>>>> update to latest pogo
     console.log(<span class="string">"reading contents of file "</span> + __filename);
     fs.readFile(__filename, <span class="string">"utf-8"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
         <span class="keyword">var</span> contents;
+<<<<<<< HEAD
         <span class="keyword">if</span> (gen3_error) {
             gen1_callback(gen3_error);
+=======
+        <span class="keyword">if</span> (gen2_error) {
+            continuation(gen2_error);
+>>>>>>> update to latest pogo
         } <span class="keyword">else</span> {
             <span class="keyword">try</span> {
                 contents = gen4_asyncResult;
                 console.log(<span class="string">"contents of "</span> + __filename + <span class="string">":"</span>);
+<<<<<<< HEAD
                 gen1_callback(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
             } <span class="keyword">catch</span> (gen5_exception) {
                 gen1_callback(gen5_exception);
+=======
+                continuation(<span class="keyword">void</span> <span class="number">0</span>, process.stdout.write(contents));
+            } <span class="keyword">catch</span> (gen4_exception) {
+                continuation(gen4_exception);
+>>>>>>> update to latest pogo
             }
         }
     });
@@ -1045,6 +1201,7 @@ gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><
     }
 };
 
+<<<<<<< HEAD
 gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
     <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
     gen2_callback = arguments[arguments.length - <span class="number">1</span>];
@@ -1062,6 +1219,31 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
             keepWatch(gen2_callback);
         } <span class="keyword">catch</span> (gen7_exception) {
             gen2_callback(gen7_exception);
+=======
+gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    kill(intruders, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    callTheCopsAbout(intruders, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen4_error) {
+        continuation(gen4_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen5_asyncResult;
+            keepWatch(continuation);
+        } <span class="keyword">catch</span> (gen6_exception) {
+            continuation(gen6_exception);
+>>>>>>> update to latest pogo
         }
     }
 });</code></pre>
@@ -1075,8 +1257,8 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
           <pre><code>record <span class="operator">=</span> nil
 
 try
-  database <span class="operator">=</span> connect to the database! 
-  record <span class="operator">=</span> database.query!
+  database <span class="operator">=</span> connect to the database!
+  record <span class="operator">:</span><span class="operator">=</span> database.query!
 catch (error)
   exit the program because of (error)!
 finally
@@ -1188,6 +1370,7 @@ gen1_asyncTry = <span class="function"><span class="keyword">function</span><spa
 
 record = <span class="keyword">void</span> <span class="number">0</span>;
 
+<<<<<<< HEAD
 gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(gen2_callback)</span> {</span>
     <span class="keyword">var</span> gen3_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
     gen2_callback = arguments[arguments.length - <span class="number">1</span>];
@@ -1232,6 +1415,61 @@ gen1_asyncTry(<span class="function"><span class="keyword">function</span><span 
             gen2_callback(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
         } <span class="keyword">catch</span> (gen14_exception) {
             gen2_callback(gen14_exception);
+=======
+gen1_asyncTry(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen2_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    connectToTheDatabase(<span class="function"><span class="keyword">function</span><span class="params">(gen3_error, gen4_asyncResult)</span> {</span>
+        <span class="keyword">var</span> database;
+        <span class="keyword">if</span> (gen3_error) {
+            continuation(gen3_error);
+        } <span class="keyword">else</span> {
+            <span class="keyword">try</span> {
+                database = gen4_asyncResult;
+                database.query(<span class="function"><span class="keyword">function</span><span class="params">(gen5_error, gen6_asyncResult)</span> {</span>
+                    <span class="keyword">if</span> (gen5_error) {
+                        continuation(gen5_error);
+                    } <span class="keyword">else</span> {
+                        <span class="keyword">try</span> {
+                            continuation(<span class="keyword">void</span> <span class="number">0</span>, record = gen6_asyncResult);
+                        } <span class="keyword">catch</span> (gen7_exception) {
+                            continuation(gen7_exception);
+                        }
+                    }
+                });
+            } <span class="keyword">catch</span> (gen8_exception) {
+                continuation(gen8_exception);
+            }
+        }
+    });
+}, <span class="function"><span class="keyword">function</span><span class="params">(error, continuation)</span> {</span>
+    <span class="keyword">var</span> gen9_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    error = gen9_arguments[<span class="number">0</span>];
+    exitTheProgramBecauseOf(error, continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    <span class="keyword">var</span> gen10_arguments = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length - <span class="number">1</span>);
+    continuation = arguments[arguments.length - <span class="number">1</span>];
+    <span class="keyword">if</span> (!(continuation <span class="keyword">instanceof</span> Function)) {
+        <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"asynchronous function called synchronously"</span>);
+    }
+    database.close(continuation);
+}, <span class="function"><span class="keyword">function</span><span class="params">(gen11_error, gen12_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen11_error) {
+        continuation(gen11_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen12_asyncResult;
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"RECORD FOUND: "</span> + record));
+        } <span class="keyword">catch</span> (gen13_exception) {
+            continuation(gen13_exception);
+>>>>>>> update to latest pogo
         }
     }
 });</code></pre>
