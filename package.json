@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "pogo": "0.0.3",
+    "pogo": "latest",
     "async": "~0.1.22",
     "handlebars": "~1.0.7"
   }
