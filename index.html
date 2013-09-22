@@ -439,12 +439,49 @@ address = {
       <li>
         <h2>Operators</h2>
         <div class="pogo">
-          <pre><code>total height <span class="operator">=</span> header + (item * count) + footer</code></pre>
+          <pre><code>total height <span class="operator">=</span> header + (item * count) + footer
+
+definitely <span class="operator">=</span> <span class="literal">true</span> @and <span class="literal">true</span>
+
+maybe <span class="operator">=</span> <span class="literal">false</span> @or <span class="literal">true</span>
+
+no way <span class="operator">=</span> (definitely) not
+
+(p1) plus (p2) <span class="operator">=</span> { x <span class="operator">=</span> p1.x + p2.x<span class="operator">,</span> y <span class="operator">=</span> p1.y + p2.y }
+
+a <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">2</span> }
+b <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">3</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">4</span> }
+a @plus b</code></pre>
         </div>
         <div class="javascript">
-          <pre><code><span class="keyword">var</span> totalHeight;
+          <pre><code><span class="keyword">var</span> totalHeight, definitely, maybe, noWay, plus, a, b;
 
-totalHeight = header + item * count + footer;</code></pre>
+totalHeight = header + item * count + footer;
+
+definitely = <span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;
+
+maybe = <span class="literal">false</span> || <span class="literal">true</span>;
+
+noWay = !definitely;
+
+plus = <span class="function"><span class="keyword">function</span><span class="params">(p1, p2)</span> {</span>
+    <span class="keyword">return</span> {
+        x: p1.x + p2.x,
+        y: p1.y + p2.y
+    };
+};
+
+a = {
+    x: <span class="number">1</span>,
+    y: <span class="number">2</span>
+};
+
+b = {
+    x: <span class="number">3</span>,
+    y: <span class="number">4</span>
+};
+
+plus(a, b);</code></pre>
         </div>
         <hr />
       </li>
