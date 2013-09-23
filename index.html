@@ -1272,6 +1272,85 @@ console.log(<span class="string">"processing other stuff"</span>);</code></pre>
       </tr>
       
       <tr>
+        <th colspan="2"><h2>Async Futures</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>a <span class="operator">=</span> fs.stat? <span class="string">'a.txt'</span>
+b <span class="operator">=</span> fs.stat? <span class="string">'b.txt'</span>
+
+console.log <span class="string">"size of a.txt is #(a!.size)"</span>
+console.log <span class="string">"size of b.txt is #(b!.size)"</span>
+</code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> gen1_future, a, b;
+
+gen1_future = <span class="function"><span class="keyword">function</span><span class="params">(action)</span> {</span>
+    <span class="keyword">var</span> operationComplete = <span class="literal">false</span>;
+    <span class="keyword">var</span> operationError, operationResult;
+    <span class="keyword">var</span> futureCallbacks = [];
+    <span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">(error, result)</span> {</span>
+        operationComplete = <span class="literal">true</span>;
+        operationError = error;
+        operationResult = result;
+        <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; futureCallbacks.length; n++) {
+            futureCallbacks[n](operationError, operationResult);
+        }
+    }
+    <span class="keyword">try</span> {
+        action(callback);
+    } <span class="keyword">catch</span> (error) {
+        operationComplete = <span class="literal">true</span>;
+        operationError = error;
+    }
+    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
+        <span class="keyword">if</span> (operationComplete) {
+            callback(operationError, operationResult);
+        } <span class="keyword">else</span> {
+            futureCallbacks.push(callback);
+        }
+    };
+};
+
+a = gen1_future(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    fs.stat(<span class="string">"a.txt"</span>, continuation);
+});
+
+b = gen1_future(<span class="function"><span class="keyword">function</span><span class="params">(continuation)</span> {</span>
+    fs.stat(<span class="string">"b.txt"</span>, continuation);
+});
+
+a(<span class="function"><span class="keyword">function</span><span class="params">(gen2_error, gen3_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen2_error) {
+        continuation(gen2_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            console.log(<span class="string">"size of a.txt is "</span> + gen3_asyncResult.size);
+            b(<span class="function"><span class="keyword">function</span><span class="params">(gen4_error, gen5_asyncResult)</span> {</span>
+                <span class="keyword">if</span> (gen4_error) {
+                    continuation(gen4_error);
+                } <span class="keyword">else</span> {
+                    <span class="keyword">try</span> {
+                        continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"size of b.txt is "</span> + gen5_asyncResult.size));
+                    } <span class="keyword">catch</span> (gen6_exception) {
+                        continuation(gen6_exception);
+                    }
+                }
+            });
+        } <span class="keyword">catch</span> (gen7_exception) {
+            continuation(gen7_exception);
+        }
+    }
+});</code></pre>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
         <th colspan="2"><h2>Async If</h2></th>
       </tr>
       <tr>
