@@ -95,20 +95,21 @@ usingAnArrow(<span class="function"><span class="keyword">function</span><span c
       <tr>
         <td class="pogo">
           <div class="scrollable">
-            <pre><code>map each @(filename) in (filenames) into @{ path. resolve (filename) }
-    
-map each @(filename) in (filenames) into
-    path. resolve (filename)</code></pre>
+            <pre><code>map each @(file) in (files) into @{ resolve (file) }
+
+map each @(file) in (files) into
+    resolve (file)
+</code></pre>
           </div>
         </td>
         <td class="javascript">
           <div class="scrollable">
-            <pre><code>mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
-    <span class="keyword">return</span> path.resolve(filename);
+            <pre><code>mapEachInInto(files, <span class="function"><span class="keyword">function</span><span class="params">(file)</span> {</span>
+    <span class="keyword">return</span> resolve(file);
 });
 
-mapEachInInto(filenames, <span class="function"><span class="keyword">function</span><span class="params">(filename)</span> {</span>
-    <span class="keyword">return</span> path.resolve(filename);
+mapEachInInto(files, <span class="function"><span class="keyword">function</span><span class="params">(file)</span> {</span>
+    <span class="keyword">return</span> resolve(file);
 });</code></pre>
           </div>
         </td>
@@ -641,7 +642,7 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
       <tr>
         <td class="pogo">
           <div class="scrollable">
-            <pre><code><span class="string">"hot dog"</span>. replace r/d.g/ <span class="string">"potato"</span>
+            <pre><code><span class="string">"hot dog"</span>.replace r/d.g/ <span class="string">"potato"</span>
 
 <span class="string">"FOO"</span>.match r/foo/gi</code></pre>
           </div>
@@ -777,9 +778,9 @@ height = <span class="function"><span class="keyword">function</span><span class
           <div class="scrollable">
             <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
 http. create server @(request<span class="operator">,</span> response)
-    response. write (head<span class="operator">:</span> <span class="number">200</span><span class="operator">,</span> <span class="string">"Content-Type"</span><span class="operator">:</span> <span class="string">"text/plain"</span>)
-    response. end <span class="string">"Hello World\n"</span>
-. listen <span class="number">1337</span></code></pre>
+    response.write (head<span class="operator">:</span> <span class="number">200</span><span class="operator">,</span> <span class="string">"Content-Type"</span><span class="operator">:</span> <span class="string">"text/plain"</span>)
+    response.end <span class="string">"Hello World\n"</span>
+.listen <span class="number">1337</span></code></pre>
           </div>
         </td>
         <td class="javascript">
@@ -1124,7 +1125,7 @@ strings(<span class="function"><span class="keyword">function</span><span class=
         <td class="pogo">
           <div class="scrollable">
             <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
-  send letter! (n)
+    send letter! (n)
 
 all letters sent()</code></pre>
           </div>
@@ -1277,10 +1278,10 @@ console.log(<span class="string">"processing other stuff"</span>);</code></pre>
         <td class="pogo">
           <div class="scrollable">
             <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
-  kill! (intruders)
+    kill! (intruders)
 <span class="keyword">else</span>
-  call the cops about! (intruders)
-  
+    call the cops about! (intruders)
+
 keep watch!</code></pre>
           </div>
         </td>
@@ -1343,12 +1344,12 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
             <pre><code>record <span class="operator">=</span> nil
 
 try
-  database <span class="operator">=</span> connect to the database!
-  record <span class="operator">:</span><span class="operator">=</span> database.query!
+    database <span class="operator">=</span> connect to the database!
+    record <span class="operator">:</span><span class="operator">=</span> database.query!
 catch (error)
-  exit the program because of (error)!
+    exit the program because of (error)!
 finally
-  database.close!
+    database.close!
 
 console.log(<span class="string">"RECORD FOUND: #(record)"</span>)</code></pre>
           </div>
