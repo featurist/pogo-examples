@@ -1,4 +1,4 @@
-map each @(filename) in (filenames) into @{ path. resolve (filename) }
-    
-map each @(filename) in (filenames) into
-    path. resolve (filename)
+map each @(file) in (files) into @{ resolve (file) }
+
+map each @(file) in (files) into
+    resolve (file)

@@ -1,6 +1,6 @@
 if ((intruders) are dangerous)
-  kill! (intruders)
+    kill! (intruders)
 else
-  call the cops about! (intruders)
-  
+    call the cops about! (intruders)
+
 keep watch!
