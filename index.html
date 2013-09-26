@@ -424,6 +424,65 @@ hungry = isLunchTime();</code></pre>
       </tr>
       
       <tr>
+        <th colspan="2"><h2>List Comprehensions</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>mapped <span class="operator">=</span> [x * x<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]]
+
+filtered <span class="operator">=</span> [x<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]<span class="operator">,</span> x > <span class="number">1</span>]
+
+both <span class="operator">=</span> [x * y<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]<span class="operator">,</span> y &lt;- [<span class="number">4</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">6</span>]]</code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> mapped, filtered, both;
+
+mapped = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> gen1_results, gen2_items, gen3_i, x;
+    gen1_results = [];
+    gen2_items = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];
+    <span class="keyword">for</span> (gen3_i = <span class="number">0</span>; gen3_i &lt; gen2_items.length; ++gen3_i) {
+        x = gen2_items[gen3_i];
+        gen1_results.push(x * x);
+    }
+    <span class="keyword">return</span> gen1_results;
+}();
+
+filtered = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> gen4_results, gen5_items, gen6_i, x;
+    gen4_results = [];
+    gen5_items = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];
+    <span class="keyword">for</span> (gen6_i = <span class="number">0</span>; gen6_i &lt; gen5_items.length; ++gen6_i) {
+        x = gen5_items[gen6_i];
+        <span class="keyword">if</span> (x > <span class="number">1</span>) {
+            gen4_results.push(x);
+        }
+    }
+    <span class="keyword">return</span> gen4_results;
+}();
+
+both = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> gen7_results, gen8_items, gen9_i, x, gen10_items, gen11_i, y;
+    gen7_results = [];
+    gen8_items = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> ];
+    <span class="keyword">for</span> (gen9_i = <span class="number">0</span>; gen9_i &lt; gen8_items.length; ++gen9_i) {
+        x = gen8_items[gen9_i];
+        gen10_items = [ <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span> ];
+        <span class="keyword">for</span> (gen11_i = <span class="number">0</span>; gen11_i &lt; gen10_items.length; ++gen11_i) {
+            y = gen10_items[gen11_i];
+            gen7_results.push(x * y);
+        }
+    }
+    <span class="keyword">return</span> gen7_results;
+}();</code></pre>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
         <th colspan="2"><h2>Method Calls</h2></th>
       </tr>
       <tr>
