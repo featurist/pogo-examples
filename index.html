@@ -837,7 +837,6 @@ height = <span class="function"><span class="keyword">function</span><span class
           <div class="scrollable">
             <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
 http. create server @(request<span class="operator">,</span> response)
-    response.write (head<span class="operator">:</span> <span class="number">200</span><span class="operator">,</span> <span class="string">"Content-Type"</span><span class="operator">:</span> <span class="string">"text/plain"</span>)
     response.end <span class="string">"Hello World\n"</span>
 .listen <span class="number">1337</span></code></pre>
           </div>
@@ -849,10 +848,6 @@ http. create server @(request<span class="operator">,</span> response)
 http = require(<span class="string">"http"</span>);
 
 http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(request, response)</span> {</span>
-    response.write({
-        head: <span class="number">200</span>,
-        <span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>
-    });
     <span class="keyword">return</span> response.end(<span class="string">"Hello World\n"</span>);
 }).listen(<span class="number">1337</span>);</code></pre>
           </div>
