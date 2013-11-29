@@ -8,7 +8,7 @@ td { border: 1px solid #efefef; border-bottom: 1px solid #ccc; border-top: 1px s
 pre { margin: 0.2em 0; padding: 0.2em; height: 100%; }
 
 .scrollable { overflow: auto; width: 500px; }
-.pogo { background-color: #fffeff; }
+.pogo { background-color: #fffeff; width: 480px; }
 .javascript { background-color: #fffeff; }
 
-td pre code { background-color: transparent; }
+td pre code { font-family: Courier, Consolas, monaco, monospace; background-color: transparent; font-size: 0.8em; }
