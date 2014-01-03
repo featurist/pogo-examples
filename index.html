@@ -1469,6 +1469,45 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
       </tr>
       
       <tr>
+        <th colspan="2"><h2>Async Sleep</h2></th>
+      </tr>
+      <tr>
+        <td class="pogo">
+          <div class="scrollable">
+            <pre><code>sleep (ms<span class="operator">,</span> awake) <span class="operator">=</span> set timeout (awake<span class="operator">,</span> ms)
+
+console.log <span class="string">"wait a second..."</span>
+sleep! <span class="number">1000</span>
+console.log <span class="string">"ok, go!"</span></code></pre>
+          </div>
+        </td>
+        <td class="javascript">
+          <div class="scrollable">
+            <pre><code><span class="keyword">var</span> sleep;
+
+sleep = <span class="function"><span class="keyword">function</span><span class="params">(ms, awake)</span> {</span>
+    <span class="keyword">return</span> setTimeout(awake, ms);
+};
+
+console.log(<span class="string">"wait a second..."</span>);
+
+sleep(<span class="number">1</span>e3, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
+    <span class="keyword">if</span> (gen1_error) {
+        continuation(gen1_error);
+    } <span class="keyword">else</span> {
+        <span class="keyword">try</span> {
+            gen2_asyncResult;
+            continuation(<span class="keyword">void</span> <span class="number">0</span>, console.log(<span class="string">"ok, go!"</span>));
+        } <span class="keyword">catch</span> (gen3_exception) {
+            continuation(gen3_exception);
+        }
+    }
+});</code></pre>
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
         <th colspan="2"><h2>Async Try Catch</h2></th>
       </tr>
       <tr>
