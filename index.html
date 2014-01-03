@@ -19,23 +19,19 @@
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
+          <pre><code>array one <span class="operator">=</span> [<span class="number">1</span><span class="operator">,</span> <span class="string">"two"</span>]
 
 array two <span class="operator">=</span> [
     <span class="number">3</span>
     <span class="string">"four"</span>
 ]</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> arrayOne, arrayTwo;
+          <pre><code><span class="keyword">var</span> arrayOne, arrayTwo;
 
 arrayOne = [ <span class="number">1</span>, <span class="string">"two"</span> ];
 
 arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ];</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -44,8 +40,7 @@ arrayTwo = [ <span class="number">3</span>, <span class="string">"four"</span> ]
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>person <span class="operator">=</span> {
+          <pre><code>person <span class="operator">=</span> {
 
     name <span class="operator">=</span> <span class="string">'Man Ray'</span>
 
@@ -61,11 +56,9 @@ not using an arrow
 
 using an arrow <span class="operator">=></span>
     means (<span class="keyword">self</span>) is always (this)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> person;
+          <pre><code><span class="keyword">var</span> person;
 
 person = {
     name: <span class="string">"Man Ray"</span>,
@@ -85,7 +78,6 @@ usingAnArrow(<span class="function"><span class="keyword">function</span><span c
     <span class="keyword">var</span> self = <span class="keyword">this</span>;
     <span class="keyword">return</span> meansIsAlways(self, <span class="keyword">this</span>);
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -94,24 +86,20 @@ usingAnArrow(<span class="function"><span class="keyword">function</span><span c
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>map each @(file) in (files) into @{ resolve (file) }
+          <pre><code>map each @(file) in (files) into @{ resolve (file) }
 
 map each @(file) in (files) into
     resolve (file)
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code>mapEachInInto(files, <span class="function"><span class="keyword">function</span><span class="params">(file)</span> {</span>
+          <pre><code>mapEachInInto(files, <span class="function"><span class="keyword">function</span><span class="params">(file)</span> {</span>
     <span class="keyword">return</span> resolve(file);
 });
 
 mapEachInInto(files, <span class="function"><span class="keyword">function</span><span class="params">(file)</span> {</span>
     <span class="keyword">return</span> resolve(file);
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -120,8 +108,7 @@ mapEachInInto(files, <span class="function"><span class="keyword">function</span
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
+          <pre><code>one lower than (n) <span class="operator">=</span> n - <span class="number">1</span>
 
 one higher than (n) <span class="operator">=</span>
     n + <span class="number">1</span>
@@ -131,11 +118,9 @@ either (thing) or (other) <span class="operator">=</span>
 
 end of the line () <span class="operator">=</span>
     ok then()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
+          <pre><code><span class="keyword">var</span> oneLowerThan, oneHigherThan, eitherOr, endOfTheLine;
 
 oneLowerThan = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">return</span> n - <span class="number">1</span>;
@@ -152,7 +137,6 @@ eitherOr = <span class="function"><span class="keyword">function</span><span cla
 endOfTheLine = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> okThen();
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -161,8 +145,7 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>describe <span class="string">'a horse'</span>
+          <pre><code>describe <span class="string">'a horse'</span>
     before
       <span class="keyword">self</span>.horse <span class="operator">=</span> new (Horse)
 
@@ -172,11 +155,9 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
   
         it <span class="string">'should not move'</span>
             <span class="keyword">self</span>.horse.should not move()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+          <pre><code>describe(<span class="string">"a horse"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     before(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
         <span class="keyword">return</span> self.horse = <span class="keyword">new</span> Horse();
     });
@@ -189,7 +170,6 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
         });
     });
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -198,8 +178,7 @@ endOfTheLine = <span class="function"><span class="keyword">function</span><span
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>EventEmitter <span class="operator">=</span> require(<span class="string">'events'</span>).EventEmitter
+          <pre><code>EventEmitter <span class="operator">=</span> require(<span class="string">'events'</span>).EventEmitter
 
 shouter <span class="operator">=</span> new (EventEmitter)
 
@@ -207,11 +186,9 @@ shouter.on <span class="string">'shout'</span>
     console.log <span class="string">"calm down"</span>
 
 shouter.emit <span class="string">'shout'</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> EventEmitter, shouter;
+          <pre><code><span class="keyword">var</span> EventEmitter, shouter;
 
 EventEmitter = require(<span class="string">"events"</span>).EventEmitter;
 
@@ -222,7 +199,6 @@ shouter.on(<span class="string">"shout"</span>, <span class="function"><span cla
 });
 
 shouter.emit(<span class="string">"shout"</span>);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -231,18 +207,15 @@ shouter.emit(<span class="string">"shout"</span>);</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>factorial (n) <span class="operator">=</span>
+          <pre><code>factorial (n) <span class="operator">=</span>
     x <span class="operator">=</span> <span class="number">1</span>
     <span class="keyword">for</span> (i <span class="operator">=</span> <span class="number">2</span><span class="operator">,</span> i &lt;<span class="operator">=</span> n<span class="operator">,</span> i <span class="operator">:</span><span class="operator">=</span> i + <span class="number">1</span>)
         x <span class="operator">:</span><span class="operator">=</span> x * i
 
     x</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> factorial;
+          <pre><code><span class="keyword">var</span> factorial;
 
 factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">var</span> x, i;
@@ -252,7 +225,6 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
     }
     <span class="keyword">return</span> x;
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -261,17 +233,14 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>factorial (n) <span class="operator">=</span>
+          <pre><code>factorial (n) <span class="operator">=</span>
     <span class="keyword">if</span> (n <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
         <span class="number">1</span>
     <span class="keyword">else</span>
         n * factorial (n - <span class="number">1</span>)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> factorial;
+          <pre><code><span class="keyword">var</span> factorial;
 
 factorial = <span class="function"><span class="keyword">function</span><span class="params">(n)</span> {</span>
     <span class="keyword">if</span> (n === <span class="number">0</span>) {
@@ -280,7 +249,6 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
         <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>);
     }
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -289,17 +257,14 @@ factorial = <span class="function"><span class="keyword">function</span><span cl
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>fib (i) <span class="operator">=</span>
+          <pre><code>fib (i) <span class="operator">=</span>
     <span class="keyword">if</span> ((i <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>) || (i <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>))
         <span class="number">1</span>
     <span class="keyword">else</span>
         fib (i - <span class="number">1</span>) + fib (i - <span class="number">2</span>)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> fib;
+          <pre><code><span class="keyword">var</span> fib;
 
 fib = <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">if</span> (i === <span class="number">0</span> || i === <span class="number">1</span>) {
@@ -308,7 +273,6 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
         <span class="keyword">return</span> fib(i - <span class="number">1</span>) + fib(i - <span class="number">2</span>);
     }
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -317,19 +281,15 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">10</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
     console. log (n)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> n;
+          <pre><code><span class="keyword">var</span> n;
 
 <span class="keyword">for</span> (n = <span class="number">0</span>; n &lt; <span class="number">10</span>; n = n + <span class="number">1</span>) {
     console.log(n);
 }</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -338,14 +298,11 @@ fib = <span class="function"><span class="keyword">function</span><span class="p
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
+          <pre><code><span class="keyword">for</span> each @(fruit) in (basket)
     gobble(fruit)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
+          <pre><code><span class="keyword">var</span> gen1_items, gen2_i, fruit;
 
 gen1_items = basket;
 
@@ -353,7 +310,6 @@ gen1_items = basket;
     fruit = gen1_items[gen2_i];
     gobble(fruit);
 }</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -362,20 +318,16 @@ gen1_items = basket;
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>y <span class="operator">=</span> compute some value from (z) and return it
+          <pre><code>y <span class="operator">=</span> compute some value from (z) and return it
 
 md5 hash (read all text from file <span class="string">"sample.txt"</span>)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> y;
+          <pre><code><span class="keyword">var</span> y;
 
 y = computeSomeValueFromAndReturnIt(z);
 
 md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -384,19 +336,15 @@ md5Hash(readAllTextFromFile(<span class="string">"sample.txt"</span>));</code></
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>update page()
+          <pre><code>update page()
 hungry <span class="operator">=</span> is lunch time()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> hungry;
+          <pre><code><span class="keyword">var</span> hungry;
 
 updatePage();
 
 hungry = isLunchTime();</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -405,21 +353,17 @@ hungry = isLunchTime();</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
+          <pre><code><span class="keyword">if</span> (wind speed > <span class="number">20</span>)
     console. log <span class="string">"gone kitesurfing!"</span>
 <span class="keyword">else</span>
     console. log <span class="string">"no wind, programming"</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
+          <pre><code><span class="keyword">if</span> (windSpeed > <span class="number">20</span>) {
     console.log(<span class="string">"gone kitesurfing!"</span>);
 } <span class="keyword">else</span> {
     console.log(<span class="string">"no wind, programming"</span>);
 }</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -428,17 +372,14 @@ hungry = isLunchTime();</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>mapped <span class="operator">=</span> [x * x<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]]
+          <pre><code>mapped <span class="operator">=</span> [x * x<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]]
 
 filtered <span class="operator">=</span> [x<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]<span class="operator">,</span> x > <span class="number">1</span>]
 
 both <span class="operator">=</span> [x * y<span class="operator">,</span> where<span class="operator">:</span> x &lt;- [<span class="number">1</span><span class="operator">,</span> <span class="number">2</span><span class="operator">,</span> <span class="number">3</span>]<span class="operator">,</span> y &lt;- [<span class="number">4</span><span class="operator">,</span> <span class="number">5</span><span class="operator">,</span> <span class="number">6</span>]]</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> mapped, filtered, both;
+          <pre><code><span class="keyword">var</span> mapped, filtered, both;
 
 mapped = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">var</span> gen1_results, gen2_items, gen3_i, x;
@@ -478,7 +419,6 @@ both = <span class="function"><span class="keyword">function</span><span class="
     }
     <span class="keyword">return</span> gen7_results;
 }();</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -487,23 +427,19 @@ both = <span class="function"><span class="keyword">function</span><span class="
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>file <span class="operator">=</span> open file <span class="string">"README.md"</span>
+          <pre><code>file <span class="operator">=</span> open file <span class="string">"README.md"</span>
 file. read line()
 
 open file <span class="string">"README.md"</span>. read line()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> file;
+          <pre><code><span class="keyword">var</span> file;
 
 file = openFile(<span class="string">"README.md"</span>);
 
 file.readLine();
 
 openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -512,26 +448,22 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>list. map @(i) into
+          <pre><code>list. map @(i) into
     i + <span class="number">1</span>
 .select @(i) <span class="keyword">if</span>
     i &lt; <span class="number">5</span>
 .each @(i) <span class="keyword">do</span>
     console. log (i)
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code>list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
+          <pre><code>list.mapInto(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i + <span class="number">1</span>;
 }).selectIf(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> i &lt; <span class="number">5</span>;
 }).eachDo(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span>
     <span class="keyword">return</span> console.log(i);
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -540,18 +472,15 @@ openFile(<span class="string">"README.md"</span>).readLine();</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>item <span class="operator">=</span> <span class="number">0</span>
+          <pre><code>item <span class="operator">=</span> <span class="number">0</span>
 
 <span class="keyword">do</span>
     print (item)
     item <span class="operator">:</span><span class="operator">=</span> item + <span class="number">1</span>
 <span class="keyword">while</span> @{ item &lt; <span class="number">10</span> }</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> item;
+          <pre><code><span class="keyword">var</span> item;
 
 item = <span class="number">0</span>;
 
@@ -561,7 +490,6 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
 }, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> item &lt; <span class="number">10</span>;
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -570,22 +498,18 @@ doWhile(<span class="function"><span class="keyword">function</span><span class=
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>address <span class="operator">=</span> {
+          <pre><code>address <span class="operator">=</span> {
     street <span class="operator">=</span> <span class="string">"Fake Street"</span>
     post code <span class="operator">=</span> <span class="string">"123 ABC"</span>
 }</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> address;
+          <pre><code><span class="keyword">var</span> address;
 
 address = {
     street: <span class="string">"Fake Street"</span>,
     postCode: <span class="string">"123 ABC"</span>
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -594,8 +518,7 @@ address = {
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>total height <span class="operator">=</span> header + (item * count) + footer
+          <pre><code>total height <span class="operator">=</span> header + (item * count) + footer
 
 definitely <span class="operator">=</span> <span class="literal">true</span> @and <span class="literal">true</span>
 
@@ -608,11 +531,9 @@ no way <span class="operator">=</span> (definitely) not
 a <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">1</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">2</span> }
 b <span class="operator">=</span> { x <span class="operator">=</span> <span class="number">3</span><span class="operator">,</span> y <span class="operator">=</span> <span class="number">4</span> }
 a @plus b</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> totalHeight, definitely, maybe, noWay, plus, a, b;
+          <pre><code><span class="keyword">var</span> totalHeight, definitely, maybe, noWay, plus, a, b;
 
 totalHeight = header + item * count + footer;
 
@@ -640,7 +561,6 @@ b = {
 };
 
 plus(a, b);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -649,16 +569,13 @@ plus(a, b);</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>connect to mysql database (address<span class="operator">:</span> <span class="string">"1.2.3.4"</span><span class="operator">,</span> port<span class="operator">:</span> <span class="number">3307</span>)
+          <pre><code>connect to mysql database (address<span class="operator">:</span> <span class="string">"1.2.3.4"</span><span class="operator">,</span> port<span class="operator">:</span> <span class="number">3307</span>)
 
 connect to mysql database (readonly<span class="operator">:</span> <span class="literal">true</span>)
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code>connectToMysqlDatabase({
+          <pre><code>connectToMysqlDatabase({
     address: <span class="string">"1.2.3.4"</span>,
     port: <span class="number">3307</span>
 });
@@ -666,7 +583,6 @@ connect to mysql database (readonly<span class="operator">:</span> <span class="
 connectToMysqlDatabase({
     readonly: <span class="literal">true</span>
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -675,15 +591,12 @@ connectToMysqlDatabase({
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
+          <pre><code>connect to (port<span class="operator">:</span> <span class="number">3306</span><span class="operator">,</span> host<span class="operator">:</span> <span class="string">"127.0.0.1"</span>) <span class="operator">=</span>
     console.log <span class="string">"connecting to #(host):#(port)"</span>
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> connectTo;
+          <pre><code><span class="keyword">var</span> connectTo;
 
 connectTo = <span class="function"><span class="keyword">function</span><span class="params">(gen1_options)</span> {</span>
     <span class="keyword">var</span> port, host;
@@ -691,7 +604,6 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
     host = gen1_options !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; Object.prototype.hasOwnProperty.call(gen1_options, <span class="string">"host"</span>) &amp;&amp; gen1_options.host !== <span class="keyword">void</span> <span class="number">0</span> ? gen1_options.host : <span class="string">"127.0.0.1"</span>;
     <span class="keyword">return</span> console.log(<span class="string">"connecting to "</span> + host + <span class="string">":"</span> + port);
 };</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -700,18 +612,14 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="string">"hot dog"</span>.replace r/d.g/ <span class="string">"potato"</span>
+          <pre><code><span class="string">"hot dog"</span>.replace r/d.g/ <span class="string">"potato"</span>
 
 <span class="string">"FOO"</span>.match r/foo/gi</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="string">"hot dog"</span>.replace(<span class="regexp">/d.g/</span>, <span class="string">"potato"</span>);
+          <pre><code><span class="string">"hot dog"</span>.replace(<span class="regexp">/d.g/</span>, <span class="string">"potato"</span>);
 
 <span class="string">"FOO"</span>.match(<span class="regexp">/foo/gi</span>);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -720,17 +628,14 @@ connectTo = <span class="function"><span class="keyword">function</span><span cl
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>foo (args<span class="operator">,</span> ...) <span class="operator">=</span>
+          <pre><code>foo (args<span class="operator">,</span> ...) <span class="operator">=</span>
      print (args)
 
 foo <span class="number">1</span> [<span class="number">2</span><span class="operator">,</span> <span class="number">3</span>] ... [<span class="number">4</span><span class="operator">,</span> <span class="number">5</span>] ... <span class="number">6</span>
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> foo;
+          <pre><code><span class="keyword">var</span> foo;
 
 foo = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">var</span> args = Array.prototype.slice.call(arguments, <span class="number">0</span>, arguments.length);
@@ -738,7 +643,6 @@ foo = <span class="function"><span class="keyword">function</span><span class="p
 };
 
 foo.apply(<span class="literal">null</span>, [ <span class="number">1</span> ].concat([ <span class="number">2</span>, <span class="number">3</span> ]).concat([ <span class="number">4</span>, <span class="number">5</span> ]).concat([ <span class="number">6</span> ]));</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -747,8 +651,7 @@ foo.apply(<span class="literal">null</span>, [ <span class="number">1</span> ].c
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="string">'meet you at Jayne''s place'</span>
+          <pre><code><span class="string">'meet you at Jayne''s place'</span>
 
 alan kay <span class="operator">=</span> <span class="string">"The best way to predict the future
             is to invent it."</span>
@@ -756,11 +659,9 @@ alan kay <span class="operator">=</span> <span class="string">"The best way to p
 mood <span class="operator">=</span> <span class="string">"happy"</span>
 announce <span class="string">"Feeling #(mood) today"</span>
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> alanKay, mood;
+          <pre><code><span class="keyword">var</span> alanKay, mood;
 
 <span class="string">"meet you at Jayne's place"</span>;
 
@@ -769,7 +670,6 @@ alanKay = <span class="string">"The best way to predict the future\nis to invent
 mood = <span class="string">"happy"</span>;
 
 announce(<span class="string">"Feeling "</span> + mood + <span class="string">" today"</span>);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -778,25 +678,21 @@ announce(<span class="string">"Feeling "</span> + mood + <span class="string">" 
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>try
+          <pre><code>try
     something messy()
 catch (ex)
     console.log <span class="string">"it went horribly wrong"</span>
 finally
     better clean up()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">try</span> {
+          <pre><code><span class="keyword">try</span> {
     somethingMessy();
 } <span class="keyword">catch</span> (ex) {
     console.log(<span class="string">"it went horribly wrong"</span>);
 } <span class="keyword">finally</span> {
     betterCleanUp();
 }</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -805,18 +701,15 @@ finally
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
+          <pre><code>height <span class="operator">=</span> <span class="number">1025</span>
 
 height <span class="operator">:</span><span class="operator">=</span>
     n <span class="operator">=</span> <span class="number">10</span>
     (n * n * n) + <span class="number">25</span>
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> height;
+          <pre><code><span class="keyword">var</span> height;
 
 height = <span class="number">1025</span>;
 
@@ -825,7 +718,6 @@ height = <span class="function"><span class="keyword">function</span><span class
     n = <span class="number">10</span>;
     <span class="keyword">return</span> n * n * n + <span class="number">25</span>;
 }();</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -834,23 +726,19 @@ height = <span class="function"><span class="keyword">function</span><span class
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
+          <pre><code>http <span class="operator">=</span> require <span class="string">'http'</span>
 http. create server @(request<span class="operator">,</span> response)
     response.end <span class="string">"Hello World\n"</span>
 .listen <span class="number">1337</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> http;
+          <pre><code><span class="keyword">var</span> http;
 
 http = require(<span class="string">"http"</span>);
 
 http.createServer(<span class="function"><span class="keyword">function</span><span class="params">(request, response)</span> {</span>
     <span class="keyword">return</span> response.end(<span class="string">"Hello World\n"</span>);
 }).listen(<span class="number">1337</span>);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -859,8 +747,7 @@ http.createServer(<span class="function"><span class="keyword">function</span><s
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>is (expected) (action) <span class="operator">=</span>
+          <pre><code>is (expected) (action) <span class="operator">=</span>
     action <span class="keyword">if</span> (actual) matched <span class="operator">=</span>
         <span class="keyword">if</span> (expected <span class="operator">=</span><span class="operator">=</span> actual)
             action
@@ -889,11 +776,9 @@ when (x) [
     otherwise
         print <span class="string">"x is not zero or one"</span>
 ]</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
+          <pre><code><span class="keyword">var</span> is, otherwise, when, print, x;
 
 is = <span class="function"><span class="keyword">function</span><span class="params">(expected, action)</span> {</span>
     <span class="keyword">var</span> actionIfMatched;
@@ -947,7 +832,6 @@ when(x, [ is(<span class="number">0</span>, <span class="function"><span class="
 }), otherwise(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     <span class="keyword">return</span> print(<span class="string">"x is not zero or one"</span>);
 }) ]);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -956,14 +840,11 @@ when(x, [ is(<span class="number">0</span>, <span class="function"><span class="
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
+          <pre><code>web page <span class="operator">=</span> http.get! <span class="string">"http://www.interesting.com"</span>
 scrape facts from (web page)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
+          <pre><code>http.get(<span class="string">"http://www.interesting.com"</span>, <span class="function"><span class="keyword">function</span><span class="params">(gen1_error, gen2_asyncResult)</span> {</span>
     <span class="keyword">var</span> webPage;
     <span class="keyword">if</span> (gen1_error) {
         continuation(gen1_error);
@@ -976,7 +857,6 @@ scrape facts from (web page)</code></pre>
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -985,8 +865,7 @@ scrape facts from (web page)</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>current continuation (callback) <span class="operator">=</span>
+          <pre><code>current continuation (callback) <span class="operator">=</span>
     continuation () <span class="operator">=</span>
         callback (nil<span class="operator">,</span> continuation)
 
@@ -1001,11 +880,9 @@ n <span class="operator">:</span><span class="operator">=</span> n + <span class
 
 <span class="keyword">if</span> (n &lt; <span class="number">10</span>)
     cont ()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> currentContinuation, n;
+          <pre><code><span class="keyword">var</span> currentContinuation, n;
 
 currentContinuation = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
     <span class="keyword">var</span> continuation;
@@ -1036,7 +913,6 @@ currentContinuation(<span class="function"><span class="keyword">function</span>
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1045,8 +921,7 @@ currentContinuation(<span class="function"><span class="keyword">function</span>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>last yield continuation <span class="operator">=</span> nil
+          <pre><code>last yield continuation <span class="operator">=</span> nil
 last result continuation <span class="operator">=</span> nil
 
 yield (n<span class="operator">,</span> yield continuation) <span class="operator">=</span>
@@ -1073,11 +948,9 @@ console.log (strings!)
 console.log (strings!)
 console.log (strings!)
 console.log <span class="string">'finished'</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> lastYieldContinuation, lastResultContinuation, yield, coroutine, strings;
+          <pre><code><span class="keyword">var</span> lastYieldContinuation, lastResultContinuation, yield, coroutine, strings;
 
 lastYieldContinuation = <span class="keyword">void</span> <span class="number">0</span>;
 
@@ -1168,7 +1041,6 @@ strings(<span class="function"><span class="keyword">function</span><span class=
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1177,16 +1049,13 @@ strings(<span class="function"><span class="keyword">function</span><span class=
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
+          <pre><code><span class="keyword">for</span> (n <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span> n &lt; <span class="number">3</span><span class="operator">,</span> n <span class="operator">:</span><span class="operator">=</span> n + <span class="number">1</span>)
     send letter! (n)
 
 all letters sent()</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> gen1_asyncFor;
+          <pre><code><span class="keyword">var</span> gen1_asyncFor;
 
 gen1_asyncFor = <span class="function"><span class="keyword">function</span><span class="params">(test, incr, loop, cb)</span> {</span>
     <span class="keyword">try</span> {
@@ -1264,7 +1133,6 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1273,8 +1141,7 @@ gen1_asyncFor = <span class="function"><span class="keyword">function</span><spa
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
+          <pre><code>fs <span class="operator">=</span> require <span class="string">'fs'</span>
 
 fork (block) <span class="operator">=</span> block @{}
 
@@ -1285,11 +1152,9 @@ fork
     process.stdout.write (contents)
 
 console.log <span class="string">'processing other stuff'</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> fs, fork;
+          <pre><code><span class="keyword">var</span> fs, fork;
 
 fs = require(<span class="string">"fs"</span>);
 
@@ -1321,7 +1186,6 @@ fork(<span class="function"><span class="keyword">function</span><span class="pa
 });
 
 console.log(<span class="string">"processing other stuff"</span>);</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1330,18 +1194,15 @@ console.log(<span class="string">"processing other stuff"</span>);</code></pre>
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>a <span class="operator">=</span> fs.stat? <span class="string">'a.txt'</span>
+          <pre><code>a <span class="operator">=</span> fs.stat? <span class="string">'a.txt'</span>
 b <span class="operator">=</span> fs.stat? <span class="string">'b.txt'</span>
 
 console.log <span class="string">"size of a.txt is #(a!.size)"</span>
 console.log <span class="string">"size of b.txt is #(b!.size)"</span>
 </code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> gen1_future, a, b;
+          <pre><code><span class="keyword">var</span> gen1_future, a, b;
 
 gen1_future = <span class="function"><span class="keyword">function</span><span class="params">(action)</span> {</span>
     <span class="keyword">var</span> operationComplete = <span class="literal">false</span>;
@@ -1400,7 +1261,6 @@ a(<span class="function"><span class="keyword">function</span><span class="param
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1409,18 +1269,15 @@ a(<span class="function"><span class="keyword">function</span><span class="param
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
+          <pre><code><span class="keyword">if</span> ((intruders) are dangerous)
     kill! (intruders)
 <span class="keyword">else</span>
     call the cops about! (intruders)
 
 keep watch!</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> gen1_asyncIfElse;
+          <pre><code><span class="keyword">var</span> gen1_asyncIfElse;
 
 gen1_asyncIfElse = <span class="function"><span class="keyword">function</span><span class="params">(condition, thenBody, elseBody, cb)</span> {</span>
     <span class="keyword">if</span> (condition) {
@@ -1464,7 +1321,6 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1473,17 +1329,14 @@ gen1_asyncIfElse(areDangerous(intruders), <span class="function"><span class="ke
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>sleep (ms<span class="operator">,</span> awake) <span class="operator">=</span> set timeout (awake<span class="operator">,</span> ms)
+          <pre><code>sleep (ms<span class="operator">,</span> awake) <span class="operator">=</span> set timeout (awake<span class="operator">,</span> ms)
 
 console.log <span class="string">"wait a second..."</span>
 sleep! <span class="number">1000</span>
 console.log <span class="string">"ok, go!"</span></code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> sleep;
+          <pre><code><span class="keyword">var</span> sleep;
 
 sleep = <span class="function"><span class="keyword">function</span><span class="params">(ms, awake)</span> {</span>
     <span class="keyword">return</span> setTimeout(awake, ms);
@@ -1503,7 +1356,6 @@ sleep(<span class="number">1</span>e3, <span class="function"><span class="keywo
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       
@@ -1512,8 +1364,7 @@ sleep(<span class="number">1</span>e3, <span class="function"><span class="keywo
       </tr>
       <tr>
         <td class="pogo">
-          <div class="scrollable">
-            <pre><code>record <span class="operator">=</span> nil
+          <pre><code>record <span class="operator">=</span> nil
 
 try
     database <span class="operator">=</span> connect to the database!
@@ -1524,11 +1375,9 @@ finally
     database.close!
 
 console.log(<span class="string">"RECORD FOUND: #(record)"</span>)</code></pre>
-          </div>
         </td>
         <td class="javascript">
-          <div class="scrollable">
-            <pre><code><span class="keyword">var</span> gen1_asyncTry, record;
+          <pre><code><span class="keyword">var</span> gen1_asyncTry, record;
 
 gen1_asyncTry = <span class="function"><span class="keyword">function</span><span class="params">(body, catchBody, finallyBody, cb)</span> {</span>
     <span class="keyword">var</span> callbackCalled = <span class="literal">false</span>;
@@ -1687,7 +1536,6 @@ gen1_asyncTry(<span class="function"><span class="keyword">function</span><span 
         }
     }
 });</code></pre>
-          </div>
         </td>
       </tr>
       

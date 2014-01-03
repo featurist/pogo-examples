@@ -3,12 +3,19 @@ h1 { color: #394B55; margin: 0; }
 h2 { margin: 0; font-size: 1.3em; color: #506757; margin-top: 40px; margin-bottom: 4px; }
 th { text-align: left; }
 
-table { border-top: 1px solid #cccccc; }
-td { border: 1px solid #efefef; border-bottom: 1px solid #ccc; border-top: 1px solid #fff; vertical-align: top; }
-pre { margin: 0.2em 0; padding: 0.2em; height: 100%; }
+table { border-top: 1px solid #cccccc; width: 1000px; }
+td { overflow: auto; border: 1px solid #efefef; border-bottom: 1px solid #ccc; border-top: 1px solid #fff; vertical-align: top; }
+pre { margin: 0.2em 0; padding: 0.2em; height: 100%; overflow: auto; }
 
-.scrollable { overflow: auto; width: 500px; }
-.pogo { background-color: #fffeff; width: 480px; }
+.pogo { background-color: #fffeff; }
 .javascript { background-color: #fffeff; }
+
+.pogo pre {
+  max-width: 460px;
+}
+.javascript pre {
+  max-width: 600px;
+}
+
 
 td pre code { font-family: Courier, Consolas, monaco, monospace; background-color: transparent; font-size: 0.8em; }
