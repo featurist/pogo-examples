@@ -2,7 +2,7 @@
 
 Small examples of [PogoScript](https://github.com/featurist/pogoscript) features.
 
-http://featurist.github.com/pogo-examples
+http://featurist.github.io/pogo-examples
 
 ### Compiling the examples as a web page
 
